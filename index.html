@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.81/build/spline-viewer.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -697,6 +697,29 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
 <div class="mob-cta"><a href="#contact">Get Started — Schedule Consultation</a></div>
 
 <script>
+/* ═ SPLINE BACKGROUND FIX ═ */
+(function(){
+  const sv=document.querySelector('spline-viewer');
+  if(!sv)return;
+  function fixBg(){
+    try{
+      // Method 1: Spline runtime API
+      const app=sv._spline||sv.splineRuntime||sv._app;
+      if(app&&app.setBackgroundColor){app.setBackgroundColor({r:5,g:8,b:16});return true}
+      // Method 2: Access shadow DOM canvas
+      const sr=sv.shadowRoot;
+      if(sr){
+        const canvas=sr.querySelector('canvas');
+        if(canvas){canvas.style.background='#050810'}
+      }
+    }catch(e){}
+    return false;
+  }
+  sv.addEventListener('load',()=>{if(!fixBg())setTimeout(fixBg,500)});
+  // Fallback: poll until loaded
+  let tries=0;const poll=setInterval(()=>{if(fixBg()||++tries>30)clearInterval(poll)},300);
+})();
+
 /* ═ GRAIN (throttled) ═ */
 (function(){const c=document.getElementById('grainC'),x=c.getContext('2d');function gen(){c.width=window.innerWidth/3;c.height=window.innerHeight/3;const d=x.createImageData(c.width,c.height);const b=d.data;for(let i=0;i<b.length;i+=4){const v=Math.random()*255;b[i]=b[i+1]=b[i+2]=v;b[i+3]=20}x.putImageData(d,0,0)}gen();let f=0;(function loop(){if(++f%8===0)gen();requestAnimationFrame(loop)})();window.addEventListener('resize',gen)})();
 

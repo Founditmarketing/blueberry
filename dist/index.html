@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varcoe Cybersecurity | Trusted Cybersecurity Counsel</title>
+<meta name="description" content="Varcoe Cybersecurity delivers expert-led cybersecurity advisory, incident response, and security operations — trusted by Fortune 50 enterprises and defense contractors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(24px,4vw,64px) 0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;bottom:-20%;right:-10%;width:900px;height:900px;background:radial-gradient(circle,rgba(196,162,101,.04) 0%,transparent 60%);animation:drift 20s ease-in-out infinite alternate}
+.hero-bg::after{content:'';position:absolute;top:10%;left:60%;width:600px;height:600px;background:radial-gradient(circle,rgba(100,120,200,.03) 0%,transparent 60%);animation:drift2 25s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(-60px,40px)}}
+@keyframes drift2{0%{transform:translate(0,0)}100%{transform:translate(40px,-30px)}}
+.hero-content{position:relative;z-index:2;padding-bottom:8vh;padding-top:140px}
+.hero-overline{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--text3);font-weight:500;margin-bottom:24px;opacity:0;animation:riseIn 1s .3s var(--ease) forwards}
+.hero h1{font-family:var(--serif);font-weight:300;line-height:.95;letter-spacing:-2px;margin-bottom:40px;opacity:0;animation:riseIn 1s .5s var(--ease) forwards}
+.hero h1 .l1{display:block;font-size:clamp(52px,8vw,120px);color:var(--text)}
+.hero h1 .l2{display:block;font-size:clamp(52px,8vw,120px);color:var(--gold);font-style:italic;font-weight:400}
+.hero-body{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.hero-left{opacity:0;animation:riseIn 1s .7s var(--ease) forwards}
+.hero-desc{font-size:16px;color:var(--text2);line-height:1.9;max-width:480px;margin-bottom:32px}
+.hero-desc strong{color:var(--text);font-weight:600}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-right{opacity:0;animation:riseIn 1s .9s var(--ease) forwards;border-left:1px solid var(--border);padding-left:48px}
+.hero-stats{display:flex;flex-direction:column;gap:32px}
+.h-stat .val{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--text);letter-spacing:-1px;line-height:1}
+.h-stat .val em{font-style:normal;color:var(--gold)}
+.h-stat .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-top:4px;font-weight:500}
+@keyframes riseIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-rule{width:100%;height:1px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold) 30%,var(--border) 30%,var(--border) 100%);position:relative;z-index:2}
+.home-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border)}
+.home-svc-card{padding:40px 32px;border-right:1px solid var(--border);display:block;text-decoration:none;color:inherit;position:relative;transition:background .4s}
+.home-svc-card:last-child{border-right:none}
+.home-svc-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .4s var(--ease)}
+.home-svc-card:hover::after{width:3px}
+.home-svc-card:hover{background:rgba(196,162,101,.02)}
+.home-svc-card h3{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);margin-bottom:8px;line-height:1.3;transition:color .3s}
+.home-svc-card:hover h3{color:var(--gold-light)}
+.home-svc-card p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.home-svc-card .card-link{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.home-svc-card:hover .card-link{gap:10px}
+@media(max-width:1024px){.hero-body{grid-template-columns:1fr;gap:48px}.hero-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:32px}.hero-stats{flex-direction:row;gap:48px}.home-svc{grid-template-columns:1fr 1fr}.home-svc-card{border-bottom:1px solid var(--border)}.home-svc-card:nth-child(2){border-right:none}}
+@media(max-width:768px){.hero{padding:0 20px}.hero h1 .l1,.hero h1 .l2{font-size:clamp(36px,10vw,52px)}.hero-content{padding-bottom:8vh}.hero-stats{flex-direction:column;gap:24px}.hero-right{padding-top:24px}.h-stat .val{font-size:36px}.home-svc{grid-template-columns:1fr}.home-svc-card{border-right:none!important;border-bottom:1px solid var(--border)}.home-svc-card:last-child{border-bottom:none}}
+@media(max-width:480px){.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;justify-content:center}}
+</style>
+  <script type="module" crossorigin src="/assets/main-CkywLx2m.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CC7K_Hvq.css">
+</head>
+<body>
+
+<div id="sp"></div>
+
+<div class="ir" id="irBan">
+  <span class="dot"></span>
+  <span class="ir-txt">Active incident?</span>
+  <a href="/contact.html">24/7 Response →</a>
+</div>
+
+<nav id="nav" class="ban">
+  <a href="/" class="nl"><i>V</i> Varcoe Cybersecurity</a>
+  <div class="nk">
+    <a href="/about.html">About</a>
+    <a href="/services/">Services</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/contact.html" class="ncta">Consultation</a>
+  </div>
+  <button class="mob-t" aria-label="Open menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+</nav>
+
+<div id="mm">
+  <button id="mmC" aria-label="Close menu">✕</button>
+  <a href="/">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/services/">Services</a>
+  <a href="/contact.html">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-overline">Cybersecurity Advisory</div>
+    <h1>
+      <span class="l1">Protecting What</span>
+      <span class="l2">Matters Most.</span>
+    </h1>
+    <div class="hero-body">
+      <div class="hero-left">
+        <p class="hero-desc">Trusted counsel for <strong>defense contractors</strong>, Fortune&nbsp;500 enterprises, and high-value individuals. Founded by SOC transformation veteran <strong>Quinnlan Varcoe</strong>.</p>
+        <div class="hero-ctas">
+          <a href="/contact.html" class="btn btn-p">Schedule Consultation</a>
+          <a href="/contact.html" class="btn btn-s">Breach Response</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stats">
+          <div class="h-stat"><div class="val">Fortune <em>50</em></div><div class="lbl">Pedigree</div></div>
+          <div class="h-stat"><div class="val">26<em>K</em>+</div><div class="lbl">Industry Following</div></div>
+          <div class="h-stat"><div class="val">24/<em>7</em></div><div class="lbl">Incident Response</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="hero-rule"></div>
+
+<div class="ribbon rv">
+  <span>CMMC 2.0</span><span class="sep"></span>
+  <span>NIST 800-171</span><span class="sep"></span>
+  <span>ITAR</span><span class="sep"></span>
+  <span>SOC 2</span><span class="sep"></span>
+  <span>ISO 27001</span><span class="sep"></span>
+  <span>HIPAA</span><span class="sep"></span>
+  <span>FedRAMP</span>
+</div>
+
+<div class="eq rv">
+  <blockquote>Our practice addresses complex cybersecurity challenges in regulated environments with clarity, precision, and discretion. No platform sales. No vendor dependencies. Outcomes only.</blockquote>
+  <div class="eq-attr">
+    <div>
+      <div class="eq-name">Quinnlan Varcoe</div>
+      <div class="eq-role">Founder & Principal Consultant</div>
+    </div>
+  </div>
+</div>
+
+<section class="sect sect-alt">
+  <div class="sect-inner">
+    <div class="sect-head rv">
+      <div class="sect-label">Practice Areas</div>
+      <div class="sect-title">Advisory Services</div>
+      <p class="sect-desc">Full-spectrum cybersecurity advisory — from active breach response through long-term security program development.</p>
+    </div>
+    <div class="home-svc stagger">
+      <a href="/services/incident-response.html" class="home-svc-card rv">
+        <h3>Incident Response</h3>
+        <p>Rapid breach containment, forensic investigation, and regulatory notification guidance.</p>
+        <span class="card-link">Explore Service →</span>
+      </a>
+      <a href="/services/soc-transformation.html" class="home-svc-card rv">
+        <h3>SOC Transformation</h3>
+        <p>Security Operations Center design, optimization, and detection engineering.</p>
+        <span class="card-link">Explore Service →</span>
+      </a>
+      <a href="/services/defense-advisory.html" class="home-svc-card rv">
+        <h3>Defense Advisory</h3>
+        <p>CMMC readiness, NIST 800-171 compliance, and ITAR-aligned security operations.</p>
+        <span class="card-link">Explore Service →</span>
+      </a>
+      <a href="/services/executive-security.html" class="home-svc-card rv">
+        <h3>Executive Security</h3>
+        <p>Discreet personal cybersecurity advisory for C-suite executives and public figures.</p>
+        <span class="card-link">Learn More →</span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="rv">
+      <a href="/services/" class="btn btn-s">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="testimonials">
+  <div class="sect-inner">
+    <div class="sect-head rv">
+      <div class="sect-label">Client Perspectives</div>
+      <div class="sect-title">Trusted by Security Leaders</div>
+    </div>
+    <div class="test-row stagger">
+      <div class="tst rv">
+        <div class="tst-quote">A top-notch cybersecurity compliance company with a deep understanding of industry standards and regulations. Their technical expertise and customized solutions make them a valuable asset for any organization.</div>
+        <div><div class="tst-who">Enterprise Client</div><div class="tst-role">Compliance & Regulatory</div></div>
+      </div>
+      <div class="tst rv">
+        <div class="tst-quote">Her knowledge and experience has helped lead many incidents to remediation, especially during the Log4j exploit. Truly a pleasure to work with, learn from, and a valuable resource.</div>
+        <div><div class="tst-who">Fortune 500 Colleague</div><div class="tst-role">Enterprise Security</div></div>
+      </div>
+      <div class="tst rv">
+        <div class="tst-quote">Unmatched technical expertise. Even under immense pressure and stress, this team performed with remarkable composure, precision, and efficiency. A force to be reckoned with.</div>
+        <div><div class="tst-who">Security Operations Leader</div><div class="tst-role">SOC Management</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect sect-alt">
+  <div class="sect-inner">
+    <div class="fdr rv">
+      <div class="fdr-portrait"><img src="/assets/headshot-B05h_rZE.jpg" alt="Quinnlan Varcoe — Founder, Varcoe Cybersecurity" loading="lazy"></div>
+      <div>
+        <div class="fdr-meta">
+          <div class="fdr-name">Quinnlan Varcoe</div>
+          <div class="fdr-role">Founder & Principal Consultant</div>
+        </div>
+        <p class="fdr-bio">With operational experience across <strong>Fortune 50 security programs</strong> and the <strong>defense industrial base</strong>, Quinnlan founded Varcoe Cybersecurity to provide clients with the caliber of expertise typically reserved for the largest enterprises. Her work in threat intelligence and SOC transformation has earned the trust of <strong>26,000+ cybersecurity professionals</strong> who follow her analysis.</p>
+        <div class="fdr-tags"><span class="fdr-tag">Fortune 50 Background</span><span class="fdr-tag">Defense Industry</span><span class="fdr-tag">Threat Intelligence</span><span class="fdr-tag">SOC Operations</span><span class="fdr-tag">Incident Response</span></div>
+        <a href="/about.html" class="fdr-link">Full Biography →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band rv">
+  <div class="sect-label">Get Started</div>
+  <div class="sect-title">Ready to Strengthen Your Security Posture?</div>
+  <p class="sect-desc">Schedule a confidential consultation to discuss your challenges and how we can help.</p>
+  <a href="/contact.html" class="btn btn-p">Schedule Consultation</a>
+</div>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand"><i>V</i> Varcoe Cybersecurity</div>
+      <p class="ft-desc">Trusted cybersecurity counsel for defense contractors, enterprises, and high-value individuals.</p>
+    </div>
+    <div class="ft-col"><h4>Services</h4><a href="/services/incident-response.html">Incident Response</a><a href="/services/soc-transformation.html">SOC Transformation</a><a href="/services/defense-advisory.html">Defense Advisory</a><a href="/services/executive-security.html">Executive Security</a></div>
+    <div class="ft-col"><h4>Company</h4><a href="/about.html">About</a><a href="/services/">Services</a><a href="/contact.html">Contact</a></div>
+    <div class="ft-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:contact@blueberrysecurity.net">Email</a></div>
+  </div>
+  <div class="ft-btm">
+    <span>© 2026 Varcoe Cybersecurity LLC. All rights reserved.</span>
+    <span>U.S.-Based · ITAR-Compliant · NDA-Protected</span>
+  </div>
+</footer>
+
+<div class="mob-cta"><a href="/contact.html">Schedule Consultation</a></div>
+
+</body>
+</html>

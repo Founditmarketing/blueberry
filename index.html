@@ -264,27 +264,6 @@ nav.sc::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px
 .test-dot{width:8px;height:8px;border-radius:50%;background:var(--surface2);cursor:pointer;transition:all .3s}
 .test-dot.active{background:var(--accent);box-shadow:0 0 10px rgba(79,127,255,.3)}
 
-/* ═ THREAT INTEL DASHBOARD ═ */
-.tid{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:40px;margin-top:52px;position:relative;overflow:hidden}
-.tid::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad1);opacity:.2}
-.tid-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:28px}
-.tid-map{position:relative;aspect-ratio:16/9;background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.tid-map canvas{width:100%;height:100%}
-.tid-feed{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow:hidden}
-.tid-entry{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:12px;animation:feedIn .4s var(--ease)}
-@keyframes feedIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
-.tid-entry .severity{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.tid-entry .severity.crit{background:var(--danger);box-shadow:0 0 6px var(--danger)}
-.tid-entry .severity.high{background:var(--warn)}
-.tid-entry .severity.med{background:var(--accent2)}
-.tid-entry .severity.low{background:var(--accent4)}
-.tid-entry .type{font-family:var(--mono);font-weight:600;color:var(--text);font-size:11px;flex:1}
-.tid-entry .time{font-family:var(--mono);font-size:10px;color:var(--text3)}
-.tid-counters{display:flex;gap:24px;margin-top:20px}
-.tid-counter{text-align:center}
-.tid-counter .n{font-size:24px;font-weight:800;letter-spacing:-1px}
-.tid-counter .n span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.tid-counter .l{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:var(--mono);margin-top:2px}
 
 /* ═ CONTACT FORM ═ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:52px}
@@ -320,8 +299,8 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
 .ft-btm{border-top:1px solid var(--border);padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text3)}
 
 /* ═ MOBILE CTA ═ */
-.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;padding:10px 14px;background:rgba(5,8,16,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
-.mob-cta a{display:block;padding:12px;background:var(--accent);color:#fff;text-align:center;border-radius:8px;font-weight:700;font-size:13px}
+.mob-cta{display:none;position:fixed;bottom:20px;right:16px;z-index:99}
+.mob-cta a{display:flex;align-items:center;gap:6px;padding:12px 20px;background:var(--accent);color:#fff;text-align:center;border-radius:100px;font-weight:700;font-size:12px;box-shadow:0 4px 20px rgba(79,127,255,.35),0 0 0 1px rgba(79,127,255,.15);white-space:nowrap}
 
 /* ═ REDUCED MOTION ═ */
 @media(prefers-reduced-motion:reduce){
@@ -340,7 +319,6 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
   .stat-row,.proc,.threat-bar{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr 1fr}
-  .tid-grid{grid-template-columns:1fr}
   .s{padding:110px 40px}
 }
 @media(max-width:768px){
@@ -358,9 +336,9 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
   .ft-top{grid-template-columns:1fr;gap:24px}
   .ft-btm{flex-direction:column;gap:8px;text-align:center}
   .mob-cta{display:block}
-  .s:last-of-type{padding-bottom:100px}
-  .ir-ban{font-size:11px;padding:8px 12px;gap:8px;min-height:44px}
-  .ir-ban a{padding:12px 4px;min-height:44px;display:inline-flex;align-items:center}
+  .s:last-of-type{padding-bottom:60px}
+  .ir-ban{font-size:11px;padding:6px 12px;gap:6px}
+  .ir-ban a{padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
   #cur{display:none!important}
   .plat-row{gap:8px}.plat{padding:7px 12px;font-size:10px}
   .tid{padding:20px}
@@ -381,7 +359,7 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
   .hm-l{font-size:9px}
   .s-title{font-size:clamp(22px,6vw,32px)}
   .comp-b{padding:5px 10px;font-size:9px}
-  .ir-ban{font-size:10px;padding:6px 10px;flex-wrap:wrap;gap:4px}
+  .ir-ban{font-size:10px;padding:5px 10px;flex-wrap:wrap;gap:4px}
 }
 </style>
 </head>
@@ -581,27 +559,7 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
   </div>
 </section>
 
-<!-- LIVE THREAT INTELLIGENCE -->
-<section class="s" id="threat-intel">
-  <div class="reveal">
-    <div class="s-tag">Live Intelligence</div>
-    <h2 class="s-title">Threat Intelligence<br>Dashboard</h2>
-    <p class="s-desc">Real-time visibility into the global threat landscape. Our analysts monitor 24/7 so you don't have to.</p>
-  </div>
-  <div class="tid reveal">
-    <div class="tid-grid">
-      <div class="tid-map"><canvas id="mapC"></canvas></div>
-      <div>
-        <div class="tid-feed" id="tidFeed"></div>
-        <div class="tid-counters">
-          <div class="tid-counter"><div class="n"><span data-count="14892" class="counter">0</span></div><div class="l">Threats Blocked Today</div></div>
-          <div class="tid-counter"><div class="n"><span data-count="2847" class="counter">0</span></div><div class="l">IOCs Processed</div></div>
-          <div class="tid-counter"><div class="n"><span data-count="4" class="counter">0</span>.<span data-count="2" class="counter">0</span>s</div><div class="l">Avg Response</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- DEFENSE -->
 <section class="s" id="defense">
@@ -713,7 +671,7 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
 </footer>
 
 <!-- MOBILE CTA -->
-<div class="mob-cta"><a href="#contact">Get Started — Schedule Consultation</a></div>
+<div class="mob-cta"><a href="#contact">Get Started →</a></div>
 
 <script>
 /* ═ SPLINE BACKGROUND FIX ═ */
@@ -792,32 +750,7 @@ nodes.forEach((n,i)=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y
 const pulse=Math.sin(t*2+n.p)*.5+.5;const col=n.type==='alert'?`rgba(255,77,106,${.25+pulse*.25})`:`rgba(79,127,255,${.2+pulse*.2})`;x.beginPath();x.arc(px,py,n.s+pulse*1.5,0,Math.PI*2);x.fillStyle=col;x.fill();if(n.type==='alert'){x.beginPath();x.arc(px,py,n.s+pulse*10,0,Math.PI*2);x.fillStyle=`rgba(255,77,106,${pulse*.03})`;x.fill()}});
 const sy=(t*55)%h;const g=x.createLinearGradient(0,sy-12,0,sy+12);g.addColorStop(0,'rgba(79,127,255,0)');g.addColorStop(.5,'rgba(79,127,255,0.04)');g.addColorStop(1,'rgba(79,127,255,0)');x.fillStyle=g;x.fillRect(0,sy-12,w,24);requestAnimationFrame(draw)}sz();draw();window.addEventListener('resize',sz)})();
 
-/* ═ THREAT MAP CANVAS (visibility-gated) ═ */
-(function(){const c=document.getElementById('mapC'),x=c.getContext('2d');let w,h,t=0,visible=false;
-function sz(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}
-new IntersectionObserver(([e])=>{visible=e.isIntersecting},{rootMargin:'200px'}).observe(c);
-const hotspots=[{x:.15,y:.35,s:1,c:'danger'},{x:.48,y:.25,s:.8,c:'accent'},{x:.52,y:.42,s:1.2,c:'danger'},{x:.75,y:.3,s:.9,c:'warn'},{x:.82,y:.45,s:1.1,c:'danger'},{x:.3,y:.55,s:.7,c:'accent'},{x:.65,y:.55,s:.6,c:'warn'},{x:.2,y:.45,s:.5,c:'accent'},{x:.9,y:.35,s:.8,c:'danger'}];
-const lines=[[0,5],[1,3],[2,4],[3,4],[5,6],[1,2],[6,7],[4,8]];
-function draw(){if(!visible){requestAnimationFrame(draw);return}t+=.01;x.clearRect(0,0,w,h);
-x.strokeStyle='rgba(79,127,255,0.03)';x.lineWidth=.5;for(let i=0;i<w;i+=24){x.beginPath();x.moveTo(i,0);x.lineTo(i,h);x.stroke()}for(let i=0;i<h;i+=24){x.beginPath();x.moveTo(0,i);x.lineTo(w,i);x.stroke()}
-lines.forEach(([a,b])=>{const ax=hotspots[a].x*w,ay=hotspots[a].y*h,bx=hotspots[b].x*w,by=hotspots[b].y*h;x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,by);x.strokeStyle='rgba(79,127,255,0.08)';x.lineWidth=.5;x.stroke();
-const p=(Math.sin(t*2+a)*.5+.5);const px=ax+(bx-ax)*p,py=ay+(by-ay)*p;x.beginPath();x.arc(px,py,1.5,0,Math.PI*2);x.fillStyle='rgba(79,127,255,0.4)';x.fill()});
-hotspots.forEach((h2,i)=>{const px=h2.x*w,py=h2.y*h,pulse=Math.sin(t*3+i)*.5+.5;
-const colors={danger:'255,77,106',accent:'79,127,255',warn:'255,179,71'};const rgb=colors[h2.c];
-x.beginPath();x.arc(px,py,h2.s*3+pulse*2,0,Math.PI*2);x.fillStyle=`rgba(${rgb},${.4+pulse*.3})`;x.fill();
-x.beginPath();x.arc(px,py,h2.s*8+pulse*6,0,Math.PI*2);x.fillStyle=`rgba(${rgb},${pulse*.04})`;x.fill();
-x.beginPath();x.arc(px,py,h2.s*14+pulse*10,0,Math.PI*2);x.fillStyle=`rgba(${rgb},${pulse*.02})`;x.fill()});
-const sy=(t*40)%h;const g=x.createLinearGradient(0,sy-8,0,sy+8);g.addColorStop(0,'rgba(0,194,255,0)');g.addColorStop(.5,'rgba(0,194,255,0.04)');g.addColorStop(1,'rgba(0,194,255,0)');x.fillStyle=g;x.fillRect(0,sy-8,w,16);
-requestAnimationFrame(draw)}sz();draw();window.addEventListener('resize',sz)})();
 
-/* ═ THREAT FEED ═ */
-(function(){const feed=document.getElementById('tidFeed');const types=['Ransomware Attempt','Brute Force Attack','Phishing Campaign','C2 Beacon Detected','Lateral Movement','Data Exfiltration','Credential Stuffing','Port Scanning','SQL Injection','DDoS Attempt','Zero-Day Exploit','Malware Delivery'];
-const severities=['crit','high','med','low'];const regions=['US-East','EU-West','APAC','US-West','MENA','LATAM'];
-function addEntry(){const el=document.createElement('div');el.className='tid-entry';const sev=severities[Math.floor(Math.random()*4)];const type=types[Math.floor(Math.random()*types.length)];const region=regions[Math.floor(Math.random()*regions.length)];
-el.innerHTML=`<div class="severity ${sev}"></div><div class="type">${type}</div><div class="time">${region} · ${new Date().toLocaleTimeString()}</div>`;
-feed.prepend(el);if(feed.children.length>8)feed.lastChild.remove()}
-for(let i=0;i<6;i++)addEntry();
-setInterval(addEntry,4000)})();
 
 /* ═ ANIMATED COUNTERS ═ */
 const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;const target=parseInt(el.dataset.count);if(target===0){el.textContent='0';counterObs.unobserve(el);return}

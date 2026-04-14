@@ -269,6 +269,24 @@ footer{border-top:1px solid var(--border);padding:64px clamp(24px,4vw,64px) 32px
 .svc-hub-card .card-link{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
 .svc-hub-card:hover .card-link{gap:12px}
 
+/* ─── PRICING ─── */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
+.price-card{padding:48px 36px;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .4s;position:relative}
+.price-card:last-child{border-right:none}
+.price-card:hover{background:rgba(196,162,101,.02)}
+.price-card.featured{background:rgba(196,162,101,.03);border-top:2px solid var(--gold)}
+.price-badge{position:absolute;top:-1px;right:24px;background:var(--gold);color:var(--bg);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px}
+.price-tier{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.price-amount{font-family:var(--serif);font-size:52px;font-weight:300;color:var(--text);letter-spacing:-2px;line-height:1;margin-bottom:20px}
+.price-currency{font-size:28px;vertical-align:top;margin-right:2px;color:var(--text2)}
+.price-period{font-size:16px;color:var(--text3);font-family:var(--font);letter-spacing:0;font-weight:400}
+.price-desc{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:32px;min-height:60px}
+.price-features{list-style:none;margin-bottom:32px;flex-grow:1}
+.price-features li{font-size:13px;color:var(--text2);padding:10px 0;border-bottom:1px solid var(--border);position:relative;padding-left:20px;transition:color .3s}
+.price-features li:hover{color:var(--text)}
+.price-features li::before{content:'';position:absolute;left:0;top:50%;width:8px;height:1px;background:var(--gold)}
+.price-features li:last-child{border-bottom:none}
+
 /* ─── PROCESS STEPS ─── */
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
 .proc-step{padding:48px 32px;position:relative;border:1px solid var(--border);border-right:none;transition:background .4s}
@@ -309,6 +327,9 @@ body{animation:pageIn .35s ease-out}
   .proc-step:nth-child(2){border-right:1px solid var(--border)}
   .proc-step{border-bottom:none;border-right:none}
   .proc-step:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card{border-right:none;border-bottom:1px solid var(--border)}
+  .price-card:last-child{border-bottom:none}
 }
 @media(max-width:768px){
   nav{padding:0 20px;height:56px}

@@ -40,6 +40,18 @@ export default defineConfig({
         iso27001: resolve(__dirname, 'services/iso-27001.html'),
         hipaaCompliance: resolve(__dirname, 'services/hipaa-compliance.html'),
         expertWitness: resolve(__dirname, 'services/expert-witness.html'),
+        // New service pages
+        referralPartnerships: resolve(__dirname, 'services/referral-partnerships.html'),
+        whiteLabel: resolve(__dirname, 'services/white-label.html'),
+        vciso: resolve(__dirname, 'services/vciso.html'),
+        penetrationTesting: resolve(__dirname, 'services/penetration-testing.html'),
+        redTeam: resolve(__dirname, 'services/red-team.html'),
+        phishingTesting: resolve(__dirname, 'services/phishing-testing.html'),
+        digitalForensicsPersonal: resolve(__dirname, 'services/digital-forensics-personal.html'),
+        accountRecovery: resolve(__dirname, 'services/account-recovery.html'),
+        osintInvestigation: resolve(__dirname, 'services/osint-investigation.html'),
+        divorceForensics: resolve(__dirname, 'services/divorce-forensics.html'),
+        fedramp: resolve(__dirname, 'services/fedramp.html'),
       }
     }
   },

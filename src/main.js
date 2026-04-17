@@ -44,7 +44,25 @@ const mmClose = document.getElementById('mmC')
 if (mmOpen && mm) {
   mmOpen.addEventListener('click', () => mm.classList.add('open'))
   if (mmClose) mmClose.addEventListener('click', () => mm.classList.remove('open'))
-  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')))
+  mm.querySelectorAll(':scope > a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')))
+  // Accordion toggles
+  mm.querySelectorAll('.mm-dd-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sub = btn.nextElementSibling
+      if (!sub) return
+      const isOpen = sub.classList.contains('mm-sub-open')
+      // Close all
+      mm.querySelectorAll('.mm-dd-sub').forEach(s => s.classList.remove('mm-sub-open'))
+      mm.querySelectorAll('.mm-dd-toggle').forEach(b => b.classList.remove('mm-open'))
+      // Open clicked (if it was closed)
+      if (!isOpen) {
+        sub.classList.add('mm-sub-open')
+        btn.classList.add('mm-open')
+      }
+    })
+  })
+  // Close mobile menu when clicking a sub-link
+  mm.querySelectorAll('.mm-dd-sub a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')))
 }
 
 // ─── Contact form ───
@@ -109,13 +127,13 @@ function initCounters() {
             animateValue(em, 0, 50, '', 2000)
           }
         }
-        // Parse "26K+" → animate to 26
-        else if (text.includes('K')) {
+        // Parse "26K+" → animate the em (number) to 26, suffix stays
+        else if (el.querySelector('.stat-suffix')) {
           const em = el.querySelector('em')
           if (em) {
+            const target = parseInt(em.textContent) || 26
             em.textContent = '0'
-            setTimeout(() => animateValue(em, 0, 26, '', 2200), 200)
-            // The K and + are outside em, so they stay
+            setTimeout(() => animateValue(em, 0, target, '', 2200), 200)
           }
         }
         // Parse "24/7" → just pulse effect

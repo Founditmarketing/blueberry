@@ -301,7 +301,7 @@ footer{border-top:1px solid var(--border);padding:64px clamp(24px,4vw,64px) 32px
 .tl-desc{font-size:14px;color:var(--text2);line-height:1.8}
 
 /* ─── SERVICES HUB GRID ─── */
-.svc-hub-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border)}
+.svc-hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
 .svc-hub-card{padding:56px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);position:relative;transition:background .4s;display:block;color:inherit;text-decoration:none}
 .svc-hub-card:nth-child(even){border-right:none}
 .svc-hub-card:nth-last-child(-n+2){border-bottom:none}

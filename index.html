@@ -62,6 +62,7 @@ gtag('config', 'G-1RNGSCZ3Z9');
 @media(max-width:1024px){.hero-body{grid-template-columns:1fr;gap:48px}.hero-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:32px}.hero-stats{flex-direction:row;gap:48px}.home-svc{grid-template-columns:1fr 1fr}.home-svc-card{border-bottom:1px solid var(--border)}.home-svc-card:nth-child(2){border-right:none}}
 @media(max-width:768px){.hero{padding:0 20px}.hero h1 .l1,.hero h1 .l2{font-size:clamp(36px,10vw,52px)}.hero-content{padding-bottom:8vh}.hero-stats{flex-direction:column;gap:24px}.hero-right{padding-top:24px}.h-stat .val{font-size:36px}.home-svc{grid-template-columns:1fr}.home-svc-card{border-right:none!important;border-bottom:1px solid var(--border)}.home-svc-card:last-child{border-bottom:none}}
 @media(max-width:480px){.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;justify-content:center}}
+.price-accordion{margin:16px 0;border-top:1px solid var(--border)}.price-accordion details{border-bottom:1px solid var(--border)}.price-accordion summary{font-size:12.5px;font-weight:600;color:var(--text);padding:11px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;letter-spacing:.3px;user-select:none}.price-accordion summary::-webkit-details-marker{display:none}.price-accordion summary::after{content:'+';font-size:15px;color:var(--gold);font-weight:300;flex-shrink:0;margin-left:8px}.price-accordion details[open]>summary::after{content:'−'}.price-accordion ul{padding:4px 0 12px 14px;margin:0;list-style:disc}.price-accordion ul li{font-size:11.5px;color:var(--text2);line-height:1.75;margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -371,14 +372,70 @@ gtag('config', 'G-1RNGSCZ3Z9');
         <div class="price-tier">Sentinel</div>
         <div class="price-amount"><span class="price-currency">$</span>995<span class="price-period">/mo</span></div>
         <div class="price-desc">Essential security oversight for growing organizations that need expert guidance without full-time overhead.</div>
-        <ul class="price-features">
-          <li>24/7 endpoint, identity & cloud MDR</li>
-          <li>IT Identity & Auth Management</li>
-          <li>Workspace & SaaS protection</li>
-          <li>Compliance & risk advisory</li>
-          <li>Includes Field Effect, Cork & MS Defender</li>
-        </ul>
-        <a href="/contact.html" class="btn btn-s" style="width:100%;justify-content:center">Get Started</a>
+        <div class="price-accordion">
+          <details>
+            <summary>What You Get</summary>
+            <ul>
+              <li>24/7 monitoring and cybersecurity expert-led threat response</li>
+              <li>Complete endpoint, identity, and cloud security coverage</li>
+              <li>Continuous hardening, patching, and risk reduction by IT security experts</li>
+              <li>Dedicated support for incidents, alerts, and user issues</li>
+              <li>Clear reporting and strategic guidance from cybersecurity experts</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Core Security Services</summary>
+            <ul>
+              <li>24/7 Managed Detection and Response (MDR) services with continuous SOC monitoring and cybersecurity expert-led threat response</li>
+              <li>Endpoint Detection and Response (EDR) services with IT security expert management, tuning, and threat remediation</li>
+              <li>Automated patch management services for operating systems and third-party applications</li>
+              <li>Backup monitoring services, integrity validation, and expert-led disaster recovery testing</li>
+            </ul>
+          </details>
+          <details>
+            <summary>IT &amp; Identity Security Services</summary>
+            <ul>
+              <li>IT support services delivered by IT security experts, including helpdesk, remote, and on-site assistance</li>
+              <li>Microsoft 365 licensing services, CSP management, and expert tenant administration</li>
+              <li>Multi-Factor Authentication (MFA) services with cybersecurity expert-led identity and access management (IAM)</li>
+              <li>Device enrollment services and Mobile Device Management (MDM) via Microsoft Intune with expert configuration</li>
+              <li>Privileged access management services with local admin removal and expert AutoElevate control</li>
+              <li>Browser security management services with centralized policy enforcement (Chrome and Edge)</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Cloud &amp; Workspace Security Services</summary>
+            <ul>
+              <li>Google Workspace security hardening services performed by cybersecurity experts</li>
+              <li>Microsoft 365 security hardening services across Entra ID, Intune, Exchange, SharePoint, and Teams by IT security experts</li>
+              <li>Email security, phishing protection, and collaboration security services</li>
+              <li>Cloud security posture management and SaaS application protection services</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Compliance, Risk &amp; Advisory Services</summary>
+            <ul>
+              <li>Risk register management services with continuous tracking and cybersecurity expert oversight</li>
+              <li>Incident Response Plan (IRP) development services with expert testing and annual review</li>
+              <li>Quarterly Business Review (QBR) services with IT security expert reporting and roadmap planning</li>
+              <li>Support for SOC 2, ISO 27001, and HIPAA compliance initiatives</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Included Security Technology Stack</summary>
+            <ul>
+              <li>Field Effect MDR platform supporting cybersecurity expert-led 24/7 SOC services, EDR, and threat detection</li>
+              <li>Cork cyber warranty platform supporting risk mitigation services with $50,000 breach coverage</li>
+              <li>Cork security posture and compliance management platform supporting cybersecurity expert advisory services</li>
+              <li>1Password enterprise password management platform supporting identity security services</li>
+              <li>Beauceron Security awareness and phishing simulation platform supporting human risk management services</li>
+              <li>CyberFOX AutoElevate platform supporting privileged access management services and endpoint control</li>
+              <li>DNSFilter DNS security platform supporting web filtering and threat prevention services</li>
+              <li>Microsoft Defender for Office 365 platform supporting email security and collaboration protection services</li>
+            </ul>
+          </details>
+        </div>
+        <a href="/contact.html" class="btn btn-s" style="width:100%;justify-content:center;margin-top:20px">Get Started</a>
       </div>
       <div class="price-card featured rv">
         <div class="price-badge">Most Popular</div>

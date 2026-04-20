@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RNGSCZ3Z9"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNGSCZ3Z9');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blueberry Security | Elite Cybersecurity for Defense & Enterprise</title>
+<meta name="description" content="Blueberry Security delivers expert-led DFIR, SOC transformation, and blue team staffing — trusted by Fortune 50 enterprises and defense contractors worldwide. 24/7 incident response. 100% U.S.-based.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050810;--bg2:#0a0e1a;--bg3:#0f1528;
+  --surface:#141c33;--surface2:#1a2440;
+  --border:rgba(100,140,255,0.06);--border-h:rgba(100,160,255,0.15);
+  --text:#e4eaf6;--text2:#94a3c4;--text3:#5a6b8f;
+  --accent:#4f7fff;--accent2:#00c2ff;--accent3:#8b5cf6;--accent4:#06d6a0;
+  --danger:#ff4d6a;--warn:#ffb347;
+  --grad1:linear-gradient(135deg,#4f7fff 0%,#00c2ff 50%,#8b5cf6 100%);
+  --font:'Outfit',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --serif:'Newsreader',Georgia,serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ═ GRAIN ═ */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.035;mix-blend-mode:overlay}
+.grain canvas{width:100%;height:100%}
+
+/* ═ SCROLL PROGRESS ═ */
+#scrollProg{position:fixed;top:0;left:0;height:2px;background:var(--grad1);z-index:10001;width:0;transition:none}
+
+/* ═ PRELOADER ═ */
+#preloader{position:fixed;inset:0;z-index:10002;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .5s,visibility .5s}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.pl-logo{font-size:22px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.pl-dot{width:10px;height:10px;border-radius:50%;background:var(--grad1);animation:plP 1s infinite alternate}
+@keyframes plP{to{opacity:.3;transform:scale(.8)}}
+.pl-bar{width:180px;height:2px;background:var(--surface);border-radius:4px;overflow:hidden}
+.pl-fill{width:0;height:100%;background:var(--grad1);border-radius:4px;animation:plF 1.4s var(--ease) forwards}
+@keyframes plF{to{width:100%}}
+
+/* ═ IR BANNER ═ */
+.ir-ban{background:var(--danger);padding:10px 20px;text-align:center;font-size:13px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;z-index:101}
+.ir-ban a{text-decoration:underline;text-underline-offset:2px;font-weight:700;white-space:nowrap}
+.ir-ban .pulse{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;animation:irP 1.5s infinite}
+@keyframes irP{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
+
+/* ═ CURSOR ═ */
+#cur{position:fixed;width:24px;height:24px;border:1.5px solid rgba(79,127,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transition:transform .12s;mix-blend-mode:difference;opacity:0}
+#cur.v{opacity:1}#cur.h{transform:scale(2.5);border-color:var(--accent2)}
+
+/* ═ NAV ═ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.ban{top:38px}
+nav.sc{top:0;background:rgba(5,8,16,.92);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--border)}
+.nl{font-weight:800;font-size:17px;letter-spacing:-.4px;display:flex;align-items:center;gap:8px}
+.nl i{width:26px;height:26px;border-radius:7px;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;font-weight:700;color:#fff}
+.nk{display:flex;align-items:center;gap:24px}
+.nk a{font-size:12.5px;font-weight:500;color:var(--text2);transition:color .3s;letter-spacing:.3px}
+.nk a:hover{color:#fff}
+.ncta{background:var(--accent)!important;color:#fff!important;padding:8px 20px;border-radius:6px;font-weight:600;font-size:12.5px;box-shadow:0 2px 14px rgba(79,127,255,.2);transition:all .3s!important}
+.ncta:hover{box-shadow:0 4px 24px rgba(79,127,255,.35);transform:translateY(-1px)}
+.nir{color:var(--danger)!important;font-weight:700!important;display:flex;align-items:center;gap:6px}
+.nir::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--danger);animation:irP 1.5s infinite}
+.mob-t{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px}
+#mm{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);padding:72px 20px 20px;flex-direction:column;gap:4px;opacity:0;transition:opacity .3s}
+#mm.open{display:flex;opacity:1}
+#mm a{font-size:20px;font-weight:700;padding:14px 0;border-bottom:1px solid var(--border);transition:color .2s}
+#mm a:hover{color:var(--accent)}
+#mmClose{position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:8px}
+
+/* ═ HERO ═ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 40px 90px;overflow:hidden}
+#heroC{position:absolute;inset:0;z-index:0}
+.h-fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,16,.15) 0%,rgba(5,8,16,.6) 50%,var(--bg) 100%);z-index:1}
+.h-glow{position:absolute;top:-200px;right:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(79,127,255,.06),transparent 70%);z-index:1;pointer-events:none}
+.h-glow2{position:absolute;bottom:-300px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,.04),transparent 70%);z-index:1;pointer-events:none}
+.hi{position:relative;z-index:2;max-width:860px}
+.h-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--border-h);border-radius:100px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);background:rgba(0,194,255,.04);margin-bottom:26px;opacity:0;animation:fu .7s .4s var(--ease) forwards}
+.h-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent4);animation:irP 1.5s infinite}
+.h1{font-size:clamp(42px,6.2vw,80px);font-weight:900;line-height:1.02;letter-spacing:-2.5px;margin-bottom:22px}
+.h1-l{display:block;opacity:0;animation:fu .7s var(--ease) forwards}
+.h1-l:nth-child(1){animation-delay:.55s}
+.h1-l:nth-child(2){animation-delay:.7s}
+.h1-gr{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sub{font-size:clamp(15px,1.5vw,18px);color:var(--text2);max-width:560px;line-height:1.75;margin-bottom:32px;font-weight:400;opacity:0;animation:fu .7s .85s var(--ease) forwards}
+.h-sub strong{color:var(--text);font-weight:600}
+.h-acts{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fu .7s 1s var(--ease) forwards}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:7px;font-family:var(--font);font-size:14px;font-weight:600;cursor:pointer;transition:all .3s;border:none;white-space:nowrap}
+.btn-p{background:var(--accent);color:#fff;box-shadow:0 4px 20px rgba(79,127,255,.25)}
+.btn-p:hover{box-shadow:0 8px 32px rgba(79,127,255,.35);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--text);border:1px solid var(--border-h)}
+.btn-o:hover{border-color:var(--accent);background:rgba(79,127,255,.05)}
+.btn-ir{background:transparent;color:var(--danger);border:1px solid rgba(255,77,106,.2);gap:10px}
+.btn-ir:hover{background:rgba(255,77,106,.06);border-color:var(--danger)}
+.btn svg{width:15px;height:15px;flex-shrink:0}
+.h-met{display:flex;gap:36px;margin-top:52px;padding-top:32px;border-top:1px solid var(--border);opacity:0;animation:fu .7s 1.15s var(--ease) forwards}
+.hm{text-align:left}
+.hm-n{font-size:28px;font-weight:800;letter-spacing:-1.5px;line-height:1}
+.hm-n span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hm-l{font-size:10.5px;color:var(--text3);margin-top:5px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ═ TICKER ═ */
+.tk{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--bg2)}
+.tk-in{display:flex;animation:tkS 55s linear infinite;width:max-content}
+.tk-i{display:flex;align-items:center;gap:10px;padding:0 28px;white-space:nowrap;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3)}
+.tk-i .d{width:3px;height:3px;border-radius:50%;background:var(--accent);opacity:.5}
+@keyframes tkS{to{transform:translateX(-50%)}}
+
+/* ═ COMPLIANCE ═ */
+.comp{padding:44px 40px;display:flex;flex-direction:column;align-items:center;gap:28px}
+.comp-lb{font-family:var(--mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3)}
+.comp-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.comp-b{padding:8px 16px;border:1px solid var(--border);border-radius:6px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text2);letter-spacing:.3px;background:var(--bg2);transition:all .3s}
+.comp-b:hover{border-color:var(--border-h);color:var(--text)}
+
+/* ═ SECTIONS ═ */
+.s{padding:96px 40px}
+.s-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.s-tag::before{content:'';width:18px;height:1px;background:var(--accent)}
+.s-title{font-size:clamp(28px,3.8vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
+.s-desc{font-size:15px;color:var(--text2);max-width:500px;line-height:1.75}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.vis{opacity:1;transform:none}
+/* stagger children */
+.stagger .reveal:nth-child(2){transition-delay:.08s}
+.stagger .reveal:nth-child(3){transition-delay:.16s}
+.stagger .reveal:nth-child(4){transition-delay:.24s}
+.stagger .reveal:nth-child(5){transition-delay:.32s}
+.stagger .reveal:nth-child(6){transition-delay:.4s}
+
+/* ═ GRADIENT BORDER MIXIN ═ */
+.glow-card{position:relative;background:var(--bg2);border-radius:14px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
+.glow-card::before{content:'';position:absolute;inset:0;border-radius:14px;padding:1px;background:linear-gradient(135deg,rgba(79,127,255,.1),rgba(139,92,246,.05),rgba(0,194,255,.1));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:opacity .4s}
+.glow-card:hover::before{background:linear-gradient(135deg,rgba(79,127,255,.3),rgba(139,92,246,.15),rgba(0,194,255,.3))}
+.glow-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.25)}
+
+/* ═ AUDIENCES ═ */
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.aud-card{padding:36px 28px;cursor:default}
+.aud-ic{width:48px;height:48px;border-radius:10px;background:rgba(79,127,255,.07);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.aud-card h3{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
+.aud-card p{font-size:13.5px;color:var(--text2);line-height:1.7;margin-bottom:18px}
+.aud-lk{font-size:12.5px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px;transition:gap .3s,color .3s}
+.aud-card:hover .aud-lk{gap:10px;color:var(--accent2)}
+
+/* ═ SERVICES ═ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.svc{padding:32px 24px}
+.svc-num{font-family:var(--mono);font-size:10.5px;color:var(--text3);margin-bottom:18px;letter-spacing:1px}
+.svc h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.2px}
+.svc p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.svc-tag{padding:3px 9px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);border:1px solid var(--border);font-family:var(--mono)}
+
+/* ═ WHY ═ */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:52px}
+.why-c{padding:32px 28px}
+.why-c .ic{font-size:26px;margin-bottom:14px}
+.why-c h4{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.2px}
+.why-c p{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* ═ THREAT LANDSCAPE ═ */
+.threat-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:52px}
+.thr{background:var(--bg2);padding:36px 24px;text-align:center}
+.thr-n{font-size:36px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:6px}
+.thr-n span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.thr-l{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:6px}
+.thr-src{font-family:var(--mono);font-size:9px;color:var(--text3);opacity:.6}
+
+/* ═ PROCESS ═ */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px;position:relative}
+.proc::before{content:'';position:absolute;top:30px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),var(--accent3),transparent);opacity:.12}
+.proc-s{text-align:center;position:relative}
+.proc-n{width:60px;height:60px;border-radius:50%;border:2px solid var(--border-h);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--mono);font-size:16px;font-weight:700;color:var(--accent);background:var(--bg);position:relative;z-index:1;transition:all .3s}
+.proc-s:hover .proc-n{border-color:var(--accent);box-shadow:0 0 20px rgba(79,127,255,.12)}
+.proc-s h4{font-size:15px;font-weight:700;margin-bottom:5px}
+.proc-s p{font-size:12.5px;color:var(--text2);line-height:1.6;max-width:190px;margin:0 auto}
+
+/* ═ DEFENSE ═ */
+.def-in{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.def-vis{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg2)}
+.def-vis canvas{width:100%;height:100%;display:block}
+.def-list{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:32px}
+.def-list li{display:flex;gap:12px;align-items:flex-start}
+.def-chk{width:20px;height:20px;border-radius:5px;background:rgba(6,214,160,.07);color:var(--accent4);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:11px;font-weight:700}
+.def-list h4{font-size:14px;font-weight:700;margin-bottom:2px}
+.def-list p{font-size:12.5px;color:var(--text2);line-height:1.6}
+
+/* ═ PLATFORMS ═ */
+.plat-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:40px}
+.plat{padding:10px 20px;border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text2);letter-spacing:.3px;background:var(--bg2);transition:all .3s}
+.plat:hover{border-color:var(--border-h);color:var(--text)}
+
+/* ═ FOUNDER ═ */
+.fdr-in{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center}
+.fdr-img{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg3);display:flex;align-items:center;justify-content:center}
+.fdr-init{font-size:100px;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.07}
+.fdr-role{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-top:4px;margin-bottom:8px}
+.fdr-creds{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+.fdr-cr{padding:4px 11px;border:1px solid var(--border);border-radius:100px;font-family:var(--mono);font-size:10.5px;color:var(--text2);letter-spacing:.3px}
+.fdr-quote{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--text2);line-height:1.75;margin-top:24px;padding-left:18px;border-left:2px solid var(--accent3)}
+.fdr-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13px;font-weight:600;color:var(--accent);transition:gap .3s}
+.fdr-link:hover{gap:12px}
+
+/* ═ STATS ═ */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:52px}
+.stat{background:var(--bg2);padding:40px 24px;text-align:center}
+.stat-n{font-size:40px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:6px}
+.stat-n span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-l{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+
+/* ═ TESTIMONIALS ═ */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.test-c{padding:28px 22px}
+.test-c .stars{color:var(--warn);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.test-c blockquote{font-size:13.5px;color:var(--text2);line-height:1.75;margin-bottom:16px;font-family:var(--serif);font-style:italic}
+.test-c .auth{font-size:13px;font-weight:700;color:var(--text)}
+.test-c .role{font-size:10px;color:var(--text3);margin-top:2px;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase}
+
+/* ═ CONTACT FORM ═ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:52px}
+.contact-info{padding-top:16px}
+.contact-info .s-desc{margin-bottom:28px}
+.ci-items{display:flex;flex-direction:column;gap:16px}
+.ci-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
+.ci-item .d{width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0}
+.c-form{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:36px 32px}
+.c-form h3{font-size:20px;font-weight:700;margin-bottom:20px}
+.c-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.c-field label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text2);font-family:var(--mono)}
+.c-field input,.c-field textarea,.c-field select{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:var(--font);font-size:14px;color:var(--text);transition:border-color .3s;outline:none;resize:vertical}
+.c-field input:focus,.c-field textarea:focus,.c-field select:focus{border-color:var(--accent)}
+.c-field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6b8f' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.c-field select option{background:var(--bg2);color:var(--text)}
+.c-submit{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 4px 16px rgba(79,127,255,.2)}
+.c-submit:hover{box-shadow:0 8px 28px rgba(79,127,255,.3);transform:translateY(-1px)}
+.c-note{font-size:11px;color:var(--text3);margin-top:12px;text-align:center}
+
+/* ═ FOOTER ═ */
+footer{border-top:1px solid var(--border);padding:52px 40px 24px}
+.ft-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.ft-brand p{font-size:12px;color:var(--text3);margin-top:10px;line-height:1.7;max-width:260px}
+.ft-col h4{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:14px}
+.ft-col a{display:block;font-size:12.5px;color:var(--text3);margin-bottom:9px;transition:color .3s}
+.ft-col a:hover{color:var(--accent)}
+.ft-btm{border-top:1px solid var(--border);padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text3)}
+
+/* ═ MOBILE CTA ═ */
+.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;padding:10px 14px;background:rgba(5,8,16,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
+.mob-cta a{display:block;padding:12px;background:var(--accent);color:#fff;text-align:center;border-radius:8px;font-weight:700;font-size:13px}
+
+/* ═ REDUCED MOTION ═ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  .tk-in{animation:none}
+}
+
+/* ═ RESPONSIVE ═ */
+@media(max-width:1024px){
+  .svc-grid,.test-grid,.aud-grid{grid-template-columns:1fr 1fr}
+  .def-in,.fdr-in,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .stat-row,.proc,.threat-bar{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:0 16px;height:52px}
+  .nk{display:none}
+  .mob-t{display:block}
+  .hero,.s{padding-left:16px;padding-right:16px}
+  .hero{padding-top:100px;min-height:auto;padding-bottom:56px}
+  .h1{letter-spacing:-1.5px}
+  .h-met{gap:14px;flex-wrap:wrap}
+  .hm-n{font-size:22px}
+  .svc-grid,.test-grid,.aud-grid,.why-grid{grid-template-columns:1fr}
+  .stat-row,.proc,.threat-bar{grid-template-columns:1fr}
+  .proc::before{display:none}
+  .comp-row{gap:8px}
+  .comp-b{padding:6px 12px;font-size:10px}
+  .ft-top{grid-template-columns:1fr;gap:24px}
+  .ft-btm{flex-direction:column;gap:8px;text-align:center}
+  .mob-cta{display:block}
+  .s:last-of-type{padding-bottom:100px}
+  .ir-ban{font-size:11px;padding:8px 12px;gap:8px}
+  #cur{display:none!important}
+  .plat-row{gap:8px}
+  .plat{padding:7px 12px;font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- GRAIN OVERLAY -->
+<div class="grain"><canvas id="grainC"></canvas></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProg"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pl-logo"><div class="pl-dot"></div>BLUEBERRY SECURITY</div>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+
+<!-- IR BANNER -->
+<div class="ir-ban" id="irBan">
+  <span class="pulse"></span>
+  Experiencing a cybersecurity incident?
+  <a href="#contact">Get 24/7 Incident Response →</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nl"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></a>
+  <div class="nk">
+    <a href="/">Home</a>
+    <div class="nav-dd">
+      <a href="/services/">Services</a>
+      <div class="mega mega-services">
+        <div class="mega-inner">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/services/">All Services</a></div>
+            <a href="/services/managed-cybersecurity.html" class="mega-link">Managed Cybersecurity</a>
+            <a href="/services/vciso.html" class="mega-link">vCISO Services</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/services/blue-team.html">Blue Team</a></div>
+            <a href="/services/managed-detection.html" class="mega-link">MDR Services</a>
+            <a href="/services/incident-response.html" class="mega-link">DFIR Services</a>
+            <div class="mega-col-title" style="margin-top:24px"><a href="/services/red-team.html">Red Team</a></div>
+            <a href="/services/penetration-testing.html" class="mega-link">Penetration Testing</a>
+            <a href="/services/phishing-testing.html" class="mega-link">Phishing Testing</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/services/compliance.html">Compliance</a></div>
+            <a href="/services/iso-27001.html" class="mega-link">ISO 27001</a>
+            <a href="/services/hipaa-compliance.html" class="mega-link">HIPAA Compliance</a>
+            <a href="/services/soc2-readiness.html" class="mega-link">SOC 2</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/services/personal-cybersecurity.html">Personal</a></div>
+            <a href="/services/digital-forensics-personal.html" class="mega-link">Personal Forensics</a>
+            <a href="/services/digital-privacy.html" class="mega-link">Privacy Protection</a>
+            <a href="/services/account-recovery.html" class="mega-link">Account Recovery</a>
+            <a href="/services/osint-investigation.html" class="mega-link">OSINT Investigation</a>
+            <a href="/services/executive-cybersecurity.html" class="mega-link">Executive Protection</a>
+            <a href="/services/divorce-forensics.html" class="mega-link">Divorce Forensics</a>
+            <a href="/services/expert-witness.html" class="mega-link">Expert Witness</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="nav-dd">
+      <a href="/federal/">Federal</a>
+      <div class="mega mega-federal">
+        <div class="mega-inner" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/federal/">Federal Practice</a></div>
+            <a href="/federal/services.html" class="mega-link">Federal Services</a>
+            <a href="/federal/soc-design.html" class="mega-link">SOC Design & Operation</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/federal/capabilities.html">Capabilities</a></div>
+            <a href="/federal/soar-workflows.html" class="mega-link">SOAR Workflows</a>
+            <a href="/federal/threat-intelligence.html" class="mega-link">Threat Intelligence Operations</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dd">
+      <a href="/partnerships/">Partnerships</a>
+      <div class="mega mega-partnerships">
+        <div class="mega-inner">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/partnerships/referral/">Referral Programs</a></div>
+            <a href="/partnerships/referral/vciso.html" class="mega-link">vCISO Referral Program</a>
+            <div class="mega-sub-title">Blue Team Referrals</div>
+            <a href="/partnerships/referral/dfir.html" class="mega-link">DFIR Referral Program</a>
+            <a href="/partnerships/referral/mdr.html" class="mega-link">MDR Referral Program</a>
+            <div class="mega-sub-title">Red Team Referrals</div>
+            <a href="/partnerships/referral/penetration-testing.html" class="mega-link">Penetration Testing Referral</a>
+            <a href="/partnerships/referral/phishing-testing.html" class="mega-link">Phishing Testing Referral</a>
+            <div class="mega-sub-title">Compliance Referrals</div>
+            <a href="/partnerships/referral/iso-27001.html" class="mega-link">ISO 27001 Referral</a>
+            <a href="/partnerships/referral/soc2.html" class="mega-link">SOC 2 Referral</a>
+            <a href="/partnerships/referral/hipaa.html" class="mega-link">HIPAA Referral</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/partnerships/white-label/">White-Label Partnerships</a></div>
+            <a href="/partnerships/white-label/vciso.html" class="mega-link">White-Label vCISO</a>
+            <div class="mega-sub-title">White-Label Blue Team</div>
+            <a href="/partnerships/white-label/mdr.html" class="mega-link">White-Label MDR</a>
+            <a href="/partnerships/white-label/dfir.html" class="mega-link">White-Label DFIR</a>
+            <div class="mega-sub-title">White-Label Red Team</div>
+            <a href="/partnerships/white-label/penetration-testing.html" class="mega-link">White-Label Penetration Testing</a>
+            <a href="/partnerships/white-label/phishing-testing.html" class="mega-link">White-Label Phishing Testing</a>
+            <div class="mega-sub-title">White-Label Compliance</div>
+            <a href="/partnerships/white-label/soc2.html" class="mega-link">White-Label SOC 2</a>
+            <a href="/partnerships/white-label/iso-27001.html" class="mega-link">White-Label ISO 27001</a>
+            <a href="/partnerships/white-label/hipaa.html" class="mega-link">White-Label HIPAA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="https://calendly.com/quinnlan-varcoe" target="_blank" class="ncta">Consultation</a>
+  </div>
+  <button class="mob-t" aria-label="Open menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mm">
+  <button id="mmC" aria-label="Close menu">✕</button>
+  <a href="/">Home</a>
+  <button class="mm-dd-toggle">Services</button>
+  <div class="mm-dd-sub">
+    <a href="/services/">All Services</a>
+    <a href="/services/managed-cybersecurity.html">Managed Cybersecurity</a>
+    <a href="/services/vciso.html">vCISO Services</a>
+    <span class="mm-sub-label">Blue Team</span>
+    <a href="/services/managed-detection.html">MDR Services</a>
+    <a href="/services/incident-response.html">DFIR Services</a>
+    <span class="mm-sub-label">Red Team</span>
+    <a href="/services/penetration-testing.html">Penetration Testing</a>
+    <a href="/services/phishing-testing.html">Phishing Testing</a>
+    <span class="mm-sub-label">Compliance</span>
+    <a href="/services/iso-27001.html">ISO 27001</a>
+    <a href="/services/hipaa-compliance.html">HIPAA Compliance</a>
+    <a href="/services/soc2-readiness.html">SOC 2</a>
+    <span class="mm-sub-label">Personal</span>
+    <a href="/services/digital-forensics-personal.html">Personal Forensics</a>
+    <a href="/services/digital-privacy.html">Privacy Protection</a>
+    <a href="/services/account-recovery.html">Account Recovery</a>
+    <a href="/services/osint-investigation.html">OSINT Investigation</a>
+    <a href="/services/executive-cybersecurity.html">Executive Protection</a>
+    <a href="/services/divorce-forensics.html">Divorce Forensics</a>
+    <a href="/services/expert-witness.html">Expert Witness</a>
+  </div>
+    <button class="mm-dd-toggle">Federal</button>
+  <div class="mm-dd-sub">
+    <a href="/federal/">Federal Practice</a>
+    <a href="/federal/services.html">Federal Services</a>
+    <a href="/federal/soc-design.html">SOC Design & Operation</a>
+    <a href="/federal/soar-workflows.html">SOAR Workflows</a>
+    <a href="/federal/threat-intelligence.html">Threat Intelligence</a>
+  </div>
+  <button class="mm-dd-toggle">Partnerships</button>
+  <div class="mm-dd-sub">
+    <a href="/partnerships/">All Partnerships</a>
+    <span class="mm-sub-label">Referral Programs</span>
+    <a href="/partnerships/referral/">Referral Overview</a>
+    <a href="/partnerships/referral/vciso.html">vCISO Referral</a>
+    <a href="/partnerships/referral/dfir.html">DFIR Referral</a>
+    <a href="/partnerships/referral/mdr.html">MDR Referral</a>
+    <a href="/partnerships/referral/penetration-testing.html">Pen Testing Referral</a>
+    <a href="/partnerships/referral/phishing-testing.html">Phishing Referral</a>
+    <a href="/partnerships/referral/iso-27001.html">ISO 27001 Referral</a>
+    <a href="/partnerships/referral/soc2.html">SOC 2 Referral</a>
+    <a href="/partnerships/referral/hipaa.html">HIPAA Referral</a>
+    <span class="mm-sub-label">White-Label Programs</span>
+    <a href="/partnerships/white-label/">White-Label Overview</a>
+    <a href="/partnerships/white-label/vciso.html">White-Label vCISO</a>
+    <a href="/partnerships/white-label/mdr.html">White-Label MDR</a>
+    <a href="/partnerships/white-label/dfir.html">White-Label DFIR</a>
+    <a href="/partnerships/white-label/penetration-testing.html">White-Label Pen Testing</a>
+    <a href="/partnerships/white-label/phishing-testing.html">White-Label Phishing</a>
+    <a href="/partnerships/white-label/soc2.html">White-Label SOC 2</a>
+    <a href="/partnerships/white-label/iso-27001.html">White-Label ISO 27001</a>
+    <a href="/partnerships/white-label/hipaa.html">White-Label HIPAA</a>
+  </div>
+  <a href="/contact.html">Contact</a>
+</div><!-- HERO -->
+<section class="hero">
+  <canvas id="heroC"></canvas>
+  <div class="h-fade"></div><div class="h-glow"></div><div class="h-glow2"></div>
+  <div class="hi">
+    <div class="h-badge"><span class="dot"></span> Active Threat Monitoring — Global Operations</div>
+    <h1 class="h1">
+      <span class="h1-l">Cybersecurity That</span>
+      <span class="h1-l"><span class="h1-gr">Outsmarts the Threat.</span></span>
+    </h1>
+    <p class="h-sub">Elite, U.S.-based cybersecurity for <strong>defense contractors</strong>, enterprises, and high-value organizations worldwide. Led by Fortune&nbsp;50 SOC transformation veteran <strong>Quinnlan Varcoe</strong>.</p>
+    <div class="h-acts">
+      <a href="#contact" class="btn btn-p">Schedule Consultation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#services" class="btn btn-o">Explore Services</a>
+      <a href="#contact" class="btn btn-ir"><span class="pulse" style="width:6px;height:6px;border-radius:50%;background:var(--danger)"></span> Active Breach?</a>
+    </div>
+    <div class="h-met">
+      <div class="hm"><div class="hm-n"><span>Fortune 50</span></div><div class="hm-l">Enterprise Pedigree</div></div>
+      <div class="hm"><div class="hm-n"><span>26K+</span></div><div class="hm-l">Industry Following</div></div>
+      <div class="hm"><div class="hm-n"><span>24</span>/7</div><div class="hm-l">Incident Response</div></div>
+      <div class="hm"><div class="hm-n"><span>100%</span></div><div class="hm-l">U.S.-Based Team</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="tk"><div class="tk-in" id="ticker"></div></div>
+
+<!-- COMPLIANCE -->
+<div class="comp reveal">
+  <div class="comp-lb">Compliance-Ready Operations</div>
+  <div class="comp-row">
+    <div class="comp-b">NIST 800-171</div>
+    <div class="comp-b">CMMC 2.0</div>
+    <div class="comp-b">SOC 2</div>
+    <div class="comp-b">HIPAA</div>
+    <div class="comp-b">ITAR</div>
+    <div class="comp-b">MITRE ATT&CK</div>
+    <div class="comp-b">ISO 27001</div>
+    <div class="comp-b">FedRAMP</div>
+  </div>
+</div>
+
+<!-- AUDIENCES -->
+<section class="s" id="audiences">
+  <div class="reveal">
+    <div class="s-tag">Who We Serve</div>
+    <h2 class="s-title">Precision Security for<br>Every Mission Profile</h2>
+    <p class="s-desc">Whether you're securing classified programs or protecting a personal digital footprint — we deliver the expertise your situation demands.</p>
+  </div>
+  <div class="aud-grid stagger">
+    <div class="aud-card glow-card reveal">
+      <div class="aud-ic">🛡️</div>
+      <h3>Defense Contractors</h3>
+      <p>CMMC-ready cybersecurity for primes, subcontractors, and government agencies. U.S.-cleared professionals. ITAR-compliant workflows. Adversary-focused intelligence against nation-state APTs targeting the DIB.</p>
+      <a href="#defense" class="aud-lk">Defense Solutions →</a>
+    </div>
+    <div class="aud-card glow-card reveal">
+      <div class="aud-ic">🏢</div>
+      <h3>Enterprise & Mid-Market</h3>
+      <p>SOC transformation, detection engineering, incident response, and staff augmentation for organizations that need results — not vendor noise. Tool-agnostic. Outcome-first. Deployed in days.</p>
+      <a href="#services" class="aud-lk">Enterprise Services →</a>
+    </div>
+    <div class="aud-card glow-card reveal">
+      <div class="aud-ic">🔒</div>
+      <h3>Executives & Individuals</h3>
+      <p>Fully managed personal cybersecurity for C-suite, HNWIs, and public figures. Account hardening, device forensics, stalkerware detection, and 24/7 monitoring by DFIR professionals.</p>
+      <a href="#services" class="aud-lk">Personal Security →</a>
+    </div>
+  </div>
+</section>
+
+<!-- THREAT LANDSCAPE -->
+<section class="s" style="padding-top:20px;padding-bottom:40px">
+  <div class="reveal" style="text-align:center">
+    <div class="s-tag" style="justify-content:center">The Threat Landscape</div>
+    <h2 class="s-title">Why This Matters Now</h2>
+  </div>
+  <div class="threat-bar reveal">
+    <div class="thr"><div class="thr-n"><span>29</span>min</div><div class="thr-l">Avg Breakout Time</div><div class="thr-src">2026 Industry Data</div></div>
+    <div class="thr"><div class="thr-n"><span>89</span>%</div><div class="thr-l">AI-Enabled Attack Surge</div><div class="thr-src">Year-over-Year</div></div>
+    <div class="thr"><div class="thr-n"><span>27</span>sec</div><div class="thr-l">Fastest Breakout</div><div class="thr-src">On Record</div></div>
+    <div class="thr"><div class="thr-n"><span>280</span>+</div><div class="thr-l">Named Threat Actors</div><div class="thr-src">Actively Tracked</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s" id="services" style="padding-top:40px">
+  <div class="reveal">
+    <div class="s-tag">Capabilities</div>
+    <h2 class="s-title">Mission-Critical<br>Security Services</h2>
+    <p class="s-desc">From active breaches to long-term SOC transformation — we deliver outcomes, not deliverables.</p>
+  </div>
+  <div class="svc-grid stagger">
+    <div class="svc glow-card reveal">
+      <div class="svc-num">01</div>
+      <h3>DFIR & Incident Response</h3>
+      <p>24/7 rapid response for ransomware, BEC, cloud breaches, and APTs. Forensic investigation with defensible documentation for audit and litigation.</p>
+      <div class="svc-tags"><span class="svc-tag">Ransomware</span><span class="svc-tag">BEC</span><span class="svc-tag">Cloud IR</span><span class="svc-tag">Forensics</span></div>
+    </div>
+    <div class="svc glow-card reveal">
+      <div class="svc-num">02</div>
+      <h3>SOC Transformation</h3>
+      <p>Design, build, and optimize Security Operations Centers. Reduce false positives, improve detection coverage, modernize your stack — no rip-and-replace.</p>
+      <div class="svc-tags"><span class="svc-tag">SIEM</span><span class="svc-tag">Detection</span><span class="svc-tag">Optimization</span><span class="svc-tag">Design</span></div>
+    </div>
+    <div class="svc glow-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Blue Team Staffing</h3>
+      <p>On-demand SOC analysts, detection engineers, threat hunters, and IR specialists. U.S.-based, vetted, deployed in days — not months.</p>
+      <div class="svc-tags"><span class="svc-tag">SOC Analysts</span><span class="svc-tag">Hunters</span><span class="svc-tag">SIEM Devs</span></div>
+    </div>
+    <div class="svc glow-card reveal">
+      <div class="svc-num">04</div>
+      <h3>Business Cybersecurity</h3>
+      <p>Penetration testing, vulnerability assessments, compliance alignment, and risk reduction across cloud and hybrid environments.</p>
+      <div class="svc-tags"><span class="svc-tag">Pen Testing</span><span class="svc-tag">Compliance</span><span class="svc-tag">Risk</span></div>
+    </div>
+    <div class="svc glow-card reveal">
+      <div class="svc-num">05</div>
+      <h3>Personal Cybersecurity</h3>
+      <p>Fully managed security for executives, HNWIs, and public figures. Account hardening, device forensics, stalkerware detection, and privacy management.</p>
+      <div class="svc-tags"><span class="svc-tag">Executive</span><span class="svc-tag">HNWI</span><span class="svc-tag">Privacy</span></div>
+    </div>
+    <div class="svc glow-card reveal">
+      <div class="svc-num">06</div>
+      <h3>Strategic Partnerships</h3>
+      <p>White-label SOC and IR for MSPs and vCISOs. Brand partnerships for co-marketing, content, and research. Scale without building in-house.</p>
+      <div class="svc-tags"><span class="svc-tag">White-Label</span><span class="svc-tag">MSP</span><span class="svc-tag">vCISO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="s" style="padding-top:20px;padding-bottom:40px">
+  <div class="reveal" style="text-align:center">
+    <div class="s-tag" style="justify-content:center">Platforms We Secure</div>
+    <h2 class="s-title">Your Stack. Our Expertise.</h2>
+  </div>
+  <div class="plat-row reveal">
+    <div class="plat">Splunk</div><div class="plat">Microsoft Sentinel</div><div class="plat">Elastic</div><div class="plat">Chronicle</div><div class="plat">AWS</div><div class="plat">Azure</div><div class="plat">Google Workspace</div><div class="plat">Microsoft 365</div><div class="plat">CrowdStrike Falcon</div><div class="plat">SentinelOne</div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="s">
+  <div class="reveal">
+    <div class="s-tag">Why Blueberry</div>
+    <h2 class="s-title">What Sets Us Apart</h2>
+  </div>
+  <div class="why-grid stagger">
+    <div class="why-c glow-card reveal">
+      <div class="ic">🇺🇸</div>
+      <h4>100% U.S.-Based Professionals</h4>
+      <p>Every engagement staffed by vetted American cybersecurity experts. Zero offshore delegation, zero vendor subcontracting. Your security stays on shore.</p>
+    </div>
+    <div class="why-c glow-card reveal">
+      <div class="ic">⚔️</div>
+      <h4>Adversary-Focused Intelligence</h4>
+      <p>We've tracked and operated against the nation-state threat groups that target the defense industrial base. Not theoretical — operational.</p>
+    </div>
+    <div class="why-c glow-card reveal">
+      <div class="ic">🔧</div>
+      <h4>Tool-Agnostic, Vendor-Neutral</h4>
+      <p>We work within your tools, processes, and team. No platform sales, no pushy upsells. Splunk, Sentinel, Elastic, Chronicle — we've done it all.</p>
+    </div>
+    <div class="why-c glow-card reveal">
+      <div class="ic">📊</div>
+      <h4>Outcome-Driven, Not Alert-Centric</h4>
+      <p>We focus on reducing risk, improving response times, and delivering clarity — not flooding your inbox with noise no one acts on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="s" style="padding-top:20px">
+  <div class="reveal" style="text-align:center">
+    <div class="s-tag" style="justify-content:center">How We Work</div>
+    <h2 class="s-title">From Call to Coverage<br>in Days, Not Months</h2>
+  </div>
+  <div class="proc">
+    <div class="proc-s reveal"><div class="proc-n">01</div><h4>Discovery</h4><p>Confidential consultation to map your threat landscape and security posture.</p></div>
+    <div class="proc-s reveal"><div class="proc-n">02</div><h4>Scoping</h4><p>Tailored engagement plan aligned to compliance, budget, and timeline.</p></div>
+    <div class="proc-s reveal"><div class="proc-n">03</div><h4>Deployment</h4><p>U.S.-based experts integrated into your team and tools within days.</p></div>
+    <div class="proc-s reveal"><div class="proc-n">04</div><h4>Execution</h4><p>Continuous security outcomes with full transparency and reporting.</p></div>
+  </div>
+</section>
+
+<!-- DEFENSE -->
+<section class="s" id="defense">
+  <div class="def-in">
+    <div class="reveal">
+      <div class="s-tag">Defense & Government</div>
+      <h2 class="s-title">Built for Defense-Grade<br>Operations</h2>
+      <p class="s-desc">Cybersecurity that meets the rigor demanded by defense contractors and regulated industries worldwide.</p>
+      <ul class="def-list">
+        <li><div class="def-chk">✓</div><div><h4>CMMC 2.0 & NIST 800-171 Aligned</h4><p>Purpose-built workflows for defense industrial base compliance and audit-ready documentation.</p></div></li>
+        <li><div class="def-chk">✓</div><div><h4>ITAR-Compliant Operations</h4><p>All personnel, processes, and data handling meet International Traffic in Arms Regulations.</p></div></li>
+        <li><div class="def-chk">✓</div><div><h4>Nation-State Threat Expertise</h4><p>Deep experience tracking APT groups targeting defense primes, subs, and government supply chains.</p></div></li>
+        <li><div class="def-chk">✓</div><div><h4>Global Theater Support</h4><p>Operations supporting defense organizations across CONUS, INDOPACOM, EUCOM, and CENTCOM AORs.</p></div></li>
+      </ul>
+    </div>
+    <div class="def-vis reveal"><canvas id="defC"></canvas></div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="s" id="about">
+  <div class="fdr-in">
+    <div class="fdr-img reveal"><div class="fdr-init">QV</div></div>
+    <div class="reveal">
+      <div class="s-tag">Leadership</div>
+      <h2 class="s-title">Quinnlan Varcoe</h2>
+      <div class="fdr-role">Founder & CEO</div>
+      <p class="s-desc" style="margin-bottom:0">Cybersecurity leader with Fortune&nbsp;50 SOC transformation experience across the defense, healthcare, and telecommunications sectors. Known industry-wide for deeply technical threat intelligence write-ups and a 26,000+ professional following built on operational credibility — not marketing.</p>
+      <div class="fdr-creds">
+        <span class="fdr-cr">T-Mobile</span>
+        <span class="fdr-cr">Raytheon</span>
+        <span class="fdr-cr">CVS Health</span>
+        <span class="fdr-cr">Fortune 50 SOC</span>
+        <span class="fdr-cr">DFIR</span>
+        <span class="fdr-cr">Detection Eng</span>
+        <span class="fdr-cr">Threat Intel</span>
+        <span class="fdr-cr">Advanced Response</span>
+      </div>
+      <blockquote class="fdr-quote">"We solve real-world problems in complex, regulated environments — clearly and effectively. No platform sales, no vendor fluff. Just outcomes."</blockquote>
+      <a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener" class="fdr-link">Follow on LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="s" style="padding-top:0">
+  <div class="stat-row reveal">
+    <div class="stat"><div class="stat-n">Fortune <span>50</span></div><div class="stat-l">Enterprise Background</div></div>
+    <div class="stat"><div class="stat-n"><span>26</span>K+</div><div class="stat-l">Professional Network</div></div>
+    <div class="stat"><div class="stat-n"><span>24</span>/7</div><div class="stat-l">IR Availability</div></div>
+    <div class="stat"><div class="stat-n"><span>0</span>%</div><div class="stat-l">Offshore Staffing</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="s" id="testimonials">
+  <div class="reveal">
+    <div class="s-tag">Trusted By</div>
+    <h2 class="s-title">What Security Leaders<br>Say About Us</h2>
+  </div>
+  <div class="test-grid stagger">
+    <div class="test-c glow-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"A top-notch cybersecurity compliance company with a deep understanding of industry standards and regulations. Their technical expertise and customized solutions make them a valuable asset for any organization."</blockquote>
+      <div class="auth">Enterprise Client</div>
+      <div class="role">Compliance & Regulatory</div>
+    </div>
+    <div class="test-c glow-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Her knowledge and experience has helped lead many incidents to remediation, especially during the Log4j exploit. Truly a pleasure to work with, learn from, and a valuable resource."</blockquote>
+      <div class="auth">Fortune 500 Colleague</div>
+      <div class="role">Enterprise Security</div>
+    </div>
+    <div class="test-c glow-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Unmatched technical expertise. Even under immense pressure and stress, this team performed with remarkable composure, precision, and efficiency. A force to be reckoned with."</blockquote>
+      <div class="auth">Security Operations Leader</div>
+      <div class="role">SOC Management</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="s" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="s-tag">Get Started</div>
+      <h2 class="s-title">Ready to Secure<br>What Matters Most?</h2>
+      <p class="s-desc">Whether you're responding to an active breach, building a security program, or evaluating your defense posture — we're ready when you are.</p>
+      <div class="ci-items">
+        <div class="ci-item"><span class="d"></span> No contracts or long-term commitments</div>
+        <div class="ci-item"><span class="d"></span> Confidential, NDA-protected consultations</div>
+        <div class="ci-item"><span class="d"></span> 24/7 incident response on-call</div>
+        <div class="ci-item"><span class="d"></span> Response within one business day</div>
+        <div class="ci-item"><span class="d"></span> quinn@digitalforensics.company</div>
+      </div>
+    </div>
+    <div class="c-form reveal">
+      <h3>Schedule a Consultation</h3>
+      <div class="c-field">
+        <label for="fname">Full Name</label>
+        <input type="text" id="fname" placeholder="Your name" required>
+      </div>
+      <div class="c-field">
+        <label for="femail">Work Email</label>
+        <input type="email" id="femail" placeholder="you@company.com" required>
+      </div>
+      <div class="c-field">
+        <label for="forg">Organization</label>
+        <input type="text" id="forg" placeholder="Company name">
+      </div>
+      <div class="c-field">
+        <label for="ftype">Inquiry Type</label>
+        <select id="ftype">
+          <option value="" selected disabled>Select one</option>
+          <option>Active Breach / Incident Response</option>
+          <option>SOC Transformation</option>
+          <option>Blue Team Staffing</option>
+          <option>Defense Contractor Services</option>
+          <option>Personal / Executive Cybersecurity</option>
+          <option>Strategic Partnership</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="c-field">
+        <label for="fmsg">Message</label>
+        <textarea id="fmsg" rows="4" placeholder="Tell us about your situation..."></textarea>
+      </div>
+      <button type="button" class="c-submit">Submit Inquiry</button>
+      <div class="c-note">Protected by NDA. We'll respond within one business day.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div><div class="ft-brand"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></div><p class="ft-desc">Trusted cybersecurity advisory for defense contractors, enterprises, and high-value individuals.</p></div>
+    <div class="ft-col"><h4>Services</h4><a href="/services/incident-response.html">Incident Response</a><a href="/services/managed-detection.html">MDR Services</a><a href="/services/vciso.html">vCISO Services</a><a href="/services/penetration-testing.html">Penetration Testing</a></div>
+    <div class="ft-col"><h4>Company</h4><a href="tel:3013524855">301-352-4855</a><a href="/">Home</a><a href="/services/">Services</a><a href="/partnerships/">Partnerships</a><a href="/contact.html">Contact</a></div>
+    <div class="ft-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:quinn@digitalforensics.company">Email</a></div>
+  </div>
+  <div class="ft-btm"><span>© 2026 Blueberry Security Global, Inc.. All rights reserved.</span><span>U.S.-Based · ITAR-Compliant · NDA-Protected</span></div>
+</footer>
+
+<!-- MOBILE CTA -->
+<div class="mob-cta"><a href="#contact">Get Started — Schedule Consultation</a></div>
+
+<script>
+/* ═ GRAIN ═ */
+(function(){
+  const c=document.getElementById('grainC'),x=c.getContext('2d');
+  function gen(){c.width=window.innerWidth/2;c.height=window.innerHeight/2;const d=x.createImageData(c.width,c.height);const b=d.data;for(let i=0;i<b.length;i+=4){const v=Math.random()*255;b[i]=b[i+1]=b[i+2]=v;b[i+3]=25}x.putImageData(d,0,0)}
+  gen();let f=0;(function loop(){if(++f%4===0)gen();requestAnimationFrame(loop)})();
+  window.addEventListener('resize',gen);
+})();
+
+/* ═ SCROLL PROGRESS ═ */
+const prog=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(window.scrollY/h*100)+'%';
+});
+
+/* ═ PRELOADER ═ */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('preloader').classList.add('done'),1500));
+
+/* ═ CURSOR ═ */
+const cur=document.getElementById('cur');
+let cx=0,cy=0,mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.classList.add('v')});
+document.addEventListener('mouseleave',()=>cur.classList.remove('v'));
+(function l(){cx+=(mx-cx)*.1;cy+=(my-cy)*.1;cur.style.transform=`translate(${cx-12}px,${cy-12}px)`;requestAnimationFrame(l)})();
+document.querySelectorAll('a,button,.glow-card,.proc-s').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('h'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('h'));
+});
+
+/* ═ NAV ═ */
+const nav=document.getElementById('nav'),ban=document.getElementById('irBan');
+let bH=ban.offsetHeight;
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>bH){nav.classList.remove('ban');nav.classList.add('sc')}
+  else{nav.classList.add('ban');nav.classList.remove('sc')}
+});
+window.addEventListener('resize',()=>bH=ban.offsetHeight);
+
+/* ═ TICKER ═ */
+const tks=['DFIR & Incident Response','SOC Transformation','Blue Team Staffing','Threat Hunting','SIEM Optimization','Cloud Security','Detection Engineering','Personal Cybersecurity','White-Label Partnerships','Compliance & Audit','Penetration Testing','Vulnerability Assessment'];
+let th='';for(let r=0;r<2;r++)tks.forEach(t=>{th+=`<div class="tk-i"><span class="d"></span>${t}</div>`});
+document.getElementById('ticker').innerHTML=th;
+
+/* ═ HERO CANVAS ═ */
+(function(){
+  const c=document.getElementById('heroC'),x=c.getContext('2d');
+  let w,h,pts=[],mouse={x:-999,y:-999};
+  function sz(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;init()}
+  function init(){pts=[];const sp=75,cols=Math.ceil(w/sp)+1,rows=Math.ceil(h/sp)+1;for(let i=0;i<cols;i++)for(let j=0;j<rows;j++)pts.push({x:i*sp,y:j*sp,ox:i*sp,oy:j*sp,vx:0,vy:0})}
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+  c.addEventListener('mouseleave',()=>{mouse.x=-999;mouse.y=-999});
+  function draw(){
+    x.clearRect(0,0,w,h);
+    pts.forEach(p=>{
+      const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<180){const f=(180-d)/180*1.4;p.vx-=dx/d*f;p.vy-=dy/d*f}
+      p.vx+=(p.ox-p.x)*.04;p.vy+=(p.oy-p.y)*.04;p.vx*=.88;p.vy*=.88;p.x+=p.vx;p.y+=p.vy;
+    });
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<95){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(79,127,255,${(1-d/95)*.055})`;x.lineWidth=.5;x.stroke()}
+      }
+    }
+    pts.forEach(p=>{const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.sqrt(dx*dx+dy*dy);x.beginPath();x.arc(p.x,p.y,1.2,0,Math.PI*2);x.fillStyle=`rgba(79,127,255,${d<180?.3:.07})`;x.fill()});
+    requestAnimationFrame(draw);
+  }
+  sz();draw();window.addEventListener('resize',sz);
+})();
+
+/* ═ DEFENSE CANVAS ═ */
+(function(){
+  const c=document.getElementById('defC'),x=c.getContext('2d');
+  let w,h,t=0;
+  function sz(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}
+  const nodes=[];for(let i=0;i<35;i++)nodes.push({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.0008,vy:(Math.random()-.5)*.0008,s:Math.random()*2+1,p:Math.random()*Math.PI*2,type:Math.random()>.75?'alert':'normal'});
+  function draw(){
+    t+=.008;x.clearRect(0,0,w,h);
+    x.strokeStyle='rgba(79,127,255,0.02)';x.lineWidth=.5;
+    for(let i=0;i<w;i+=32){x.beginPath();x.moveTo(i,0);x.lineTo(i,h);x.stroke()}
+    for(let i=0;i<h;i+=32){x.beginPath();x.moveTo(0,i);x.lineTo(w,i);x.stroke()}
+    nodes.forEach((n,i)=>{
+      n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y>1)n.vy*=-1;
+      const px=n.x*w,py=n.y*h;
+      nodes.forEach((m,j)=>{if(j<=i)return;const mx=m.x*w,my=m.y*h,d=Math.sqrt((px-mx)**2+(py-my)**2);if(d<150){x.beginPath();x.moveTo(px,py);x.lineTo(mx,my);x.strokeStyle=`rgba(79,127,255,${(1-d/150)*.1})`;x.lineWidth=.5;x.stroke()}});
+      const pulse=Math.sin(t*2+n.p)*.5+.5;
+      const col=n.type==='alert'?`rgba(255,77,106,${.25+pulse*.25})`:`rgba(79,127,255,${.2+pulse*.2})`;
+      x.beginPath();x.arc(px,py,n.s+pulse*1.5,0,Math.PI*2);x.fillStyle=col;x.fill();
+      if(n.type==='alert'){x.beginPath();x.arc(px,py,n.s+pulse*10,0,Math.PI*2);x.fillStyle=`rgba(255,77,106,${pulse*.02})`;x.fill()}
+    });
+    const sy=(t*55)%h;const g=x.createLinearGradient(0,sy-12,0,sy+12);g.addColorStop(0,'rgba(79,127,255,0)');g.addColorStop(.5,'rgba(79,127,255,0.035)');g.addColorStop(1,'rgba(79,127,255,0)');x.fillStyle=g;x.fillRect(0,sy-12,w,24);
+    requestAnimationFrame(draw);
+  }
+  sz();draw();window.addEventListener('resize',sz);
+})();
+
+/* ═ REVEAL ═ */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

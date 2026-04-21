@@ -471,3 +471,60 @@ body{animation:pageIn .35s ease-out}
 @media(max-width:480px){
   .mob-cta{display:none}
 }
+
+/* ═══ NAV DROPDOWN FIXES ═══ */
+
+/* 1. Fix mega menu top position when IR banner is showing */
+nav.ban~* .mega,nav.ban .mega{top:109px}
+
+/* 2. Keep mega open when hovering between trigger and menu
+      by adding an invisible bridge with ::after on nav-dd */
+.nk .nav-dd::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;
+  top:100%;
+  height:16px; /* bridge gap between link and mega */
+  background:transparent;
+  display:block;
+}
+
+/* 3. Fix z-index so mega sits properly above page content */
+.mega{z-index:100}
+nav{z-index:101}
+#sp{z-index:9999}
+.ir{z-index:102}
+
+/* 4. Increase mega link hit areas for easier clicking */
+.mega a.mega-link{padding:10px 0;min-height:40px;display:flex;align-items:center}
+.mega-col-title a{min-height:36px;display:flex;align-items:center;padding:4px 0}
+
+/* 5. Remove hover transition delay so mega doesn't flicker closed */
+.mega{transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
+.nav-dd:hover .mega{pointer-events:auto}
+
+/* 6. Fix the duplicate ::after pseudo-element on nav-dd links
+      (chevron arrow overrides the underline) */
+.nk .nav-dd>a::after{
+  content:'';
+  display:inline-block;
+  width:5px;height:5px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg);
+  margin-left:7px;
+  vertical-align:middle;
+  transition:transform .3s;
+  position:static; /* prevent conflict with absolute underline */
+}
+.nk .nav-dd>a{text-decoration:none}
+.nk .nav-dd>a:hover::after{transform:rotate(-135deg)}
+
+/* 7. Ensure mega doesn't obscure page body — add max-height with scroll if needed */
+.mega{max-height:calc(100vh - 72px);overflow-y:auto}
+
+/* 8. On mobile — completely hide mega, use mobile menu only */
+@media(max-width:1024px){
+  .mega{display:none!important}
+  .nk .nav-dd>a::after{display:none}
+}

@@ -7,11 +7,20 @@ const sp = document.getElementById('sp')
 const nav = document.getElementById('nav')
 const ban = document.getElementById('irBan')
 let bH = ban ? ban.offsetHeight : 0
+const NAV_H = 72
+
+// Sync mega menu top position with actual nav bottom
+function syncMegaTop() {
+  const navTop = parseFloat(nav.style.top) || 0
+  const megaTop = navTop + NAV_H
+  document.querySelectorAll('.mega').forEach(m => m.style.top = megaTop + 'px')
+}
 
 // Set initial nav position dynamically based on actual banner height
 if (ban && nav) {
   nav.style.top = bH + 'px'
   nav.classList.add('ban')
+  syncMegaTop()
 }
 
 let tick = false
@@ -24,6 +33,7 @@ window.addEventListener('scroll', () => {
     if (scrollY > 10) nav.classList.add('sc')
     else nav.classList.remove('sc')
   }
+  syncMegaTop()
 
   if (!tick && sp) {
     tick = true
@@ -34,7 +44,7 @@ window.addEventListener('scroll', () => {
   }
 })
 
-if (ban) window.addEventListener('resize', () => { bH = ban.offsetHeight; if (scrollY <= bH) nav.style.top = bH + 'px' })
+if (ban) window.addEventListener('resize', () => { bH = ban.offsetHeight; if (scrollY <= bH) nav.style.top = bH + 'px'; syncMegaTop() })
 
 // ─── Mobile menu ───
 const mmOpen = document.querySelector('.mob-t')

@@ -2,7 +2,13 @@
   "buildCommand": "",
   "outputDirectory": "dist",
   "framework": null,
+  "functions": {
+    "api/contact.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
+    { "source": "/api/contact", "destination": "/api/contact.js" },
     { "source": "/services", "destination": "/services/index.html" },
     { "source": "/partnerships", "destination": "/partnerships/index.html" },
     { "source": "/partnerships/referral", "destination": "/partnerships/referral/index.html" },

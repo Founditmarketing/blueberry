@@ -48,10 +48,9 @@ nav.sc{top:0;background:rgba(11,15,25,.92);backdrop-filter:blur(24px);-webkit-ba
 .nk{display:flex;align-items:center;gap:36px}
 .nk a{font-size:12px;font-weight:500;color:var(--text2);letter-spacing:1px;text-transform:uppercase;transition:color .3s;position:relative}
 .nk a:not(.ncta):hover{color:var(--text)}
-.nk a:not(.ncta)::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
-.nk a:not(.ncta):hover::after{width:100%}
+
 .nk a.active{color:var(--gold)}
-.nk a.active::after{width:100%}
+
 .ncta{padding:10px 28px;border:1px solid var(--gold);color:var(--gold)!important;font-weight:600;transition:all .3s;min-height:44px;display:inline-flex;align-items:center;letter-spacing:1px}
 .ncta:hover{background:var(--gold);color:var(--bg)!important}
 

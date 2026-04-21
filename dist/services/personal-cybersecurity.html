@@ -11,8 +11,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal Cybersecurity Services | Digital Forensics .company</title>
-<meta name="description" content="Concierge cybersecurity for high-value individuals: personal forensics, privacy protection, account recovery, OSINT investigations, executive protection, divorce forensics, and expert witness.">
+<title>Personal Cybersecurity Help — Hacked, Stalked, or Need Digital Evidence? | Digital Forensic Company</title>
+<meta name="description" content="If you think you've been hacked, are being monitored, or need digital evidence for a lawsuit — our forensic experts respond immediately. Confidential, private, and discreet.">
+<meta property="og:title" content="Personal Cybersecurity Help | Digital Forensic Company">
+<meta property="og:description" content="Expert forensic investigators for individuals who suspect they've been hacked, are being stalked digitally, or need court-ready digital evidence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,9 +22,147 @@ gtag('config', 'G-1RNGSCZ3Z9');
   <link rel="stylesheet" crossorigin href="/assets/main-BJYN78f2.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<style>
+/* ── Urgent Alert Banner ── */
+.pers-alert{background:linear-gradient(135deg,#1a0505 0%,#200808 100%);border-bottom:1px solid rgba(200,50,50,.3);padding:14px clamp(24px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pers-alert-left{display:flex;align-items:center;gap:12px}
+.pers-alert-dot{width:8px;height:8px;border-radius:50%;background:#c83232;animation:urgentPulse 1.5s infinite;flex-shrink:0}
+@keyframes urgentPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,50,50,.4)}50%{box-shadow:0 0 0 8px rgba(200,50,50,0)}}
+.pers-alert-text{font-size:12px;font-weight:600;color:#e8e4dc;letter-spacing:.5px}
+.pers-alert-text span{color:#e07070}
+.pers-alert-cta{display:flex;align-items:center;gap:8px;background:#c83232;color:#fff;padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .3s;white-space:nowrap;flex-shrink:0}
+.pers-alert-cta:hover{background:#a02020}
+
+/* ── Hero ── */
+.pers-hero{padding:120px clamp(24px,4vw,64px) 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.pers-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,50,50,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(196,162,101,.04) 0%,transparent 50%);pointer-events:none}
+.pers-hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:center}
+.pers-hero-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#c83232;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.pers-hero-label::before{content:'';width:24px;height:1px;background:#c83232}
+.pers-hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;letter-spacing:-1px;color:var(--text);margin-bottom:20px}
+.pers-hero h1 em{font-style:italic;color:#c4a265}
+.pers-hero-desc{font-size:16px;color:var(--text2);line-height:1.9;max-width:520px;margin-bottom:36px}
+.pers-hero-ctas{display:flex;flex-direction:column;gap:16px}
+.btn-urgent{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:#c83232;color:#fff;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
+.btn-urgent:hover{background:#a02020;transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,50,50,.3)}
+.pers-hero-ctas .btn-s{display:inline-flex;align-items:center;gap:8px;padding:18px 36px;background:transparent;color:var(--text2);font-family:var(--font);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:1px solid var(--border)}
+.pers-hero-ctas .btn-s:hover{border-color:var(--gold);color:var(--gold)}
+.pers-hero-note{font-size:11px;color:var(--text3);letter-spacing:.5px;margin-top:16px}
+
+/* ── Situation Card (right sidebar) ── */
+.pers-situation{background:var(--bg2);border:1px solid rgba(200,50,50,.2);padding:36px 32px}
+.pers-situation-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#c83232;margin-bottom:20px}
+.pers-situation-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.pers-situation-list li{font-size:13px;color:var(--text2);padding:12px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:12px;line-height:1.5}
+.pers-situation-list li:last-child{border-bottom:none}
+.pers-situation-list li::before{content:'?';width:18px;height:18px;border-radius:50%;background:rgba(200,50,50,.15);color:#e07070;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.pers-situation-cta{margin-top:24px;display:block;background:#c83232;color:#fff;text-align:center;padding:14px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .3s}
+.pers-situation-cta:hover{background:#a02020}
+
+/* ── Warning Signs ── */
+.pers-signs{padding:100px clamp(24px,4vw,64px);background:var(--bg2);border-bottom:1px solid var(--border)}
+.pers-signs-inner{max-width:var(--max);margin:0 auto}
+.pers-signs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:56px}
+.sign-card{padding:40px 32px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;transition:background .4s}
+.sign-card:nth-child(3n){border-right:none}
+.sign-card:nth-last-child(-n+3){border-bottom:none}
+.sign-card:hover{background:rgba(200,50,50,.03)}
+.sign-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:#c83232;transition:width .4s var(--ease)}
+.sign-card:hover::before{width:100%}
+.sign-icon{font-size:24px;margin-bottom:16px}
+.sign-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);margin-bottom:10px;line-height:1.3}
+.sign-desc{font-size:13px;color:var(--text2);line-height:1.8}
+
+/* ── Services Grid ── */
+.pers-services{padding:100px clamp(24px,4vw,64px)}
+.pers-services-inner{max-width:var(--max);margin:0 auto}
+.pers-svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:56px}
+.pers-svc-card{padding:48px 40px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .4s;text-decoration:none;color:inherit;display:block;position:relative}
+.pers-svc-card:nth-child(2n){border-right:none}
+.pers-svc-card:nth-last-child(-n+2){border-bottom:none}
+.pers-svc-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:#c83232;transition:width .4s var(--ease)}
+.pers-svc-card:hover::after{width:3px}
+.pers-svc-card:hover{background:rgba(200,50,50,.02)}
+.pers-svc-num{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--gold);margin-bottom:16px}
+.pers-svc-card h3{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--text);margin-bottom:10px;line-height:1.25;transition:color .3s}
+.pers-svc-card:hover h3{color:var(--gold-light)}
+.pers-svc-card p{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px}
+.pers-svc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pers-svc-tag{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);padding:4px 10px;border:1px solid var(--border)}
+
+/* ── Legal Section ── */
+.pers-legal{padding:100px clamp(24px,4vw,64px);background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.pers-legal-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.pers-legal-quote{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:300;font-style:italic;color:var(--text2);line-height:1.5;position:relative;padding-left:32px}
+.pers-legal-quote::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#c83232,rgba(200,50,50,.1))}
+.pers-legal-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.pers-legal-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);padding-left:24px;position:relative;line-height:1.7;transition:color .3s}
+.pers-legal-list li:hover{color:var(--text)}
+.pers-legal-list li::before{content:'';position:absolute;left:0;top:22px;width:10px;height:1px;background:var(--gold)}
+.pers-legal h2{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--text);margin-bottom:16px;line-height:1.15}
+.pers-legal-sub{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:32px}
+
+/* ── Urgent CTA Band ── */
+.pers-cta{padding:100px clamp(24px,4vw,64px);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(200,50,50,.2)}
+.pers-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(200,50,50,.05) 0%,transparent 70%);pointer-events:none}
+.pers-cta .sect-label{color:#c83232;margin-bottom:16px;position:relative}
+.pers-cta h2{font-family:var(--serif);font-size:clamp(32px,4.5vw,56px);font-weight:300;line-height:1.1;letter-spacing:-1px;color:var(--text);margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto;position:relative}
+.pers-cta h2 em{font-style:italic;color:#c4a265}
+.pers-cta p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 40px;line-height:1.8;position:relative}
+.pers-cta-btns{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;position:relative}
+.pers-cta-phone{margin-top:28px;position:relative}
+.pers-cta-phone a{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--gold);text-decoration:none;letter-spacing:-1px;transition:color .3s}
+.pers-cta-phone a:hover{color:var(--gold-light)}
+.pers-cta-phone-sub{font-size:10px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+.pers-cta-divider{font-size:12px;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
+
+/* ── Privacy Promise ── */
+.pers-privacy{padding:48px clamp(24px,4vw,64px);background:var(--bg2);border-top:1px solid var(--border)}
+.pers-privacy-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.pers-privacy-item{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--text3);letter-spacing:.5px}
+.pers-privacy-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .pers-hero-inner{grid-template-columns:1fr;gap:48px}
+  .pers-situation{max-width:480px}
+  .pers-svc-grid{grid-template-columns:1fr}
+  .pers-svc-card{border-right:none!important;border-bottom:1px solid var(--border)!important}
+  .pers-svc-card:last-child{border-bottom:none!important}
+  .pers-legal-inner{grid-template-columns:1fr;gap:48px}
+  .pers-signs-grid{grid-template-columns:1fr 1fr}
+  .sign-card:nth-child(2n){border-right:none}
+  .sign-card{border-bottom:1px solid var(--border)!important;border-right:1px solid var(--border)}
+  .sign-card:last-child,.sign-card:nth-last-child(-n+2){border-bottom:none!important}
+}
+@media(max-width:768px){
+  .pers-hero{padding:100px 20px 60px}
+  .pers-signs-grid{grid-template-columns:1fr}
+  .sign-card{border-right:none!important}
+  .pers-alert{flex-direction:column;align-items:flex-start;gap:12px}
+  .pers-cta-btns{flex-direction:column}
+  .pers-privacy-inner{flex-direction:column;align-items:flex-start;gap:16px}
+  .pers-legal{padding:80px 20px}
+  .pers-services{padding:80px 20px}
+  .pers-signs{padding:80px 20px}
+}
+</style>
 </head>
 <body>
 <div id="sp"></div>
+
+<!-- Urgent Alert Bar -->
+<div class="pers-alert">
+  <div class="pers-alert-left">
+    <div class="pers-alert-dot"></div>
+    <div class="pers-alert-text"><span>If you are in an active situation</span> — do not delete anything. Call us immediately.</div>
+  </div>
+  <a href="tel:3013524855" class="pers-alert-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Call Now: 301-352-4855
+  </a>
+</div>
+
 <nav id="nav">
   <a href="/" class="nl"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></a>
   <div class="nk">
@@ -63,183 +203,254 @@ gtag('config', 'G-1RNGSCZ3Z9');
         </div>
       </div>
     </div>
-    <div class="nav-dd">
-      <a href="/partnerships/">Partnerships</a>
-      <div class="mega mega-partnerships">
-        <div class="mega-inner">
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="/partnerships/referral/">Referral Partnerships</a></div>
-            <a href="/partnerships/referral/vciso.html" class="mega-link">vCISO Referral Program</a>
-            <div class="mega-sub-title">Blue Team Referrals</div>
-            <a href="/partnerships/referral/dfir.html" class="mega-link">DFIR Referral Program</a>
-            <a href="/partnerships/referral/mdr.html" class="mega-link">MDR Referral Program</a>
-            <div class="mega-sub-title">Red Team Referrals</div>
-            <a href="/partnerships/referral/penetration-testing.html" class="mega-link">Penetration Testing Referral</a>
-            <a href="/partnerships/referral/phishing-testing.html" class="mega-link">Phishing Testing Referral</a>
-            <div class="mega-sub-title">Compliance Referrals</div>
-            <a href="/partnerships/referral/iso-27001.html" class="mega-link">ISO 27001 Referral</a>
-            <a href="/partnerships/referral/soc2.html" class="mega-link">SOC 2 Referral</a>
-            <a href="/partnerships/referral/hipaa.html" class="mega-link">HIPAA Referral</a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="/partnerships/white-label/">White-Label Partnerships</a></div>
-            <a href="/partnerships/white-label/vciso.html" class="mega-link">White-Label vCISO</a>
-            <div class="mega-sub-title">White-Label Blue Team</div>
-            <a href="/partnerships/white-label/mdr.html" class="mega-link">White-Label MDR</a>
-            <a href="/partnerships/white-label/dfir.html" class="mega-link">White-Label DFIR</a>
-            <div class="mega-sub-title">White-Label Red Team</div>
-            <a href="/partnerships/white-label/penetration-testing.html" class="mega-link">White-Label Penetration Testing</a>
-            <a href="/partnerships/white-label/phishing-testing.html" class="mega-link">White-Label Phishing Testing</a>
-            <div class="mega-sub-title">White-Label Compliance</div>
-            <a href="/partnerships/white-label/soc2.html" class="mega-link">White-Label SOC 2</a>
-            <a href="/partnerships/white-label/iso-27001.html" class="mega-link">White-Label ISO 27001</a>
-            <a href="/partnerships/white-label/hipaa.html" class="mega-link">White-Label HIPAA</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="/contact.html" class="ncta">Consultation</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="tel:3013524855" class="nav-phone">📞 301-352-4855</a>
+    <a href="tel:3013524855" class="ncta">Call Now</a>
   </div>
   <button class="mob-t" aria-label="Open menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
   </button>
 </nav>
+
 <div id="mm">
   <button id="mmC" aria-label="Close menu">✕</button>
   <a href="/">Home</a>
   <button class="mm-dd-toggle">Services</button>
   <div class="mm-dd-sub">
     <a href="/services/">All Services</a>
-    <a href="/services/managed-cybersecurity.html">Managed Cybersecurity</a>
-    <a href="/services/vciso.html">vCISO Services</a>
-    <span class="mm-sub-label">Blue Team</span>
-    <a href="/services/managed-detection.html">MDR Services</a>
-    <a href="/services/incident-response.html">DFIR Services</a>
-    <span class="mm-sub-label">Red Team</span>
-    <a href="/services/penetration-testing.html">Penetration Testing</a>
-    <a href="/services/phishing-testing.html">Phishing Testing</a>
-    <span class="mm-sub-label">Compliance</span>
-    <a href="/services/iso-27001.html">ISO 27001</a>
-    <a href="/services/hipaa-compliance.html">HIPAA Compliance</a>
-    <a href="/services/soc2-readiness.html">SOC 2</a>
     <span class="mm-sub-label">Personal</span>
+    <a href="/services/personal-cybersecurity.html">Personal Cybersecurity</a>
     <a href="/services/digital-forensics-personal.html">Personal Forensics</a>
     <a href="/services/digital-privacy.html">Privacy Protection</a>
     <a href="/services/account-recovery.html">Account Recovery</a>
-    <a href="/services/osint-investigation.html">OSINT Investigation</a>
-    <a href="/services/executive-cybersecurity.html">Executive Protection</a>
     <a href="/services/divorce-forensics.html">Divorce Forensics</a>
     <a href="/services/expert-witness.html">Expert Witness</a>
+    <span class="mm-sub-label">Enterprise</span>
+    <a href="/services/managed-cybersecurity.html">Managed Cybersecurity</a>
+    <a href="/services/incident-response.html">Incident Response</a>
   </div>
-  <button class="mm-dd-toggle">Partnerships</button>
-  <div class="mm-dd-sub">
-    <a href="/partnerships/">All Partnerships</a>
-    <span class="mm-sub-label">Referral Programs</span>
-    <a href="/partnerships/referral/">Referral Overview</a>
-    <a href="/partnerships/referral/vciso.html">vCISO Referral</a>
-    <a href="/partnerships/referral/dfir.html">DFIR Referral</a>
-    <a href="/partnerships/referral/mdr.html">MDR Referral</a>
-    <a href="/partnerships/referral/penetration-testing.html">Pen Testing Referral</a>
-    <a href="/partnerships/referral/phishing-testing.html">Phishing Referral</a>
-    <a href="/partnerships/referral/iso-27001.html">ISO 27001 Referral</a>
-    <a href="/partnerships/referral/soc2.html">SOC 2 Referral</a>
-    <a href="/partnerships/referral/hipaa.html">HIPAA Referral</a>
-    <span class="mm-sub-label">White-Label Programs</span>
-    <a href="/partnerships/white-label/">White-Label Overview</a>
-    <a href="/partnerships/white-label/vciso.html">White-Label vCISO</a>
-    <a href="/partnerships/white-label/mdr.html">White-Label MDR</a>
-    <a href="/partnerships/white-label/dfir.html">White-Label DFIR</a>
-    <a href="/partnerships/white-label/penetration-testing.html">White-Label Pen Testing</a>
-    <a href="/partnerships/white-label/phishing-testing.html">White-Label Phishing</a>
-    <a href="/partnerships/white-label/soc2.html">White-Label SOC 2</a>
-    <a href="/partnerships/white-label/iso-27001.html">White-Label ISO 27001</a>
-    <a href="/partnerships/white-label/hipaa.html">White-Label HIPAA</a>
-  </div>
+  <a href="/about.html">About</a>
   <a href="/contact.html">Contact</a>
+  <a href="tel:3013524855" style="color:#c83232;font-weight:700">📞 Call Now: 301-352-4855</a>
 </div>
 
-<section class="page-hero">
-  <div class="sect-inner">
-    <div class="page-breadcrumb"><a href="/">Home</a><span>›</span><a href="/services/">Services</a><span>›</span> Personal Cybersecurity</div>
-    <div class="page-label">Personal & Executive</div>
-    <h1>Personal Cybersecurity<br>Services</h1>
-    <p class="page-desc">Luxury digital protection for executives, high-net-worth individuals, and families. From device forensics and account recovery to OSINT investigations and court testimony.</p>
+<!-- HERO -->
+<section class="pers-hero">
+  <div class="pers-hero-inner">
+    <div class="rv">
+      <div class="pers-hero-label">Personal Cybersecurity</div>
+      <h1>You Think You've<br>Been <em>Compromised.</em><br>You're Probably Right.</h1>
+      <p class="pers-hero-desc">If your accounts have been accessed without your knowledge, your devices are behaving strangely, or you need digital evidence for a legal matter — our forensic investigators are ready to help. Confidentially. Immediately.</p>
+      <div class="pers-hero-ctas">
+        <a href="tel:3013524855" class="btn-urgent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call for Immediate Assistance
+        </a>
+        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/quinnlan-varcoe'});return false;" class="btn-s">Schedule a Confidential Consultation</a>
+      </div>
+      <p class="pers-hero-note">All conversations are protected by NDA. We never share your information.</p>
+    </div>
+    <div class="pers-situation rv">
+      <div class="pers-situation-title">Are Any of These True for You?</div>
+      <ul class="pers-situation-list">
+        <li>Someone knows things they shouldn't — private messages, locations, conversations</li>
+        <li>Your accounts were accessed while you were asleep or away</li>
+        <li>Your ex, a stalker, or a business partner may have installed spyware</li>
+        <li>You need to prove infidelity, fraud, or harassment in court</li>
+        <li>You've received threats and need to identify who sent them</li>
+        <li>Your attorney asked for digital evidence you don't know how to gather</li>
+        <li>You suspect your phone, laptop, or home network has been tampered with</li>
+      </ul>
+      <a href="tel:3013524855" class="pers-situation-cta">
+        📞 Call Now — We Can Help
+      </a>
+    </div>
   </div>
 </section>
 
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head rv">
-      <div class="sect-label">Personal Services</div>
-      <div class="sect-title">Concierge Digital Protection</div>
+<!-- WARNING SIGNS -->
+<section class="pers-signs">
+  <div class="pers-signs-inner">
+    <div class="rv">
+      <div class="sect-label" style="color:#c83232">Warning Signs</div>
+      <h2 class="sect-title">You May Have Already<br>Been Compromised</h2>
+      <p class="sect-desc" style="margin-top:16px">Most victims don't know they've been hacked until significant damage is done. These are the signs that something is wrong.</p>
     </div>
-    <div class="svc-hub-grid stagger">
-      <a href="/services/digital-forensics-personal.html" class="svc-hub-card rv">
-        <div class="pa-num">i.</div>
-        <h3>Personal Digital Forensics</h3>
-        <p>Device analysis, communication recovery, and evidence preservation for individuals.</p>
-        <span class="card-link">Explore Service →</span>
+    <div class="pers-signs-grid stagger">
+      <div class="sign-card rv">
+        <div class="sign-icon">📱</div>
+        <div class="sign-title">Device Behaving Strangely</div>
+        <p class="sign-desc">Battery draining fast, unexplained data usage, apps opening on their own, or your phone running hot — these are classic signs of spyware or unauthorized access.</p>
+      </div>
+      <div class="sign-card rv">
+        <div class="sign-icon">🔐</div>
+        <div class="sign-title">Accounts You Didn't Touch</div>
+        <p class="sign-desc">Login alerts from cities you haven't visited. Password changes you didn't make. New security codes arriving unexpectedly. Your accounts may be under active access.</p>
+      </div>
+      <div class="sign-card rv">
+        <div class="sign-icon">👁️</div>
+        <div class="sign-title">Someone Knows Too Much</div>
+        <p class="sign-desc">A partner, ex, or colleague is referencing private conversations, your location, or financial details they shouldn't have access to. This is surveillance.</p>
+      </div>
+      <div class="sign-card rv">
+        <div class="sign-icon">📧</div>
+        <div class="sign-title">Phishing or Targeted Threats</div>
+        <p class="sign-desc">Receiving messages that reference your personal details, family members, or private activities. This is social engineering — someone has done research on you.</p>
+      </div>
+      <div class="sign-card rv">
+        <div class="sign-icon">💼</div>
+        <div class="sign-title">Business or Financial Exposure</div>
+        <p class="sign-desc">Suspicious transactions, accounts you don't recognize, or assets appearing in places you didn't put them. Digital forensics can trace the origin of financial fraud.</p>
+      </div>
+      <div class="sign-card rv">
+        <div class="sign-icon">⚖️</div>
+        <div class="sign-title">You're Heading to Court</div>
+        <p class="sign-desc">Divorces, business disputes, harassment cases, and custody battles increasingly turn on digital evidence. You need a certified expert to gather and preserve it properly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="pers-services">
+  <div class="pers-services-inner">
+    <div class="rv">
+      <div class="sect-label">How We Help</div>
+      <h2 class="sect-title">Personal Forensic Services</h2>
+      <p class="sect-desc" style="margin-top:16px">Each engagement is handled by a senior forensic analyst — not a call center. Your case is treated with the discretion and urgency it deserves.</p>
+    </div>
+    <div class="pers-svc-grid stagger">
+      <a href="/services/digital-forensics-personal.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">i.</div>
+        <h3>Device Forensic Examination</h3>
+        <p>We examine your phone, laptop, tablet, or home network for signs of unauthorized access, installed spyware, hidden apps, or data exfiltration — without alerting the intruder.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">iOS & Android</span>
+          <span class="pers-svc-tag">Windows & Mac</span>
+          <span class="pers-svc-tag">Network Analysis</span>
+        </div>
       </a>
-      <a href="/services/digital-privacy.html" class="svc-hub-card rv">
-        <div class="pa-num">ii.</div>
-        <h3>Cybersecurity & Privacy Protection</h3>
-        <p>Data broker removal, digital footprint reduction, and ongoing privacy management.</p>
-        <span class="card-link">Explore Service →</span>
-      </a>
-      <a href="/services/account-recovery.html" class="svc-hub-card rv">
-        <div class="pa-num">iii.</div>
+      <a href="/services/account-recovery.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">ii.</div>
         <h3>Account Compromise & Recovery</h3>
-        <p>Rapid response for hacked accounts, identity theft, SIM swaps, and unauthorized access.</p>
-        <span class="card-link">Explore Service →</span>
+        <p>If someone has taken over your email, social media, financial accounts, or cloud storage — we investigate how it happened, recover access, and secure you against re-entry.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">Email Accounts</span>
+          <span class="pers-svc-tag">Social Media</span>
+          <span class="pers-svc-tag">Identity Theft</span>
+        </div>
       </a>
-      <a href="/services/osint-investigation.html" class="svc-hub-card rv">
-        <div class="pa-num">iv.</div>
-        <h3>OSINT & Online Investigation</h3>
-        <p>Open-source intelligence gathering, digital footprint analysis, and pre-litigation research.</p>
-        <span class="card-link">Explore Service →</span>
+      <a href="/services/divorce-forensics.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">iii.</div>
+        <h3>Digital Evidence for Legal Proceedings</h3>
+        <p>Court-ready forensic reports usable in divorce, custody, harassment, business disputes, and civil litigation. We preserve the chain of custody so evidence holds up in court.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">Family Law</span>
+          <span class="pers-svc-tag">Civil Litigation</span>
+          <span class="pers-svc-tag">Chain of Custody</span>
+        </div>
       </a>
-      <a href="/services/executive-cybersecurity.html" class="svc-hub-card rv">
-        <div class="pa-num">v.</div>
-        <h3>Executive Cybersecurity & Digital Protection</h3>
-        <p>Comprehensive personal cybersecurity for board members and C-suite executives.</p>
-        <span class="card-link">Explore Service →</span>
+      <a href="/services/osint-investigation.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">iv.</div>
+        <h3>Identity & Threat Investigation</h3>
+        <p>We identify anonymous harassers, trace the origin of threats, expose fake accounts or impersonators, and build a documented case you can take to law enforcement or your attorney.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">OSINT</span>
+          <span class="pers-svc-tag">Threat Attribution</span>
+          <span class="pers-svc-tag">Stalker Identification</span>
+        </div>
       </a>
-      <a href="/services/divorce-forensics.html" class="svc-hub-card rv">
-        <div class="pa-num">vi.</div>
-        <h3>Divorce Digital Forensics</h3>
-        <p>Device analysis, asset discovery, and evidence preservation for family law proceedings.</p>
-        <span class="card-link">Explore Service →</span>
+      <a href="/services/digital-privacy.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">v.</div>
+        <h3>Privacy Restoration & Protection</h3>
+        <p>After a breach, we remove your personal data from data brokers, eliminate your digital footprint, and set up ongoing monitoring so you know the moment anything resurfaces.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">Data Broker Removal</span>
+          <span class="pers-svc-tag">Dark Web Monitoring</span>
+          <span class="pers-svc-tag">Ongoing Surveillance</span>
+        </div>
       </a>
-      <a href="/services/expert-witness.html" class="svc-hub-card rv">
-        <div class="pa-num">vii.</div>
-        <h3>Cybersecurity Expert Witness</h3>
-        <p>Credible, defensible technical testimony for litigation, arbitration, and regulatory proceedings.</p>
-        <span class="card-link">Explore Service →</span>
+      <a href="/services/expert-witness.html" class="pers-svc-card rv">
+        <div class="pers-svc-num">vi.</div>
+        <h3>Expert Witness & Court Testimony</h3>
+        <p>Our principal analyst provides credible, defensible expert testimony in depositions, arbitration, and trial proceedings. Trusted by attorneys handling high-stakes digital cases.</p>
+        <div class="pers-svc-tags">
+          <span class="pers-svc-tag">Depositions</span>
+          <span class="pers-svc-tag">Trial Testimony</span>
+          <span class="pers-svc-tag">Attorney Support</span>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
-<div class="cta-band rv">
-  <div class="sect-label">Get Started</div>
-  <div class="sect-title">Ready to Strengthen Your Security?</div>
-  <p class="sect-desc">Schedule a confidential consultation to discuss your needs.</p>
-  <a href="/contact.html" class="btn btn-p">Schedule Consultation</a>
+<!-- LEGAL SECTION -->
+<section class="pers-legal">
+  <div class="pers-legal-inner">
+    <div class="rv">
+      <blockquote class="pers-legal-quote">"Digital evidence vanishes quickly. The moment you suspect something is wrong — every hour matters."</blockquote>
+    </div>
+    <div class="rv">
+      <div class="sect-label" style="color:#c83232">For Legal Matters</div>
+      <h2>Building Your Case<br>Before Court</h2>
+      <p class="pers-legal-sub">If you're working with an attorney on a divorce, custody dispute, harassment case, or civil fraud claim — we gather and preserve digital evidence in a format that is legally defensible and chain-of-custody compliant.</p>
+      <ul class="pers-legal-list">
+        <li>Text message and email deletion recovery</li>
+        <li>Proof of location via device and app data</li>
+        <li>Financial account access logs and unauthorized transfers</li>
+        <li>Hidden asset discovery via digital footprint analysis</li>
+        <li>Spyware documentation for restraining order proceedings</li>
+        <li>Social media account audit and screenshot authentication</li>
+        <li>Attorney-ready forensic reports with chain of custody</li>
+      </ul>
+      <div style="margin-top:32px">
+        <a href="tel:3013524855" class="btn-urgent">Call for Immediate Assistance</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY PROMISE -->
+<div class="pers-privacy">
+  <div class="pers-privacy-inner">
+    <div class="pers-privacy-item">NDA-Protected Engagement</div>
+    <div class="pers-privacy-item">No Information Shared Without Consent</div>
+    <div class="pers-privacy-item">Senior Analyst Handles Your Case Directly</div>
+    <div class="pers-privacy-item">Evidence Admissible in U.S. Courts</div>
+    <div class="pers-privacy-item">Available 24/7 for Active Incidents</div>
+  </div>
 </div>
+
+<!-- URGENT CTA -->
+<section class="pers-cta rv">
+  <div class="sect-label">Get Help Now</div>
+  <h2>Don't Wait.<br><em>Evidence Disappears.</em></h2>
+  <p>The longer you wait, the harder it becomes to recover deleted data, trace unauthorized access, or build a legal case. Our forensic team is available now.</p>
+  <div class="pers-cta-btns">
+    <a href="tel:3013524855" class="btn-urgent" style="font-size:13px;padding:20px 40px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call for Immediate Assistance
+    </a>
+    <span class="pers-cta-divider">or</span>
+    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/quinnlan-varcoe'});return false;" class="btn btn-s">Schedule Confidential Consultation</a>
+  </div>
+  <div class="pers-cta-phone">
+    <a href="tel:3013524855">301-352-4855</a>
+    <div class="pers-cta-phone-sub">Answered by a senior analyst · Available 24/7</div>
+  </div>
+</section>
 
 <footer>
   <div class="ft-inner">
-    <div><div class="ft-brand"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></div><p class="ft-desc">Trusted cybersecurity advisory for defense contractors, enterprises, and high-value individuals.</p></div>
-    <div class="ft-col"><h4>Services</h4><a href="/services/incident-response.html">Incident Response</a><a href="/services/managed-detection.html">MDR Services</a><a href="/services/vciso.html">vCISO Services</a><a href="/services/penetration-testing.html">Penetration Testing</a></div>
-    <div class="ft-col"><h4>Company</h4><a href="/">Home</a><a href="/services/">Services</a><a href="/partnerships/">Partnerships</a><a href="/contact.html">Contact</a></div>
-    <div class="ft-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:quinn@digitalforensics.company">Email</a></div>
+    <div><div class="ft-brand"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></div><p class="ft-desc">Private forensic investigations for individuals, executives, and legal teams. Discreet. Decisive. Defensible.</p></div>
+    <div class="ft-col"><h4>Personal Services</h4><a href="/services/digital-forensics-personal.html">Personal Forensics</a><a href="/services/account-recovery.html">Account Recovery</a><a href="/services/divorce-forensics.html">Divorce Forensics</a><a href="/services/expert-witness.html">Expert Witness</a><a href="/services/digital-privacy.html">Privacy Protection</a></div>
+    <div class="ft-col"><h4>Contact</h4><a href="tel:3013524855">301-352-4855</a><a href="mailto:quinn@digitalforensics.company">quinn@digitalforensics.company</a><a href="/contact.html">Contact Form</a></div>
+    <div class="ft-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener">LinkedIn</a><a href="/">Home</a><a href="/services/">All Services</a></div>
   </div>
   <div class="ft-btm"><span>© 2026 Blueberry Security Global, Inc. All rights reserved.</span><span>U.S.-Based · ITAR-Compliant · NDA-Protected</span></div>
 <div class="ft-dba">Digital Forensics Company is a trade name (DBA) for Blueberry Security Global, Inc.</div>
 </footer>
-
-<div class="mob-cta"><a href="/contact.html">Schedule Consultation</a></div>
 
 <a href="tel:3013524855" class="call-fab" aria-label="Call Now: 301-352-4855">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>

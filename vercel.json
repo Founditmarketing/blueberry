@@ -545,6 +545,31 @@
       "source": "/services/workflow-automation",
       "destination": "/services/soar-automation",
       "permanent": true
+    },
+    {
+      "source": "/services/threat-intelligence.html",
+      "destination": "/services/threat-intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/services/cti",
+      "destination": "/services/threat-intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/services/cyber-threat-intelligence",
+      "destination": "/services/threat-intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/services/intelligence-feed",
+      "destination": "/services/threat-intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/services/ioc-feed",
+      "destination": "/services/threat-intelligence",
+      "permanent": true
     }
   ],
   "cleanUrls": true,

@@ -280,10 +280,11 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target) }
   })
-}, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' })
+}, { threshold: 0.01, rootMargin: '0px 0px 0px 0px' })
 
 document.querySelectorAll('.rv').forEach(el => obs.observe(el))
+// Fallback: force-show any remaining hidden elements (catches mobile edge cases)
 setTimeout(() => {
   document.querySelectorAll('.rv:not(.vis)').forEach(el => el.classList.add('vis'))
-}, 3000)
+}, 1500)
 

@@ -431,3 +431,15 @@ body{animation:pageIn .35s ease-out}
   .svc-hub-card h3{font-size:22px}
   .tst-quote{font-size:15px}
 }
+
+/* ─── Personal Pricing Mobile Fix ─── */
+#personal-pricing{display:block!important;visibility:visible!important;opacity:1!important}
+#personal-pricing .rv{opacity:1!important;transform:none!important}
+@media(max-width:768px){
+  #personal-pricing{display:block!important}
+  #personal-pricing .pricing-grid{grid-template-columns:1fr;border:1px solid var(--border)}
+  #personal-pricing .price-card{border-right:none;border-bottom:1px solid var(--border);width:100%;box-sizing:border-box}
+  #personal-pricing .price-card:last-child{border-bottom:none}
+  #personal-pricing .rv{opacity:1!important;transform:none!important}
+  #personal-pricing .sect-head{margin-bottom:48px}
+}

@@ -117,3 +117,30 @@ nav{z-index:101}
 .cta-phone a:hover{color:var(--gold-light)}
 .cta-phone span{font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;font-weight:500}
 @media(max-width:768px){.cta-phone a{font-size:22px}}
+
+/* ─── BOOKING SECTION ─── */
+.booking-wrap{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.booking-desc{font-size:15px;color:var(--text2);line-height:1.9;margin-top:16px;margin-bottom:28px;max-width:480px}
+.booking-features{list-style:none;display:flex;flex-direction:column;gap:0}
+.booking-features li{font-size:13px;color:var(--text2);padding:10px 0;border-bottom:1px solid var(--border);padding-left:20px;position:relative;transition:color .3s}
+.booking-features li:first-child{border-top:1px solid var(--border)}
+.booking-features li:hover{color:var(--text)}
+.booking-features li::before{content:'';position:absolute;left:0;top:50%;width:8px;height:1px;background:var(--gold)}
+.booking-card{background:var(--bg2);border:1px solid var(--border);padding:48px 40px;text-align:center;position:relative;transition:border-color .4s}
+.booking-card:hover{border-color:var(--border-h)}
+.booking-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:2px;background:var(--gold)}
+.booking-card-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.booking-card-title{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:8px;line-height:1.2}
+.booking-card-sub{font-size:12px;color:var(--text3);letter-spacing:.5px;margin-bottom:36px}
+.booking-btn{width:100%;justify-content:center;gap:10px;font-size:12px}
+.booking-alt{margin-top:20px;font-size:12px;color:var(--text3);letter-spacing:.3px}
+.booking-alt a{color:var(--gold);font-weight:600;transition:color .3s}
+.booking-alt a:hover{color:var(--gold-light)}
+@media(max-width:1024px){
+  .booking-wrap{grid-template-columns:1fr;gap:48px}
+  .booking-card{max-width:480px;margin:0 auto;width:100%}
+}
+@media(max-width:768px){
+  .booking-card{padding:36px 24px}
+  .booking-card-title{font-size:22px}
+}

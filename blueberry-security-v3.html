@@ -305,6 +305,8 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
   .plat{padding:7px 12px;font-size:10px}
 }
 </style>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -423,7 +425,7 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
         </div>
       </div>
     </div>
-    <a href="https://calendly.com/quinnlan-varcoe" target="_blank" class="ncta">Consultation</a>
+    <a onclick="Calendly.initPopupWidget({url:'https://calendly.com/quinnlan-varcoe'});return false;" href="" class="ncta">Consultation</a>
   </div>
   <button class="mob-t" aria-label="Open menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>

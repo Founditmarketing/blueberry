@@ -72,6 +72,20 @@ gtag('config', 'G-1RNGSCZ3Z9');
 .cert-acronym{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--cc,var(--gold));line-height:1;margin-bottom:6px}
 .cert-name{font-size:10px;font-weight:600;color:var(--text);letter-spacing:.5px;line-height:1.4;margin-bottom:4px}
 .cert-issuer{font-size:9px;color:var(--text2);letter-spacing:1px;text-transform:uppercase}
+.cert-card{cursor:pointer}
+.cert-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:10000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+.cert-modal-overlay.open{display:flex}
+.cert-modal{background:var(--bg2);border:1px solid var(--border-h);border-radius:8px;max-width:480px;width:100%;position:relative;animation:cmIn .25s var(--ease)}
+@keyframes cmIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cert-modal-bar{height:4px;border-radius:8px 8px 0 0;background:var(--cm-color,var(--gold))}
+.cert-modal-body{padding:32px}
+.cert-modal-acronym{font-family:var(--serif);font-size:42px;font-weight:500;color:var(--cm-color,var(--gold));line-height:1;margin-bottom:4px}
+.cert-modal-fullname{font-size:13px;font-weight:600;color:var(--text);letter-spacing:.5px;margin-bottom:4px}
+.cert-modal-issuer{font-size:10px;color:var(--text2);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.cert-modal-desc{font-size:13.5px;color:var(--text2);line-height:1.8}
+.cert-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;line-height:1;transition:color .2s}
+.cert-modal-close:hover{color:var(--text)}
+
 @media(max-width:1024px){.hero-body{grid-template-columns:1fr;gap:48px}.hero-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:32px}.hero-stats{flex-direction:row;gap:48px}.home-svc{grid-template-columns:1fr 1fr}.home-svc-card{border-bottom:1px solid var(--border)}.home-svc-card:nth-child(2){border-right:none}}
 @media(max-width:768px){.hero{padding:0 20px}.hero h1 .l1,.hero h1 .l2{font-size:clamp(36px,10vw,52px)}.hero-content{padding-bottom:8vh}.hero-stats{flex-direction:column;gap:24px}.hero-right{padding-top:24px}.h-stat .val{font-size:36px}.home-svc{grid-template-columns:1fr}.home-svc-card{border-right:none!important;border-bottom:1px solid var(--border)}.home-svc-card:last-child{border-bottom:none}}
 @media(max-width:480px){.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;justify-content:center}}
@@ -283,39 +297,39 @@ gtag('config', 'G-1RNGSCZ3Z9');
   <div class="cert-track-wrap">
     <div class="cert-track">
       <!-- SET 1 -->
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">GCIH</div><div class="cert-name">Incident Handler</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#27ae60"><div class="cert-acronym">GCCC</div><div class="cert-name">Critical Controls</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#e67e22"><div class="cert-acronym">OSCP</div><div class="cert-name">Offensive Security Certified Professional</div><div class="cert-issuer">Offensive Security</div></div>
-      <div class="cert-card" style="--cc:#2980b9"><div class="cert-acronym">GCSA</div><div class="cert-name">Cloud Security Automation</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1a5276"><div class="cert-acronym">GMOB</div><div class="cert-name">Mobile Device Security</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#2471a3"><div class="cert-acronym">GPYC</div><div class="cert-name">Python Coder</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#6c3483"><div class="cert-acronym">GFACT</div><div class="cert-name">Foundational Cybersecurity</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#117a65"><div class="cert-acronym">GISF</div><div class="cert-name">Information Security Fundamentals</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1f618d"><div class="cert-acronym">GCIA</div><div class="cert-name">Intrusion Analyst</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1b2631"><div class="cert-acronym">GSEC</div><div class="cert-name">Security Essentials</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified Power User</div><div class="cert-issuer">Splunk</div></div>
-      <div class="cert-card" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified User</div><div class="cert-issuer">Splunk</div></div>
-      <div class="cert-card" style="--cc:#ff9900"><div class="cert-acronym">SAA</div><div class="cert-name">Solutions Architect Associate</div><div class="cert-issuer">AWS</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('GCIH')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">GCIH</div><div class="cert-name">Incident Handler</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GCCC')" role="button" tabindex="0" style="--cc:#27ae60"><div class="cert-acronym">GCCC</div><div class="cert-name">Critical Controls</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('OSCP')" role="button" tabindex="0" style="--cc:#e67e22"><div class="cert-acronym">OSCP</div><div class="cert-name">Offensive Security Certified Professional</div><div class="cert-issuer">Offensive Security</div></div>
+      <div class="cert-card" onclick="showCert('GCSA')" role="button" tabindex="0" style="--cc:#2980b9"><div class="cert-acronym">GCSA</div><div class="cert-name">Cloud Security Automation</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GMOB')" role="button" tabindex="0" style="--cc:#1a5276"><div class="cert-acronym">GMOB</div><div class="cert-name">Mobile Device Security</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GPYC')" role="button" tabindex="0" style="--cc:#2471a3"><div class="cert-acronym">GPYC</div><div class="cert-name">Python Coder</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GFACT')" role="button" tabindex="0" style="--cc:#6c3483"><div class="cert-acronym">GFACT</div><div class="cert-name">Foundational Cybersecurity</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GISF')" role="button" tabindex="0" style="--cc:#117a65"><div class="cert-acronym">GISF</div><div class="cert-name">Information Security Fundamentals</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GCIA')" role="button" tabindex="0" style="--cc:#1f618d"><div class="cert-acronym">GCIA</div><div class="cert-name">Intrusion Analyst</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GSEC')" role="button" tabindex="0" style="--cc:#1b2631"><div class="cert-acronym">GSEC</div><div class="cert-name">Security Essentials</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('SPLK_POWER')" role="button" tabindex="0" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified Power User</div><div class="cert-issuer">Splunk</div></div>
+      <div class="cert-card" onclick="showCert('SPLK_USER')" role="button" tabindex="0" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified User</div><div class="cert-issuer">Splunk</div></div>
+      <div class="cert-card" onclick="showCert('SAA')" role="button" tabindex="0" style="--cc:#ff9900"><div class="cert-acronym">SAA</div><div class="cert-name">Solutions Architect Associate</div><div class="cert-issuer">AWS</div></div>
+      <div class="cert-card" onclick="showCert('CSAP')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('CYSA')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('SECPLUS')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
       <!-- SET 2 (duplicate for seamless loop) -->
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">GCIH</div><div class="cert-name">Incident Handler</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#27ae60"><div class="cert-acronym">GCCC</div><div class="cert-name">Critical Controls</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#e67e22"><div class="cert-acronym">OSCP</div><div class="cert-name">Offensive Security Certified Professional</div><div class="cert-issuer">Offensive Security</div></div>
-      <div class="cert-card" style="--cc:#2980b9"><div class="cert-acronym">GCSA</div><div class="cert-name">Cloud Security Automation</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1a5276"><div class="cert-acronym">GMOB</div><div class="cert-name">Mobile Device Security</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#2471a3"><div class="cert-acronym">GPYC</div><div class="cert-name">Python Coder</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#6c3483"><div class="cert-acronym">GFACT</div><div class="cert-name">Foundational Cybersecurity</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#117a65"><div class="cert-acronym">GISF</div><div class="cert-name">Information Security Fundamentals</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1f618d"><div class="cert-acronym">GCIA</div><div class="cert-name">Intrusion Analyst</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#1b2631"><div class="cert-acronym">GSEC</div><div class="cert-name">Security Essentials</div><div class="cert-issuer">GIAC</div></div>
-      <div class="cert-card" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified Power User</div><div class="cert-issuer">Splunk</div></div>
-      <div class="cert-card" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified User</div><div class="cert-issuer">Splunk</div></div>
-      <div class="cert-card" style="--cc:#ff9900"><div class="cert-acronym">SAA</div><div class="cert-name">Solutions Architect Associate</div><div class="cert-issuer">AWS</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
-      <div class="cert-card" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('GCIH')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">GCIH</div><div class="cert-name">Incident Handler</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GCCC')" role="button" tabindex="0" style="--cc:#27ae60"><div class="cert-acronym">GCCC</div><div class="cert-name">Critical Controls</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('OSCP')" role="button" tabindex="0" style="--cc:#e67e22"><div class="cert-acronym">OSCP</div><div class="cert-name">Offensive Security Certified Professional</div><div class="cert-issuer">Offensive Security</div></div>
+      <div class="cert-card" onclick="showCert('GCSA')" role="button" tabindex="0" style="--cc:#2980b9"><div class="cert-acronym">GCSA</div><div class="cert-name">Cloud Security Automation</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GMOB')" role="button" tabindex="0" style="--cc:#1a5276"><div class="cert-acronym">GMOB</div><div class="cert-name">Mobile Device Security</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GPYC')" role="button" tabindex="0" style="--cc:#2471a3"><div class="cert-acronym">GPYC</div><div class="cert-name">Python Coder</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GFACT')" role="button" tabindex="0" style="--cc:#6c3483"><div class="cert-acronym">GFACT</div><div class="cert-name">Foundational Cybersecurity</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GISF')" role="button" tabindex="0" style="--cc:#117a65"><div class="cert-acronym">GISF</div><div class="cert-name">Information Security Fundamentals</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GCIA')" role="button" tabindex="0" style="--cc:#1f618d"><div class="cert-acronym">GCIA</div><div class="cert-name">Intrusion Analyst</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('GSEC')" role="button" tabindex="0" style="--cc:#1b2631"><div class="cert-acronym">GSEC</div><div class="cert-name">Security Essentials</div><div class="cert-issuer">GIAC</div></div>
+      <div class="cert-card" onclick="showCert('SPLK_POWER')" role="button" tabindex="0" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified Power User</div><div class="cert-issuer">Splunk</div></div>
+      <div class="cert-card" onclick="showCert('SPLK_USER')" role="button" tabindex="0" style="--cc:#00a65a"><div class="cert-acronym">SPLK</div><div class="cert-name">Core Certified User</div><div class="cert-issuer">Splunk</div></div>
+      <div class="cert-card" onclick="showCert('SAA')" role="button" tabindex="0" style="--cc:#ff9900"><div class="cert-acronym">SAA</div><div class="cert-name">Solutions Architect Associate</div><div class="cert-issuer">AWS</div></div>
+      <div class="cert-card" onclick="showCert('CSAP')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('CYSA')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('SPLK_POWER')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
     </div>
   </div>
 </div>
@@ -661,5 +675,143 @@ gtag('config', 'G-1RNGSCZ3Z9');
   });
 })();
 </script>
+
+<!-- CERTIFICATION MODAL -->
+<div class="cert-modal-overlay" id="certModal" onclick="if(event.target===this)closeCert()">
+  <div class="cert-modal">
+    <div class="cert-modal-bar" id="cmBar"></div>
+    <div class="cert-modal-body">
+      <div class="cert-modal-acronym" id="cmAcronym"></div>
+      <div class="cert-modal-fullname" id="cmFullname"></div>
+      <div class="cert-modal-issuer" id="cmIssuer"></div>
+      <div class="cert-modal-desc" id="cmDesc"></div>
+    </div>
+    <button class="cert-modal-close" onclick="closeCert()" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<script>
+var CERTS = {
+  GCIH: {
+    acronym:'GCIH', color:'#c0392b',
+    full:'GIAC Certified Incident Handler',
+    issuer:'GIAC / SANS Institute',
+    desc:'One of the most respected certifications in digital forensics and incident response. The GCIH validates the ability to detect, respond to, and resolve computer security incidents—covering threat identification, network traffic analysis, forensic investigation, and adversary containment. Issued by GIAC, the certification arm of the SANS Institute, the world's largest cybersecurity training organization.'
+  },
+  GCCC: {
+    acronym:'GCCC', color:'#27ae60',
+    full:'GIAC Critical Controls Certification',
+    issuer:'GIAC / SANS Institute',
+    desc:'Demonstrates mastery of the CIS Critical Security Controls (CIS 18)—the most authoritative prioritized framework for cyber defense. The GCCC validates the ability to implement, assess, and audit each of the 18 critical controls that defend against the most common and damaging cyber attack patterns, as identified by real-world threat intelligence data.'
+  },
+  OSCP: {
+    acronym:'OSCP', color:'#e67e22',
+    full:'Offensive Security Certified Professional',
+    issuer:'Offensive Security (OffSec)',
+    desc:'Widely regarded as the gold standard in penetration testing certifications. The OSCP requires candidates to compromise multiple real machines in a live network during a grueling 24-hour hands-on exam—no multiple choice, no simulations. Only professionals who can demonstrate actual exploitation skills pass. Issued by Offensive Security, creators of Kali Linux and the Metasploit integration framework.'
+  },
+  GCSA: {
+    acronym:'GCSA', color:'#2980b9',
+    full:'GIAC Cloud Security Automation',
+    issuer:'GIAC / SANS Institute',
+    desc:'Validates advanced expertise in securing cloud environments through automation, infrastructure-as-code security, and DevSecOps practices. Covers cloud-native security controls, policy-as-code, container security, and continuous compliance monitoring across AWS, Azure, and GCP platforms.'
+  },
+  GMOB: {
+    acronym:'GMOB', color:'#1a5276',
+    full:'GIAC Mobile Device Security Analyst',
+    issuer:'GIAC / SANS Institute',
+    desc:'Proves the ability to assess mobile device security, perform mobile application penetration testing, and implement enterprise mobile security controls. Covers iOS and Android internals, mobile malware analysis, MDM bypass techniques, and secure app development practices—critical skills as mobile devices become primary attack surfaces.'
+  },
+  GPYC: {
+    acronym:'GPYC', color:'#2471a3',
+    full:'GIAC Python Coder',
+    issuer:'GIAC / SANS Institute',
+    desc:'Validates proficiency in Python programming applied to cybersecurity workflows—covering scripting for automation, custom security tool development, data parsing, network programming, and integrating with security APIs. Enables security professionals to build and customize tooling rather than relying solely on off-the-shelf solutions.'
+  },
+  GFACT: {
+    acronym:'GFACT', color:'#6c3483',
+    full:'GIAC Foundational Cybersecurity Technologies',
+    issuer:'GIAC / SANS Institute',
+    desc:'Validates foundational knowledge across the core technical disciplines of cybersecurity: computer science fundamentals, networking, operating systems, programming concepts, and essential security principles. Serves as a benchmark for entry into professional cybersecurity roles and demonstrates a rigorous structured foundation in the field.'
+  },
+  GISF: {
+    acronym:'GISF', color:'#117a65',
+    full:'GIAC Information Security Fundamentals',
+    issuer:'GIAC / SANS Institute',
+    desc:'Validates understanding of key information security management concepts, network and internet security principles, and risk management frameworks. Demonstrates a comprehensive grasp of the security landscape for professionals responsible for protecting organizational assets and advising on security policy.'
+  },
+  GCIA: {
+    acronym:'GCIA', color:'#1f618d',
+    full:'GIAC Certified Intrusion Analyst',
+    issuer:'GIAC / SANS Institute',
+    desc:'Validates deep expertise in network traffic analysis, intrusion detection, and threat signature development. GCIA-certified analysts can capture, filter, and analyze network packets to identify attacker activity, distinguish malicious traffic from normal behavior, and develop custom detection signatures—core skills for SOC analysts and threat hunters.'
+  },
+  GSEC: {
+    acronym:'GSEC', color:'#566573',
+    full:'GIAC Security Essentials',
+    issuer:'GIAC / SANS Institute',
+    desc:'One of GIAC's most recognized certifications and an industry benchmark for hands-on cybersecurity competency. The GSEC validates comprehensive knowledge across a wide range of security disciplines—access controls, cryptography, network security, incident response, and more—demonstrating practitioners can perform security tasks beyond theoretical knowledge.'
+  },
+  SPLK_POWER: {
+    acronym:'SPLK', color:'#00a65a',
+    full:'Splunk Core Certified Power User',
+    issuer:'Splunk',
+    desc:'Advanced Splunk certification validating expertise in creating data models, using advanced Search Processing Language (SPL), building complex reports, accelerating data models, and administering Splunk knowledge objects. Power Users design the detection and reporting infrastructure that security teams rely on for threat visibility and incident investigation.'
+  },
+  SPLK_USER: {
+    acronym:'SPLK', color:'#00a65a',
+    full:'Splunk Core Certified User',
+    issuer:'Splunk',
+    desc:'Validates proficiency in Splunk fundamentals—searching, using fields, creating alerts, working with look-ups, and building statistical reports and dashboards. Splunk is the most widely deployed SIEM/log management platform in enterprise security operations centers, making this certification a practical indicator of operational security analytics ability.'
+  },
+  SAA: {
+    acronym:'SAA', color:'#ff9900',
+    full:'AWS Solutions Architect — Associate',
+    issuer:'Amazon Web Services',
+    desc:'One of the most sought-after cloud certifications globally. The AWS SAA validates expertise in designing distributed, highly available, fault-tolerant, and scalable systems on Amazon Web Services. For cybersecurity professionals, this translates to deep understanding of cloud architecture, IAM policies, network security groups, encryption, and the shared responsibility model—essential for cloud incident response and cloud security architecture.'
+  },
+  CSAP: {
+    acronym:'CSAP', color:'#c0392b',
+    full:'CompTIA Security Analytics Professional (CSAP)',
+    issuer:'CompTIA',
+    desc:'A stackable certification representing the combination of Security+, CySA+, and advanced security analytics competencies. The CSAP designation validates a professional-level mastery of cybersecurity analytics—from baseline security operations through advanced behavioral analysis, threat hunting, and security data correlation.'
+  },
+  CYSA: {
+    acronym:'CySA+', color:'#c0392b',
+    full:'CompTIA Cybersecurity Analyst (CySA+)',
+    issuer:'CompTIA',
+    desc:'Validates the ability to apply behavioral analytics to network and endpoint data to detect, prevent, and combat cybersecurity threats. CySA+ focuses on continuous security monitoring, threat intelligence application, and incident response—the day-to-day operational skills of a cybersecurity analyst working in a SOC or threat operations environment.'
+  },
+  SECPLUS: {
+    acronym:'Sec+', color:'#c0392b',
+    full:'CompTIA Security+',
+    issuer:'CompTIA',
+    desc:'The industry-standard baseline certification for cybersecurity professionals worldwide, and an approved credential under DoD Directive 8570.01-M for government cyber roles. Security+ validates core security functions including threat assessment, cryptography, network security, identity management, and risk management—recognized globally as the minimum benchmark for entry into professional cybersecurity practice.'
+  }
+};
+
+function showCert(code) {
+  var c = CERTS[code];
+  if (!c) return;
+  document.getElementById('cmAcronym').textContent = c.acronym;
+  document.getElementById('cmFullname').textContent = c.full;
+  document.getElementById('cmIssuer').textContent = c.issuer;
+  document.getElementById('cmDesc').textContent = c.desc;
+  document.getElementById('cmBar').style.background = c.color;
+  document.getElementById('cmAcronym').style.color = c.color;
+  document.getElementById('certModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCert() {
+  document.getElementById('certModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCert();
+});
+</script>
+
 </body>
 </html>

@@ -443,3 +443,31 @@ body{animation:pageIn .35s ease-out}
   #personal-pricing .rv{opacity:1!important;transform:none!important}
   #personal-pricing .sect-head{margin-bottom:48px}
 }
+
+/* ═══ GLITCH FIXES ═══ */
+
+/* 1. Remove stray diamond ◆ divider symbols from nav area */
+.divider::after{display:none}
+
+/* 2. Fix mobile floating CTA - reduce overlap, raise z-index below nav */
+.mob-cta{bottom:16px;right:12px;z-index:90}
+.mob-cta a{font-size:10px;padding:12px 18px;border-radius:3px;box-shadow:0 2px 16px rgba(0,0,0,.5)}
+
+/* 3. Nav dropdown chevron - prevent it looking like a broken glyph */
+.nk .nav-dd>a::after{border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;width:5px;height:5px;margin-left:5px}
+
+/* 4. Mega menu - ensure it clears the scroll progress bar */
+.mega{z-index:99}
+#sp{z-index:9999}
+
+/* 5. Prevent nav from overlapping first section heading on scroll */
+.sect,.sect-alt{scroll-margin-top:80px}
+
+/* 6. Fix mobile CTA not overlapping pricing/testimonial sections */
+@media(max-width:768px){
+  .mob-cta{bottom:12px;right:10px}
+  .mob-cta a{font-size:9px;padding:10px 14px;letter-spacing:.5px}
+}
+@media(max-width:480px){
+  .mob-cta{display:none}
+}

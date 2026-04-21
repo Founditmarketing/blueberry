@@ -281,6 +281,7 @@ footer{border-top:1px solid var(--border);padding:64px clamp(24px,4vw,64px) 32px
 .ft-col a{display:block;font-size:13px;color:var(--text2);margin-bottom:8px;transition:color .3s}
 .ft-col a:hover{color:var(--gold)}
 .ft-btm{max-width:var(--max);margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:10px;color:var(--text3);letter-spacing:.5px}
+.ft-dba{max-width:var(--max);margin:10px auto 0;font-size:10px;color:var(--text3);opacity:.5;letter-spacing:.3px;text-align:center}
 
 /* ─── MOBILE CTA ─── */
 .mob-cta{display:none;position:fixed;bottom:20px;right:16px;z-index:99}

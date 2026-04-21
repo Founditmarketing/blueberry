@@ -525,6 +525,26 @@
       "source": "/services/federal-soc-operations.html",
       "destination": "/services/federal-soc-operations",
       "permanent": true
+    },
+    {
+      "source": "/services/soar",
+      "destination": "/services/soar-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/soar-automation.html",
+      "destination": "/services/soar-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/security-orchestration",
+      "destination": "/services/soar-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/workflow-automation",
+      "destination": "/services/soar-automation",
+      "permanent": true
     }
   ],
   "cleanUrls": true,

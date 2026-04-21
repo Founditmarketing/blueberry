@@ -500,6 +500,31 @@
       "source": "/services/referral-partnerships.html",
       "destination": "/services/referral-partnerships",
       "permanent": true
+    },
+    {
+      "source": "/services/federal-soc",
+      "destination": "/services/federal-soc-operations",
+      "permanent": true
+    },
+    {
+      "source": "/services/soc-design",
+      "destination": "/services/federal-soc-operations",
+      "permanent": true
+    },
+    {
+      "source": "/services/federal",
+      "destination": "/services/federal-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/federal-services.html",
+      "destination": "/services/federal-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/federal-soc-operations.html",
+      "destination": "/services/federal-soc-operations",
+      "permanent": true
     }
   ],
   "cleanUrls": true,

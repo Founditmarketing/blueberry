@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -27,7 +27,6 @@ export default async function handler(req, res) {
         <span style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,228,220,0.5)">New Inquiry</span>
         <h2 style="margin:8px 0 0;font-size:22px;font-weight:400;color:#c4a265;">Digital Forensics .company</h2>
       </div>
-
       <table style="width:100%;border-collapse:collapse;">
         <tr>
           <td style="padding:10px 0;border-bottom:1px solid #2a2a35;color:rgba(232,228,220,0.5);font-size:12px;text-transform:uppercase;letter-spacing:1px;width:140px;">Name</td>
@@ -50,7 +49,6 @@ export default async function handler(req, res) {
           <td style="padding:10px 0;color:#e8e4dc;font-size:14px;line-height:1.7;">${message.replace(/\n/g, '<br>')}</td>
         </tr>` : ''}
       </table>
-
       <div style="margin-top:32px;padding-top:16px;border-top:1px solid #2a2a35;font-size:11px;color:rgba(232,228,220,0.4);">
         Submitted via digitalforensics.company contact form
       </div>
@@ -61,14 +59,14 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': 'Bearer ' + apiKey,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         from: 'Digital Forensics .company <hello@digitalforensics.company>',
         to: ['Jason@founditmarketing.com'],
         reply_to: email,
-        subject: `New Inquiry: ${inquiryType || 'General'} — ${name}`,
+        subject: 'New Inquiry: ' + (inquiryType || 'General') + ' \u2014 ' + name,
         html: htmlBody,
       }),
     });
@@ -85,4 +83,4 @@ export default async function handler(req, res) {
     console.error('API error:', err);
     return res.status(500).json({ error: 'Server error. Please try again.' });
   }
-}
+};

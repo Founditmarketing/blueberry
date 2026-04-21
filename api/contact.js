@@ -64,7 +64,7 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Digital Forensics .company <hello@digitalforensics.company>',
-        to: ['Jason@founditmarketing.com'],
+        to: ['quinn@digitalforensics.company'],
         reply_to: email,
         subject: 'New Inquiry: ' + (inquiryType || 'General') + ' \u2014 ' + name,
         html: htmlBody,

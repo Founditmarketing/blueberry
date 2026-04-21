@@ -46,6 +46,53 @@ window.addEventListener('scroll', () => {
 
 if (ban) window.addEventListener('resize', () => { bH = ban.offsetHeight; if (scrollY <= bH) nav.style.top = bH + 'px'; syncMegaTop() })
 
+// ─── Mega Menu Hover — delay-close so cursor can cross the gap ───
+// The mega is position:fixed (not a child of nav-dd), so pure CSS :hover
+// drops the menu the instant the cursor leaves the nav-dd element.
+// Solution: mouseenter opens immediately; mouseleave starts a 200ms timer
+// that is cancelled if the cursor reaches the mega panel before it fires.
+;(function() {
+  const dropdowns = document.querySelectorAll('.nav-dd')
+  dropdowns.forEach(dd => {
+    const mega = dd.querySelector('.mega')
+    if (!mega) return
+    let closeTimer = null
+
+    function openMega() {
+      clearTimeout(closeTimer)
+      // Remove active from all others first
+      dropdowns.forEach(other => {
+        if (other !== dd) other.classList.remove('dd-active')
+      })
+      dd.classList.add('dd-active')
+      mega.classList.add('mega-open')
+    }
+
+    function schedulClose() {
+      clearTimeout(closeTimer)
+      closeTimer = setTimeout(() => {
+        dd.classList.remove('dd-active')
+        mega.classList.remove('mega-open')
+      }, 200)
+    }
+
+    dd.addEventListener('mouseenter', openMega)
+    dd.addEventListener('mouseleave', schedulClose)
+    mega.addEventListener('mouseenter', () => clearTimeout(closeTimer))
+    mega.addEventListener('mouseleave', schedulClose)
+  })
+
+  // Click anywhere else closes all megas
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-dd') && !e.target.closest('.mega')) {
+      dropdowns.forEach(dd => dd.classList.remove('dd-active'))
+      document.querySelectorAll('.mega').forEach(m => m.classList.remove('mega-open'))
+    }
+  })
+})()
+
+
+
 // ─── Mobile menu ───
 const mmOpen = document.querySelector('.mob-t')
 const mm = document.getElementById('mm')

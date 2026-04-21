@@ -144,3 +144,25 @@ nav{z-index:101}
   .booking-card{padding:36px 24px}
   .booking-card-title{font-size:22px}
 }
+
+/* ─── Mega menu JS-controlled open state ───
+   .mega-open is added by JS with a 200ms close delay,
+   replacing the pure CSS nav-dd:hover .mega approach
+   so the cursor can cross the gap to the fixed panel. */
+.mega-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}
+/* Keep CSS :hover as a fallback for browsers without JS */
+.nav-dd:hover .mega {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+/* Chevron rotation on dd-active (replaces :hover trigger) */
+.dd-active > a::after {
+  transform: rotate(-135deg) !important;
+}

@@ -66,27 +66,7 @@ if (mmOpen && mm) {
 }
 
 // ─── Contact form ───
-const subBtn = document.getElementById('subBtn')
-if (subBtn) {
-  subBtn.addEventListener('click', () => {
-    const form = document.getElementById('contactForm')
-    const n = document.getElementById('fn')
-    const e = document.getElementById('fe')
-    let ok = true
-
-    form.querySelectorAll('.cf-field').forEach(x => x.classList.remove('invalid'))
-
-    if (n && !n.value.trim()) { n.closest('.cf-field').classList.add('invalid'); ok = false }
-    if (e && (!e.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value))) {
-      e.closest('.cf-field').classList.add('invalid'); ok = false
-    }
-
-    if (ok) {
-      subBtn.textContent = '✓ Submitted'
-      subBtn.classList.add('sent')
-    }
-  })
-}
+// Handled by inline script in contact.html (fetch → /api/contact → Resend)
 
 // ─── Counting Stat Animations ───
 function animateValue(el, start, end, suffix, duration) {

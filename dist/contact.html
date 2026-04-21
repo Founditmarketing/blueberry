@@ -16,8 +16,6 @@ gtag('config', 'G-1RNGSCZ3Z9');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/main-1SfnuoEz.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-BJYN78f2.css">
 </head>
 <body>
 
@@ -62,12 +60,29 @@ gtag('config', 'G-1RNGSCZ3Z9');
         </div>
       </div>
     </div>
+        <div class="nav-dd">
+      <a href="/federal/">Federal</a>
+      <div class="mega mega-federal">
+        <div class="mega-inner" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/federal/">Federal Practice</a></div>
+            <a href="/federal/services.html" class="mega-link">Federal Services</a>
+            <a href="/federal/soc-design.html" class="mega-link">SOC Design & Operation</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="/federal/capabilities.html">Capabilities</a></div>
+            <a href="/federal/soar-workflows.html" class="mega-link">SOAR Workflows</a>
+            <a href="/federal/threat-intelligence.html" class="mega-link">Threat Intelligence Operations</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="nav-dd">
       <a href="/partnerships/">Partnerships</a>
       <div class="mega mega-partnerships">
         <div class="mega-inner">
           <div class="mega-col">
-            <div class="mega-col-title"><a href="/partnerships/referral/">Referral Partnerships</a></div>
+            <div class="mega-col-title"><a href="/partnerships/referral/">Referral Programs</a></div>
             <a href="/partnerships/referral/vciso.html" class="mega-link">vCISO Referral Program</a>
             <div class="mega-sub-title">Blue Team Referrals</div>
             <a href="/partnerships/referral/dfir.html" class="mega-link">DFIR Referral Program</a>
@@ -97,7 +112,7 @@ gtag('config', 'G-1RNGSCZ3Z9');
         </div>
       </div>
     </div>
-    <a href="/contact.html" class="ncta">Consultation</a>
+    <a href="https://calendly.com/quinnlan-varcoe" target="_blank" class="ncta">Consultation</a>
   </div>
   <button class="mob-t" aria-label="Open menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -130,6 +145,14 @@ gtag('config', 'G-1RNGSCZ3Z9');
     <a href="/services/divorce-forensics.html">Divorce Forensics</a>
     <a href="/services/expert-witness.html">Expert Witness</a>
   </div>
+    <button class="mm-dd-toggle">Federal</button>
+  <div class="mm-dd-sub">
+    <a href="/federal/">Federal Practice</a>
+    <a href="/federal/services.html">Federal Services</a>
+    <a href="/federal/soc-design.html">SOC Design & Operation</a>
+    <a href="/federal/soar-workflows.html">SOAR Workflows</a>
+    <a href="/federal/threat-intelligence.html">Threat Intelligence</a>
+  </div>
   <button class="mm-dd-toggle">Partnerships</button>
   <div class="mm-dd-sub">
     <a href="/partnerships/">All Partnerships</a>
@@ -157,10 +180,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
   <a href="/contact.html">Contact</a>
 </div><section class="page-hero">
   <div class="sect-inner">
-    <div class="page-breadcrumb"><a href="/">Home</a><span>�</span> Contact</div>
+    <div class="page-breadcrumb"><a href="/">Home</a><span>›</span> Contact</div>
     <div class="page-label">Get in Touch</div>
     <h1>Schedule a Confidential Consultation</h1>
-    <p class="page-desc">Whether you're responding to an active breach, building a security program, or evaluating your defensive posture � we're ready to help.</p>
+    <p class="page-desc">Whether you're responding to an active breach, building a security program, or evaluating your defensive posture — we're ready to help.</p>
   </div>
 </section>
 
@@ -191,8 +214,54 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <div class="cf-field"><label for="ft">Inquiry Type</label><select id="ft"><option value="" selected disabled>Select one</option><option>Active Breach / Incident Response</option><option>Security Operations Advisory</option><option>Defense Contractor Services</option><option>Executive / Personal Security</option><option>Managed Detection & Response</option><option>Compliance & Risk Assessment</option><option>Breach Attorney / Legal Support</option><option>Strategic Partnership</option><option>General Inquiry</option></select></div>
       <div class="cf-field"><label for="fm">Message</label><textarea id="fm" rows="3" placeholder="Tell us about your situation..."></textarea></div>
       <button type="button" class="cf-submit" id="subBtn">Submit Inquiry</button>
-      <div class="cf-note">Protected by NDA � Response within one business day</div>
+      <div id="cf-error" style="display:none;margin-top:12px;padding:12px 16px;background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.3);border-radius:3px;font-size:13px;color:#e07070;"></div>
+      <div class="cf-note">Protected by NDA — Response within one business day</div>
     </div>
+    <script>
+    (function() {
+      var btn = document.getElementById('subBtn');
+      if (!btn) return;
+      btn.addEventListener('click', async function() {
+        var name  = (document.getElementById('fn') || {}).value || '';
+        var email = (document.getElementById('fe') || {}).value || '';
+        var org   = (document.getElementById('fo') || {}).value || '';
+        var type  = (document.getElementById('ft') || {}).value || '';
+        var msg   = (document.getElementById('fm') || {}).value || '';
+        var errEl = document.getElementById('cf-error');
+        document.querySelectorAll('.cf-field').forEach(function(f){ f.classList.remove('invalid'); });
+        if (errEl) errEl.style.display = 'none';
+        var valid = true;
+        if (!name.trim()) { var n = document.getElementById('fn'); if(n) n.closest('.cf-field').classList.add('invalid'); valid = false; }
+        if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { var e = document.getElementById('fe'); if(e) e.closest('.cf-field').classList.add('invalid'); valid = false; }
+        if (!valid) return;
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+        try {
+          var res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, organization: org, inquiryType: type, message: msg })
+          });
+          var data = await res.json();
+          if (res.ok && data.success) {
+            btn.textContent = '\u2713 Inquiry Sent';
+            btn.style.background = 'rgba(100,180,100,0.15)';
+            btn.style.borderColor = 'rgba(100,180,100,0.4)';
+            btn.style.color = '#8cba8c';
+            document.querySelectorAll('.cf-field input, .cf-field select, .cf-field textarea').forEach(function(el){ el.disabled = true; });
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Submit Inquiry';
+            if (errEl) { errEl.textContent = (data && data.error) || 'Something went wrong. Please try again.'; errEl.style.display = 'block'; }
+          }
+        } catch(err) {
+          btn.disabled = false;
+          btn.textContent = 'Submit Inquiry';
+          if (errEl) { errEl.textContent = 'Network error. Please check your connection and try again.'; errEl.style.display = 'block'; }
+        }
+      });
+    })();
+    </script>
   </div>
 </section>
 
@@ -200,11 +269,12 @@ gtag('config', 'G-1RNGSCZ3Z9');
   <div class="ft-inner">
     <div><div class="ft-brand"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></div><p class="ft-desc">Trusted cybersecurity advisory for defense contractors, enterprises, and high-value individuals.</p></div>
     <div class="ft-col"><h4>Services</h4><a href="/services/incident-response.html">Incident Response</a><a href="/services/managed-detection.html">MDR Services</a><a href="/services/vciso.html">vCISO Services</a><a href="/services/penetration-testing.html">Penetration Testing</a></div>
-    <div class="ft-col"><h4>Company</h4><a href="/">Home</a><a href="/services/">Services</a><a href="/partnerships/">Partnerships</a><a href="/contact.html">Contact</a></div>
+    <div class="ft-col"><h4>Company</h4><a href="tel:3013524855">301-352-4855</a><a href="/">Home</a><a href="/services/">Services</a><a href="/partnerships/">Partnerships</a><a href="/contact.html">Contact</a></div>
     <div class="ft-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/quinnlanvarcoe" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:quinn@digitalforensics.company">Email</a></div>
   </div>
-  <div class="ft-btm"><span>© 2026 Digital Forensics .company LLC. All rights reserved.</span><span>U.S.-Based · ITAR-Compliant · NDA-Protected</span></div>
+  <div class="ft-btm"><span>© 2026 Blueberry Security Global, Inc.. All rights reserved.</span><span>U.S.-Based · ITAR-Compliant · NDA-Protected</span></div>
 </footer>
 
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>

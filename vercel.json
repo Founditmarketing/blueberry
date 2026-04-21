@@ -3,9 +3,453 @@
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
-    { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/partnerships", "destination": "/partnerships/index.html" },
-    { "source": "/partnerships/referral", "destination": "/partnerships/referral/index.html" },
-    { "source": "/partnerships/white-label", "destination": "/partnerships/white-label/index.html" }
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/partnerships",
+      "destination": "/partnerships/index.html"
+    },
+    {
+      "source": "/partnerships/referral",
+      "destination": "/partnerships/referral/index.html"
+    },
+    {
+      "source": "/partnerships/white-label",
+      "destination": "/partnerships/white-label/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/services/managed-detection",
+      "destination": "/services/mdr-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/managed-detection.html",
+      "destination": "/services/mdr-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/hybrid-mdr",
+      "destination": "/services/hybrid-mdr-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/hybrid-mdr.html",
+      "destination": "/services/hybrid-mdr-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/incident-response",
+      "destination": "/services/dfir-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/incident-response.html",
+      "destination": "/services/dfir-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/soc-transformation",
+      "destination": "/services/soc-transformation-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/soc-transformation.html",
+      "destination": "/services/soc-transformation-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/detection-engineering",
+      "destination": "/services/detection-engineering-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/detection-engineering.html",
+      "destination": "/services/detection-engineering-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/threat-hunting",
+      "destination": "/services/threat-hunting-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/threat-hunting.html",
+      "destination": "/services/threat-hunting-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/threat-intelligence",
+      "destination": "/services/threat-intelligence-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/threat-intelligence.html",
+      "destination": "/services/threat-intelligence-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/security-monitoring",
+      "destination": "/services/security-monitoring-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/security-monitoring.html",
+      "destination": "/services/security-monitoring-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/edr-management",
+      "destination": "/services/edr-managed-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/edr-management.html",
+      "destination": "/services/edr-managed-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/siem-optimization",
+      "destination": "/services/siem-optimization-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/siem-optimization.html",
+      "destination": "/services/siem-optimization-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/penetration-testing",
+      "destination": "/services/penetration-testing-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/penetration-testing.html",
+      "destination": "/services/penetration-testing-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/phishing-testing",
+      "destination": "/services/phishing-simulation-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/phishing-testing.html",
+      "destination": "/services/phishing-simulation-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/apt-assessment",
+      "destination": "/services/apt-assessment-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/apt-assessment.html",
+      "destination": "/services/apt-assessment-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/ransomware-response",
+      "destination": "/services/ransomware-response-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/ransomware-response.html",
+      "destination": "/services/ransomware-response-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/data-breach-investigation",
+      "destination": "/services/data-breach-investigation-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/data-breach-investigation.html",
+      "destination": "/services/data-breach-investigation-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/bec-investigation",
+      "destination": "/services/bec-investigation-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/bec-investigation.html",
+      "destination": "/services/bec-investigation-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-incident-response",
+      "destination": "/services/cloud-incident-response-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-incident-response.html",
+      "destination": "/services/cloud-incident-response-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/breach-counsel",
+      "destination": "/services/breach-counsel-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/breach-counsel.html",
+      "destination": "/services/breach-counsel-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/dark-web-monitoring",
+      "destination": "/services/dark-web-monitoring-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/dark-web-monitoring.html",
+      "destination": "/services/dark-web-monitoring-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/hipaa-compliance",
+      "destination": "/services/hipaa-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/hipaa-compliance.html",
+      "destination": "/services/hipaa-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/iso-27001",
+      "destination": "/services/iso-27001-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/iso-27001.html",
+      "destination": "/services/iso-27001-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/soc2-readiness",
+      "destination": "/services/soc2-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/soc2-readiness.html",
+      "destination": "/services/soc2-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/cmmc-compliance",
+      "destination": "/services/cmmc-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/cmmc-compliance.html",
+      "destination": "/services/cmmc-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/nist-800-171",
+      "destination": "/services/nist-800-171-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/nist-800-171.html",
+      "destination": "/services/nist-800-171-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/itar-compliance",
+      "destination": "/services/itar-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/itar-compliance.html",
+      "destination": "/services/itar-compliance-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/fedramp",
+      "destination": "/services/fedramp-authorization-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/fedramp.html",
+      "destination": "/services/fedramp-authorization-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/managed-cybersecurity",
+      "destination": "/services/managed-cybersecurity-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/managed-cybersecurity.html",
+      "destination": "/services/managed-cybersecurity-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/vciso",
+      "destination": "/services/virtual-ciso-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/vciso.html",
+      "destination": "/services/virtual-ciso-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/federal-contracting",
+      "destination": "/services/federal-cybersecurity-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/federal-contracting.html",
+      "destination": "/services/federal-cybersecurity-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/defense-advisory",
+      "destination": "/services/defense-cybersecurity-advisory-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/defense-advisory.html",
+      "destination": "/services/defense-cybersecurity-advisory-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/security-operations-consulting",
+      "destination": "/services/security-operations-consulting-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/security-operations-consulting.html",
+      "destination": "/services/security-operations-consulting-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/personal-cybersecurity",
+      "destination": "/services/personal-cybersecurity-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/personal-cybersecurity.html",
+      "destination": "/services/personal-cybersecurity-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-forensics-personal",
+      "destination": "/services/personal-digital-forensics-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-forensics-personal.html",
+      "destination": "/services/personal-digital-forensics-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-privacy",
+      "destination": "/services/digital-privacy-protection-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-privacy.html",
+      "destination": "/services/digital-privacy-protection-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/account-recovery",
+      "destination": "/services/hacked-account-recovery-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/account-recovery.html",
+      "destination": "/services/hacked-account-recovery-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/executive-cybersecurity",
+      "destination": "/services/executive-cybersecurity-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/executive-cybersecurity.html",
+      "destination": "/services/executive-cybersecurity-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/executive-security",
+      "destination": "/services/executive-protection-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/executive-security.html",
+      "destination": "/services/executive-protection-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/divorce-forensics",
+      "destination": "/services/divorce-digital-forensics-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/divorce-forensics.html",
+      "destination": "/services/divorce-digital-forensics-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/expert-witness",
+      "destination": "/services/cybersecurity-expert-witness-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/expert-witness.html",
+      "destination": "/services/cybersecurity-expert-witness-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/osint-investigation",
+      "destination": "/services/osint-investigation-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/osint-investigation.html",
+      "destination": "/services/osint-investigation-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/blue-team",
+      "destination": "/services/blue-team-security-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/blue-team.html",
+      "destination": "/services/blue-team-security-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/red-team",
+      "destination": "/services/red-team-security-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/red-team.html",
+      "destination": "/services/red-team-security-services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/compliance",
+      "destination": "/services/cybersecurity-compliance-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/compliance.html",
+      "destination": "/services/cybersecurity-compliance-services.html",
+      "permanent": true
+    }
   ]
 }

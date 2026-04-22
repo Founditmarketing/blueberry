@@ -196,7 +196,7 @@ gtag('config', 'G-1RNGSCZ3Z9');
 <section class="sect">
   <div class="sect-inner">
     <div class="fdr rv">
-      <div class="fdr-portrait"><img src="/assets/headshot-DkpunyEB.jpg" alt="Quinnlan Varcoe � Founder, Digital Forensics .company" loading="lazy"></div>
+      <div class="fdr-portrait"><img src="/quinn-professional.png" alt="Quinnlan Varcoe � Founder, Digital Forensics .company" loading="lazy"></div>
       <div>
         <div class="fdr-meta">
           <div class="fdr-name">Quinnlan Varcoe</div>
@@ -243,6 +243,56 @@ gtag('config', 'G-1RNGSCZ3Z9');
     </div>
   </div>
 </section>
+
+
+<!-- PHOTO GALLERY -->
+<section class="sect sect-alt" id="photo-gallery">
+  <div class="sect-inner">
+    <div class="sect-head rv">
+      <div class="sect-label">Meet Quinnlan</div>
+      <div class="sect-title">The Person Behind<br>the Practice</div>
+    </div>
+    <div class="quinn-gallery rv">
+      <div class="qg-main">
+        <img src="/quinn-mint.jpg" alt="Quinnlan Varcoe — Digital Forensics Consultant" loading="lazy" class="qg-active" id="qg-active">
+      </div>
+      <div class="qg-thumbs">
+        <img src="/quinn-professional.png" alt="Quinnlan Varcoe professional portrait" loading="lazy" class="qg-thumb active" onclick="switchPhoto(this)">
+        <img src="/quinn-mint.jpg" alt="Quinnlan Varcoe consultation photo" loading="lazy" class="qg-thumb" onclick="switchPhoto(this)">
+        <img src="/quinn-white.png" alt="Quinnlan Varcoe portrait" loading="lazy" class="qg-thumb" onclick="switchPhoto(this)">
+        <img src="/quinn-black.png" alt="Quinnlan Varcoe seated portrait" loading="lazy" class="qg-thumb" onclick="switchPhoto(this)">
+        <img src="/quinn-floral.png" alt="Quinnlan Varcoe studio portrait" loading="lazy" class="qg-thumb" onclick="switchPhoto(this)">
+        <img src="/quinn-green.png" alt="Quinnlan Varcoe editorial photo" loading="lazy" class="qg-thumb" onclick="switchPhoto(this)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.quinn-gallery{display:grid;grid-template-columns:1fr 200px;gap:16px;align-items:start;max-width:900px;margin:40px auto 0}
+.qg-main{border-radius:8px;overflow:hidden;background:var(--bg3);aspect-ratio:3/4;position:relative}
+.qg-main img{width:100%;height:100%;object-fit:cover;object-position:top;transition:opacity .4s}
+.qg-thumbs{display:flex;flex-direction:column;gap:10px}
+.qg-thumb{width:100%;aspect-ratio:2/3;object-fit:cover;object-position:top;border-radius:6px;cursor:pointer;opacity:.55;border:2px solid transparent;transition:opacity .3s,border-color .3s}
+.qg-thumb:hover{opacity:.85}
+.qg-thumb.active{opacity:1;border-color:var(--gold)}
+@media(max-width:768px){.quinn-gallery{grid-template-columns:1fr}.qg-thumbs{flex-direction:row;overflow-x:auto;gap:10px}.qg-thumb{width:80px;flex-shrink:0;aspect-ratio:2/3}}
+</style>
+
+<script>
+function switchPhoto(thumb) {
+  var active = document.getElementById('qg-active');
+  if (!active) return;
+  active.style.opacity = '0';
+  setTimeout(function() {
+    active.src = thumb.src;
+    active.alt = thumb.alt;
+    active.style.opacity = '1';
+  }, 200);
+  document.querySelectorAll('.qg-thumb').forEach(function(t){ t.classList.remove('active'); });
+  thumb.classList.add('active');
+}
+</script>
 
 <div class="cta-band rv">
   <div class="sect-label">Work With Us</div>

@@ -86,6 +86,25 @@ body::before{content:'';position:absolute;top:20%;left:50%;width:600px;height:60
   .page-hero,.hero,section.sect:first-of-type{padding-top:88px!important}
 }
 </style>
+<script id="desktop-nav-show">
+(function(){
+  function setNav(){
+    var nk=document.querySelector('.nk');
+    if(!nk)return;
+    if(window.innerWidth>900){
+      nk.style.removeProperty('display');
+      nk.style.display='flex';
+    }else{
+      nk.style.display='none';
+    }
+  }
+  // Run as early as possible
+  document.addEventListener('DOMContentLoaded',setNav);
+  window.addEventListener('resize',setNav);
+  // Also run immediately if DOM ready
+  if(document.readyState!=='loading'){setNav();}
+})();
+</script>
 </head>
 <body>
 <div class="grid-bg"></div>

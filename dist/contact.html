@@ -70,13 +70,32 @@ gtag('config', 'G-1RNGSCZ3Z9');
   .page-hero,.hero,section.sect:first-of-type{padding-top:88px!important}
 }
 </style>
+<script id="desktop-nav-show">
+(function(){
+  function setNav(){
+    var nk=document.querySelector('.nk');
+    if(!nk)return;
+    if(window.innerWidth>900){
+      nk.style.removeProperty('display');
+      nk.style.display='flex';
+    }else{
+      nk.style.display='none';
+    }
+  }
+  // Run as early as possible
+  document.addEventListener('DOMContentLoaded',setNav);
+  window.addEventListener('resize',setNav);
+  // Also run immediately if DOM ready
+  if(document.readyState!=='loading'){setNav();}
+})();
+</script>
 </head>
 <body>
 
 <div id="sp"></div>
 <nav id="nav">
   <a href="/" class="nl"><i>D</i><span class="nl-text">igitalForensics<span class="tld">.company</span></span></a>
-  <div class="nk">
+  <div class="nk" style="display:none">
     <a href="/">Home</a>
     <div class="nav-dd">
       <a href="/services/">Services</a>

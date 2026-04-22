@@ -169,3 +169,18 @@ nav{z-index:101}
 .dd-active > a::after {
   transform: rotate(-135deg) !important;
 }
+
+/* ═══ MOBILE NAV COMPAT: Safari/Chrome fallback for range syntax ═══ */
+@media screen and (max-width:768px){
+  nav{height:60px!important;min-height:60px!important;padding:0 16px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;overflow:visible!important;box-sizing:border-box!important}
+  .nk{display:none!important}
+  .mob-t{display:flex!important;position:relative;z-index:10001}
+  .page-hero{padding:110px 20px 56px!important}
+  #mm{z-index:9000!important;padding:72px 24px 48px!important}
+  #mmC{z-index:9001!important;position:absolute;top:16px;right:16px}
+}
+@media screen and (max-width:1024px){
+  .mega{display:none!important}
+  .nk .nav-dd>a::after{display:none!important}
+  .nav-phone{display:none!important}
+}

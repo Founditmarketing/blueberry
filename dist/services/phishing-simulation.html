@@ -188,6 +188,41 @@
 </section>
 
 <!-- CTA BAND -->
+
+<!-- ── CONSULTANT SPOTLIGHT ── -->
+<section class="sect cs-section" style="padding:64px clamp(20px,4vw,80px)">
+  <div class="sect-inner">
+    <div class="cs-wrap rv">
+      <div class="cs-photo">
+        <img src="/quinn-professional.png" alt="Quinnlan Varcoe — Principal DFIR Consultant" loading="lazy" class="cs-img">
+        <div class="cs-badge">Principal Consultant</div>
+      </div>
+      <div class="cs-body">
+        <div class="sect-label">Your Practitioner</div>
+        <h2 class="cs-name">Quinnlan Varcoe</h2>
+        <p class="cs-quote">"When a breach happens, every second of delay costs evidence. We move fast because we've done this before."</p>
+        <p class="cs-bio">Fortune 50 incident response veteran · 26,000+ industry following · DFIR, Threat Intelligence &amp; Federal Compliance</p>
+        <div class="cs-cta">
+          <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/quinnlan-varcoe'});return false;" class="btn btn-p">Book a Consultation</a>
+          <a href="/about.html" class="btn btn-s" style="margin-left:12px">View Full Bio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.cs-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cs-wrap{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;max-width:900px;margin:0 auto}
+.cs-photo{position:relative;flex-shrink:0}
+.cs-img{width:100%;max-width:280px;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:8px;display:block;filter:grayscale(10%)}
+.cs-badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;white-space:nowrap}
+.cs-name{font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:400;color:var(--text);margin:8px 0 16px}
+.cs-quote{font-family:var(--serif);font-size:clamp(15px,1.8vw,19px);color:var(--text2);line-height:1.7;font-style:italic;border-left:3px solid var(--gold);padding-left:20px;margin:0 0 20px}
+.cs-bio{font-size:12px;color:var(--text3);letter-spacing:.5px;margin-bottom:24px;line-height:1.6}
+.cs-cta{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:768px){.cs-wrap{grid-template-columns:1fr;gap:32px;text-align:center}.cs-img{max-width:220px;aspect-ratio:1/1;border-radius:50%;object-position:top;margin:0 auto}.cs-badge{bottom:-12px}.cs-quote{text-align:left}.cs-cta{justify-content:center}}
+</style>
+
 <div class="cta-band rv">
   <div class="sect-label">Get Started</div>
   <div class="sect-title">Ready to Test Your Team?</div>

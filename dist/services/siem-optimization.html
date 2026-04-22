@@ -1,5 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<script id="mobile-nav-js-fix">
+(function(){
+  function applyMobileNav(){
+    if(window.innerWidth<=900){
+      var nk=document.querySelector('.nk');
+      if(nk){nk.style.setProperty('display','none','important');nk.style.setProperty('visibility','hidden','important');}
+      var nav=document.getElementById('nav');
+      if(nav){
+        nav.style.setProperty('display','flex','important');
+        nav.style.setProperty('align-items','center','important');
+        nav.style.setProperty('justify-content','space-between','important');
+        nav.style.setProperty('padding','0 16px','important');
+        nav.style.setProperty('height','60px','important');
+        nav.style.setProperty('flex-wrap','nowrap','important');
+        nav.style.setProperty('overflow','visible','important');
+      }
+      var mobt=document.querySelector('.mob-t');
+      if(mobt){mobt.style.setProperty('display','flex','important');}
+    }else{
+      var nk=document.querySelector('.nk');
+      if(nk){nk.style.removeProperty('display');nk.style.removeProperty('visibility');}
+    }
+  }
+  // Run immediately (before first paint)
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applyMobileNav);
+  }else{
+    applyMobileNav();
+  }
+  window.addEventListener('resize',applyMobileNav);
+})();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RNGSCZ3Z9"></script>
 <script>
@@ -26,25 +58,14 @@ gtag('config', 'G-1RNGSCZ3Z9');
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.digitalforensics.company/og-image.png">
 <style id="mobile-nav-fix">
-/* === MOBILE NAV FIX — inline override (bypasses cached/unsupported external CSS) === */
 @media screen and (max-width:900px){
-  #nav{height:60px!important;min-height:60px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 16px!important;flex-wrap:nowrap!important;overflow:visible!important;box-sizing:border-box!important;position:fixed!important;top:0;left:0;right:0;z-index:9000!important}
-  .nk{display:none!important;visibility:hidden!important;pointer-events:none!important}
-  .mob-t{display:flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;flex-shrink:0!important;z-index:10001!important;position:relative!important}
-  .nl{flex-shrink:0!important;font-size:15px!important}
-  #mm{display:none;position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:9500!important;overflow-y:auto!important;padding:72px 0 40px!important;background:var(--bg)!important}
-  #mm.open{display:flex!important;flex-direction:column!important}
-  #mm a{padding:14px 24px!important;font-size:14px!important;border-bottom:1px solid var(--border)!important;display:block!important}
-  #mm button.mm-dd-toggle{width:100%!important;text-align:left!important;padding:14px 24px!important;font-size:14px!important;border-bottom:1px solid var(--border)!important;background:none!important;border-top:none!important;border-left:none!important;border-right:none!important;color:var(--text)!important;cursor:pointer!important;display:flex!important;justify-content:space-between!important;align-items:center!important;font-family:var(--sans)!important}
-  #mm button.mm-dd-toggle::after{content:"›";font-size:20px;transition:transform .2s;display:inline-block}
-  #mm button.mm-dd-toggle.active::after{transform:rotate(90deg)}
-  .mm-dd-sub{display:none!important;background:rgba(255,255,255,.03)!important;border-bottom:1px solid var(--border)!important}
-  .mm-dd-sub.mm-open{display:block!important}
-  .mm-dd-sub a{padding:11px 36px!important;font-size:13px!important;color:var(--text2)!important;border-bottom:1px solid rgba(255,255,255,.05)!important}
-  .mm-dd-sub .mm-sub-label{display:block!important;padding:10px 36px 4px!important;font-size:10px!important;letter-spacing:1.5px!important;text-transform:uppercase!important;color:var(--gold)!important;border:none!important}
-  #mmC{position:fixed!important;top:14px!important;right:16px!important;z-index:10002!important;background:none!important;border:none!important;color:var(--text)!important;font-size:22px!important;cursor:pointer!important;width:40px!important;height:40px!important;display:flex!important;align-items:center!important;justify-content:center!important}
-  .page-hero,.hero{padding-top:88px!important}
-  .sect:first-of-type{padding-top:88px!important}
+  html body #nav .nk,html body nav .nk,.nk{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important;overflow:hidden!important}
+  html body #nav,html body nav#nav{height:60px!important;min-height:60px!important;max-height:60px!important;display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;padding:0 16px!important;overflow:visible!important;box-sizing:border-box!important;position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9000!important}
+  html body .mob-t,body .mob-t,.mob-t{display:flex!important;visibility:visible!important;opacity:1!important;width:44px!important;height:44px!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;z-index:10001!important;position:relative!important}
+  html body .nl,.nl{flex-shrink:0!important;max-width:calc(100% - 60px)!important;font-size:14px!important}
+  html body #mm,#mm{z-index:9500!important}
+  html body #mm.open,#mm.open{display:flex!important;flex-direction:column!important}
+  .page-hero,.hero,section.sect:first-of-type{padding-top:88px!important}
 }
 </style>
 </head><body>

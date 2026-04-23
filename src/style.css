@@ -95,6 +95,7 @@ nav.sc .mega{top:72px}
 #mm{
   position:fixed;inset:0;
   background:#090c15; /* solid, opaque — no gradients that can wash out */
+  box-shadow:inset 0 0 0 100vmax #090c15; /* kills any edge bleed from body gradient */
   z-index:10001;
   display:flex;flex-direction:column;
   padding:0;
@@ -191,7 +192,8 @@ body:has(#mm.open) #mmC{
   max-height:0;
   overflow:hidden;
   transition:max-height .45s var(--ease);
-  background:rgba(255,255,255,.02);
+  background:#0d1120; /* solid — slightly lighter than #090c15 to distinguish expanded state */
+  border-top:1px solid rgba(196,162,101,.15); /* subtle gold top edge when open */
   border-bottom:1px solid var(--border);
 }
 #mm .mm-dd-sub.mm-sub-open{
@@ -203,15 +205,16 @@ body:has(#mm.open) #mmC{
   display:block;
   font-family:var(--font);
   font-size:16px; /* 16px prevents iOS auto-zoom */
-  color:var(--text2);
+  color:#c8cad4; /* brighter than var(--text2) for better contrast on dark bg */
   padding:14px 32px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(255,255,255,.05);
   transition:color .2s,background .2s;
   min-height:48px;
   display:flex;align-items:center;
+  background:#0d1120; /* explicitly solid on every link row */
 }
 #mm .mm-dd-sub a:last-child{border-bottom:none}
-#mm .mm-dd-sub a:active{color:var(--gold);background:rgba(196,162,101,.06)}
+#mm .mm-dd-sub a:active{color:var(--gold);background:#111827}
 
 /* Category label inside sub-menu */
 #mm .mm-dd-sub .mm-sub-label{
@@ -223,7 +226,8 @@ body:has(#mm.open) #mmC{
   color:var(--gold);
   padding:20px 32px 8px;
   border-bottom:none;
-  opacity:.85;
+  background:#0d1120; /* solid to match the rest of sub-panel */
+  opacity:1; /* full opacity — no more washed-out labels */
 }
 
 /* ─── BUTTONS ─── */

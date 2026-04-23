@@ -89,20 +89,131 @@ nav.sc .mega{top:72px}
 .mega-group-sub .mega-link{font-size:12px!important;padding:5px 0!important}
 
 /* ─── MOBILE MENU ─── */
-.mob-t{display:none;cursor:pointer;background:none;border:none;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;flex-shrink:0;z-index:10001;position:relative}
-#mm{position:fixed;inset:0;background:var(--bg);z-index:9000;display:flex;flex-direction:column;padding:80px 32px 40px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .3s,visibility .3s;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mob-t{display:none;cursor:pointer;background:none;border:none;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:10002}
+
+/* Full-screen overlay — sits above everything including FAB */
+#mm{
+  position:fixed;inset:0;
+  background:linear-gradient(180deg,#0b0f19 0%,#0e1221 100%);
+  z-index:10001;
+  display:flex;flex-direction:column;
+  padding:0;
+  padding-top:72px; /* clear the nav bar */
+  visibility:hidden;opacity:0;pointer-events:none;
+  transition:opacity .35s ease,visibility .35s ease;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain; /* prevent scroll bleed-through on iOS */
+}
 #mm.open{visibility:visible;opacity:1;pointer-events:auto}
-#mm>a,#mm .mm-dd-toggle{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text2);padding:16px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;min-height:64px;transition:color .3s;text-decoration:none}
-#mm>a:hover,#mm .mm-dd-toggle:hover{color:var(--gold)}
-#mm .mm-dd-toggle{cursor:pointer;justify-content:space-between;background:none;border:none;border-bottom:1px solid var(--border);width:100%;font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text2)}
-#mm .mm-dd-toggle::after{content:'+';font-family:var(--font);font-size:20px;color:var(--text3);transition:transform .3s}
-#mm .mm-dd-toggle.mm-open::after{content:'−'}
-#mm .mm-dd-sub{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);padding-left:16px}
-#mm .mm-dd-sub.mm-sub-open{max-height:2000px}
-#mm .mm-dd-sub a{display:block;font-family:var(--font);font-size:16px;color:var(--text2);padding:10px 0;border-bottom:1px solid var(--border);transition:color .3s}
-#mm .mm-dd-sub a:hover{color:var(--gold)}
-#mm .mm-dd-sub .mm-sub-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:16px 0 6px;border-bottom:none;display:block}
-#mmC{position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:12px;min-width:48px;min-height:48px;z-index:201}
+
+/* Close button — fixed in the top-right corner of the overlay, hidden until menu opens */
+#mmC{
+  position:fixed;
+  top:14px;right:16px;
+  background:none;border:none;
+  color:var(--text2);font-size:26px;
+  cursor:pointer;
+  padding:10px;
+  min-width:48px;min-height:48px;
+  z-index:10002;
+  display:none; /* hidden by default; shown only when menu is open */
+  align-items:center;justify-content:center;
+  transition:color .2s;
+}
+#mmC:hover{color:var(--gold)}
+/* Show close button only when menu is open */
+body.mm-active #mmC,
+body:has(#mm.open) #mmC{
+  display:flex;
+}
+
+/* Top-level links */
+#mm > a,
+#mm .mm-dd-toggle{
+  font-family:var(--serif);
+  font-size:clamp(24px,6vw,32px);
+  font-weight:400;
+  color:var(--text);
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  min-height:64px;
+  transition:color .25s,background .25s;
+  text-decoration:none;
+  width:100%;
+}
+#mm > a:active,
+#mm .mm-dd-toggle:active{color:var(--gold);background:rgba(196,162,101,.05)}
+
+/* Accordion toggle button */
+#mm .mm-dd-toggle{
+  cursor:pointer;
+  justify-content:space-between;
+  background:none;
+  border:none;
+  border-bottom:1px solid var(--border);
+}
+#mm .mm-dd-toggle::after{
+  content:'+';
+  font-family:var(--font);
+  font-size:22px;
+  font-weight:300;
+  color:var(--gold);
+  flex-shrink:0;
+  transition:transform .3s var(--ease),content .3s;
+  width:32px;height:32px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(196,162,101,.25);
+  border-radius:2px;
+}
+#mm .mm-dd-toggle.mm-open{
+  color:var(--gold);
+}
+#mm .mm-dd-toggle.mm-open::after{
+  content:'−';
+  background:rgba(196,162,101,.08);
+}
+
+/* Sub-menu accordion panel */
+#mm .mm-dd-sub{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .45s var(--ease);
+  background:rgba(255,255,255,.02);
+  border-bottom:1px solid var(--border);
+}
+#mm .mm-dd-sub.mm-sub-open{
+  max-height:3000px; /* generous so it never clips */
+}
+
+/* Sub-menu links — large enough to tap easily on iPhone */
+#mm .mm-dd-sub a{
+  display:block;
+  font-family:var(--font);
+  font-size:16px; /* 16px prevents iOS auto-zoom */
+  color:var(--text2);
+  padding:14px 32px;
+  border-bottom:1px solid var(--border);
+  transition:color .2s,background .2s;
+  min-height:48px;
+  display:flex;align-items:center;
+}
+#mm .mm-dd-sub a:last-child{border-bottom:none}
+#mm .mm-dd-sub a:active{color:var(--gold);background:rgba(196,162,101,.06)}
+
+/* Category label inside sub-menu */
+#mm .mm-dd-sub .mm-sub-label{
+  display:block;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--gold);
+  padding:20px 32px 8px;
+  border-bottom:none;
+  opacity:.85;
+}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;transition:all .3s;border:none;letter-spacing:1.5px;text-transform:uppercase;min-height:52px}
@@ -404,16 +515,11 @@ body{animation:pageIn .35s ease-out}
   .eq blockquote{font-size:clamp(22px,5vw,32px);padding-left:24px}
   .eq .eq-attr{padding-left:24px}
   .cta-band{padding:80px 20px}
-  /* Mobile menu enhanced */
-  #mm{padding:72px 24px 48px;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);overflow-y:auto;-webkit-overflow-scrolling:touch}
-  #mm>a,#mm .mm-dd-toggle{font-size:28px;padding:14px 0;opacity:0;animation:none}
-  #mm.open>a,#mm.open .mm-dd-toggle{animation:slideIn .4s var(--ease) forwards}
-  #mm.open>*:nth-child(2){animation-delay:.05s}
-  #mm.open>*:nth-child(3){animation-delay:.1s}
-  #mm.open>*:nth-child(4){animation-delay:.15s}
-  #mm.open>*:nth-child(5){animation-delay:.2s}
-  #mm.open>*:nth-child(6){animation-delay:.25s}
-  #mm.open>*:nth-child(7){animation-delay:.3s}
+  /* Mobile menu — reset padding since layout is now handled by the base rule */
+  #mm{padding-top:64px}
+  #mm > a,#mm .mm-dd-toggle{font-size:clamp(20px,5.5vw,28px);padding:16px 20px}
+  #mm .mm-dd-sub a{padding:13px 28px;font-size:15px}
+  #mm .mm-dd-sub .mm-sub-label{padding:18px 28px 6px}
   @keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
   /* Mobile service sidebar boxes */
   .svc-sidebar-box{padding:32px 24px}
@@ -469,6 +575,16 @@ body{animation:pageIn .35s ease-out}
 }
 @media(max-width:480px){
   .mob-cta{display:none}
+}
+
+/* When mobile menu is open, hide the FAB so it doesn't float over the overlay */
+/* :has() for modern browsers + .mm-active class (set by JS) for older iOS */
+#mm.open ~ .mob-cta,
+body:has(#mm.open) .call-fab,
+body:has(#mm.open) .mob-cta,
+body.mm-active .call-fab,
+body.mm-active .mob-cta{
+  display:none!important;
 }
 
 /* ═══ NAV DROPDOWN FIXES ═══ */
@@ -533,7 +649,7 @@ nav{z-index:101}
 .call-fab:hover{background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 100%);transform:translateY(-3px);box-shadow:0 8px 32px rgba(196,162,101,.55),0 4px 12px rgba(0,0,0,.5)}
 .call-fab svg{width:15px;height:15px;flex-shrink:0;fill:var(--bg)}
 @keyframes fabPulse{0%,100%{box-shadow:0 4px 20px rgba(196,162,101,.4),0 2px 8px rgba(0,0,0,.5)}50%{box-shadow:0 4px 20px rgba(196,162,101,.4),0 2px 8px rgba(0,0,0,.5),0 0 0 8px rgba(196,162,101,.12)}}
-@media(max-width:768px){.call-fab span{display:none}.call-fab{padding:16px;border-radius:50%;bottom:20px;right:16px}}
+@media(max-width:768px){.call-fab span{display:none}.call-fab{padding:16px;border-radius:50%;bottom:20px;right:16px;z-index:998}}
 
 /* ─── NAV PHONE NUMBER ─── */
 .nav-phone{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.5px;text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .3s;white-space:nowrap}

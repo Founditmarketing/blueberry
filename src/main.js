@@ -99,9 +99,16 @@ const mm = document.getElementById('mm')
 const mmClose = document.getElementById('mmC')
 
 if (mmOpen && mm) {
-  mmOpen.addEventListener('click', () => mm.classList.add('open'))
-  if (mmClose) mmClose.addEventListener('click', () => mm.classList.remove('open'))
-  mm.querySelectorAll(':scope > a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')))
+  mmOpen.addEventListener('click', () => {
+    mm.classList.add('open')
+    document.body.classList.add('mm-active')
+  })
+  function closeMenu() {
+    mm.classList.remove('open')
+    document.body.classList.remove('mm-active')
+  }
+  if (mmClose) mmClose.addEventListener('click', closeMenu)
+  mm.querySelectorAll(':scope > a').forEach(a => a.addEventListener('click', closeMenu))
   // Accordion toggles
   mm.querySelectorAll('.mm-dd-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -119,7 +126,7 @@ if (mmOpen && mm) {
     })
   })
   // Close mobile menu when clicking a sub-link
-  mm.querySelectorAll('.mm-dd-sub a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')))
+  mm.querySelectorAll('.mm-dd-sub a').forEach(a => a.addEventListener('click', closeMenu))
 }
 
 // ─── Contact form ───

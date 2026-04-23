@@ -47,8 +47,7 @@ nav.sc{top:0;background:rgba(11,15,25,.92);backdrop-filter:blur(24px);-webkit-ba
   width:auto;
   display:block;
   object-fit:contain;
-  mix-blend-mode:screen;
-  filter:brightness(1.1) contrast(1.05);
+  /* transparent background — no blend mode needed */
 }
 @media(max-width:768px){.nav-logo-img{height:150px}}
 .nl i{font-style:normal;background:linear-gradient(135deg,var(--gold) 0%,#c4a265 40%,#a85a3a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;font-size:22px;font-family:var(--serif);letter-spacing:0}

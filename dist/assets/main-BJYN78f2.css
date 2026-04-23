@@ -184,4 +184,4 @@ nav{z-index:101}
   .nk .nav-dd>a::after{display:none!important}
   .nav-phone{display:none!important}
 }
-.nl{display:flex;align-items:center;flex-shrink:0;text-decoration:none}.nav-logo-img{height:240px;width:auto;display:block;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.1) contrast(1.05)}@media(max-width:768px){.nav-logo-img{height:150px}}
+.nl{display:flex;align-items:center;flex-shrink:0;text-decoration:none}.nav-logo-img{height:240px;width:auto;display:block;object-fit:contain}@media(max-width:768px){.nav-logo-img{height:150px}}

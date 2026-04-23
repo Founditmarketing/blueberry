@@ -121,21 +121,7 @@ body::before{content:'';position:absolute;top:20%;left:50%;width:600px;height:60
 
 
 
-  // Level-2 service category toggles
-  document.querySelectorAll('#mm .mm-l2-toggle').forEach(function(btn){
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var sub=btn.nextElementSibling;
-      var plus=btn.querySelector('.mm-l2-plus');
-      var isOpen=sub&&sub.style.display==='block';
-      var parent=btn.closest('.mm-dd-sub');
-      if(parent){
-        parent.querySelectorAll('.mm-l2-sub').forEach(function(s){s.style.display='none';});
-        parent.querySelectorAll('.mm-l2-plus').forEach(function(p){p.textContent='+';});
-      }
-      if(!isOpen&&sub){sub.style.display='block';if(plus)plus.textContent='−';}
-    });
-  });
+
 
   // Desktop mega menu
   var dds=document.querySelectorAll('.nav-dd');
@@ -149,6 +135,10 @@ body::before{content:'';position:absolute;top:20%;left:50%;width:600px;height:60
   });
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-dd')&&!e.target.closest('.mega')){dds.forEach(function(d){d.classList.remove('dd-active');});document.querySelectorAll('.mega').forEach(function(m){m.classList.remove('mega-open');});}});
 })();
+</script>
+<script>
+function mobT1(b){var s=b.nextElementSibling,p=b.querySelector('.mob-plus1'),o=s&&s.style.display==='block';document.querySelectorAll('#mm .mob-s1').forEach(function(x){x.style.display='none';});document.querySelectorAll('#mm .mob-plus1').forEach(function(x){x.textContent='+';});document.querySelectorAll('#mm .mob-s2').forEach(function(x){x.style.display='none';});document.querySelectorAll('#mm .mob-plus2').forEach(function(x){x.textContent='+';});if(!o&&s){s.style.display='block';if(p)p.textContent='−';}}
+function mobT2(b){var s=b.nextElementSibling,p=b.querySelector('.mob-plus2'),o=s&&s.style.display==='block',r=b.closest('.mob-s1');if(r){r.querySelectorAll('.mob-s2').forEach(function(x){x.style.display='none';});r.querySelectorAll('.mob-plus2').forEach(function(x){x.textContent='+';});}if(!o&&s){s.style.display='block';if(p)p.textContent='−';}}
 </script>
 </body>
 </html>

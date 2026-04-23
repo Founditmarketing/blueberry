@@ -169,19 +169,19 @@ gtag('config', 'G-1RNGSCZ3Z9');
 
     <a href="/" style="display:block;padding:18px 24px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);font-size:16px;font-weight:500;">Home</a>
 
-    <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>Services</span>
+    <button class="mob-t1" onclick="mobT1(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
+      <span>Services</span><span class="mob-plus1" style="font-size:20px;color:#c9a84c;line-height:1;">+</span>
     </button>
-    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Enterprise</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <div class="mob-s1" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Enterprise</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/managed-cybersecurity" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Managed Cybersecurity</a>
       <a href="/services/virtual-ciso" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">vCISO Services</a>
       <a href="/services/mdr-services" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">MDR Services</a>
       <a href="/services/soc-transformation" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">SOC Transformation</a>
     </div>
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Blue Team</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Blue Team</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/emergency-incident-response" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">DFIR / Incident Response</a>
       <a href="/services/threat-intelligence" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Threat Intelligence</a>
       <a href="/services/threat-hunting" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Threat Hunting</a>
@@ -189,14 +189,14 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <a href="/services/soar-automation" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">SOAR & Workflow Auto.</a>
       <a href="/services/security-monitoring" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Security Monitoring</a>
     </div>
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Red Team</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Red Team</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/penetration-testing" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Penetration Testing</a>
       <a href="/services/phishing-simulation" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Phishing Simulation</a>
       <a href="/services/apt-threat-assessment" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">APT Threat Assessment</a>
     </div>
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Compliance</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Compliance</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/cmmc-compliance" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">CMMC Compliance</a>
       <a href="/services/nist-800-171-compliance" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">NIST 800-171</a>
       <a href="/services/fedramp-authorization" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">FedRAMP</a>
@@ -205,16 +205,16 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <a href="/services/iso-27001-certification" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">ISO 27001</a>
       <a href="/services/soc2-compliance" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">SOC 2</a>
     </div>
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Federal Services</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Federal Services</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/federal-cyber-compliance" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Federal Cyber Compliance</a>
       <a href="/services/federal-soc-operations" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Federal SOC Operations</a>
       <a href="/services/defense-cyber-advisory" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Defense Cyber Advisory</a>
       <a href="/services/cmmc-compliance" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">CMMC Level 2 & 3</a>
       <a href="/services/fedramp-authorization" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">FedRAMP Authorization</a>
     </div>
-    <button class="mm-l2-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Personal</span><span class="mm-l2-plus" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
-    <div class="mm-l2-sub" style="display:none;background-color:#07070d;">
+    <button class="mob-t2" onclick="mobT2(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 36px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:12px;font-weight:700;cursor:pointer;text-align:left;letter-spacing:1px;text-transform:uppercase;"><span>Personal</span><span class="mob-plus2" style="font-size:18px;color:#c9a84c;transition:transform .2s;line-height:1;">+</span></button>
+    <div class="mob-s2" style="display:none;background-color:#07070d;">
       <a href="/services/forensic-investigator-for-hire" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Personal Forensics</a>
       <a href="/services/hacked-help" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">Account Recovery</a>
       <a href="/services/osint-investigation" style="display:block;padding:11px 52px;color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);">OSINT Investigation</a>
@@ -224,10 +224,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
     <a href="/services/" style="display:block;padding:13px 36px;color:#c9a84c;font-size:13px;text-decoration:none;font-weight:600;">View All Services &#x203A;</a>
     </div>
 
-    <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>Referral Partnerships</span>
+    <button class="mob-t1" onclick="mobT1(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
+      <span>Referral Partnerships</span><span class="mob-plus1" style="font-size:20px;color:#c9a84c;line-height:1;">+</span>
     </button>
-    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="mob-s1" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
       <a href="/partnerships/referral/managed-cybersecurity" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Managed Cybersecurity</a>
       <a href="/partnerships/referral/dfir" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">DFIR Referral</a>
       <a href="/partnerships/referral/threat-intelligence" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Threat Intelligence</a>
@@ -237,10 +237,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <a href="/partnerships/referral/" style="display:block;padding:13px 36px;color:#c9a84c;font-size:13px;text-decoration:none;font-weight:600;">View All Referral Programs &#x203A;</a>
     </div>
 
-    <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>White-Label Partnerships</span>
+    <button class="mob-t1" onclick="mobT1(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
+      <span>White-Label Partnerships</span><span class="mob-plus1" style="font-size:20px;color:#c9a84c;line-height:1;">+</span>
     </button>
-    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="mob-s1" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
       <a href="/partnerships/white-label/managed-cybersecurity" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Managed Cybersecurity</a>
       <a href="/partnerships/white-label/dfir" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">DFIR Services</a>
       <a href="/partnerships/white-label/threat-intelligence" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Threat Intelligence</a>
@@ -423,21 +423,7 @@ gtag('config', 'G-1RNGSCZ3Z9');
 
 
 
-  // Level-2 service category toggles
-  document.querySelectorAll('#mm .mm-l2-toggle').forEach(function(btn){
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var sub=btn.nextElementSibling;
-      var plus=btn.querySelector('.mm-l2-plus');
-      var isOpen=sub&&sub.style.display==='block';
-      var parent=btn.closest('.mm-dd-sub');
-      if(parent){
-        parent.querySelectorAll('.mm-l2-sub').forEach(function(s){s.style.display='none';});
-        parent.querySelectorAll('.mm-l2-plus').forEach(function(p){p.textContent='+';});
-      }
-      if(!isOpen&&sub){sub.style.display='block';if(plus)plus.textContent='−';}
-    });
-  });
+
 
   // Desktop mega menu
   var dds=document.querySelectorAll('.nav-dd');
@@ -451,6 +437,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
   });
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-dd')&&!e.target.closest('.mega')){dds.forEach(function(d){d.classList.remove('dd-active');});document.querySelectorAll('.mega').forEach(function(m){m.classList.remove('mega-open');});}});
 })();
+</script>
+<script>
+function mobT1(b){var s=b.nextElementSibling,p=b.querySelector('.mob-plus1'),o=s&&s.style.display==='block';document.querySelectorAll('#mm .mob-s1').forEach(function(x){x.style.display='none';});document.querySelectorAll('#mm .mob-plus1').forEach(function(x){x.textContent='+';});document.querySelectorAll('#mm .mob-s2').forEach(function(x){x.style.display='none';});document.querySelectorAll('#mm .mob-plus2').forEach(function(x){x.textContent='+';});if(!o&&s){s.style.display='block';if(p)p.textContent='−';}}
+function mobT2(b){var s=b.nextElementSibling,p=b.querySelector('.mob-plus2'),o=s&&s.style.display==='block',r=b.closest('.mob-s1');if(r){r.querySelectorAll('.mob-s2').forEach(function(x){x.style.display='none';});r.querySelectorAll('.mob-plus2').forEach(function(x){x.textContent='+';});}if(!o&&s){s.style.display='block';if(p)p.textContent='−';}}
 </script>
 </body>
 </html>

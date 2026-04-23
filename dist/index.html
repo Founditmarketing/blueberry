@@ -382,7 +382,7 @@ gtag('config', 'G-1RNGSCZ3Z9');
 
 <div class="cert-banner rv">
   <div class="cert-banner-label">Certified Expertise</div>
-  <div class="cert-banner-sub">GIAC · Offensive Security · AWS · CompTIA · Splunk<br>Holding 16 active certifications from the world's most rigorous cybersecurity programs</div>
+  <div class="cert-banner-sub">GIAC · ISC² · Offensive Security · AWS · CompTIA · Splunk<br>Holding 18 active certifications from the world's most rigorous cybersecurity programs</div>
   <div class="cert-track-wrap">
     <div class="cert-track">
       <!-- SET 1 -->
@@ -402,6 +402,8 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <div class="cert-card" onclick="showCert('CSAP')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
       <div class="cert-card" onclick="showCert('CYSA')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
       <div class="cert-card" onclick="showCert('SECPLUS')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('CISSP')" role="button" tabindex="0" style="--cc:#1a237e"><div class="cert-acronym">CISSP</div><div class="cert-name">Certified Information Systems Security Professional</div><div class="cert-issuer">ISC²</div></div>
+      <div class="cert-card" onclick="showCert('GCFE')" role="button" tabindex="0" style="--cc:#8e44ad"><div class="cert-acronym">GCFE</div><div class="cert-name">Forensic Examiner</div><div class="cert-issuer">GIAC</div></div>
       <!-- SET 2 (duplicate for seamless loop) -->
       <div class="cert-card" onclick="showCert('GCIH')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">GCIH</div><div class="cert-name">Incident Handler</div><div class="cert-issuer">GIAC</div></div>
       <div class="cert-card" onclick="showCert('GCCC')" role="button" tabindex="0" style="--cc:#27ae60"><div class="cert-acronym">GCCC</div><div class="cert-name">Critical Controls</div><div class="cert-issuer">GIAC</div></div>
@@ -419,6 +421,8 @@ gtag('config', 'G-1RNGSCZ3Z9');
       <div class="cert-card" onclick="showCert('CSAP')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CSAP</div><div class="cert-name">Security Analytics Professional</div><div class="cert-issuer">CompTIA</div></div>
       <div class="cert-card" onclick="showCert('CYSA')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">CySA+</div><div class="cert-name">Cybersecurity Analyst</div><div class="cert-issuer">CompTIA</div></div>
       <div class="cert-card" onclick="showCert('SPLK_POWER')" role="button" tabindex="0" style="--cc:#c0392b"><div class="cert-acronym">Sec+</div><div class="cert-name">Security+</div><div class="cert-issuer">CompTIA</div></div>
+      <div class="cert-card" onclick="showCert('CISSP')" role="button" tabindex="0" style="--cc:#1a237e"><div class="cert-acronym">CISSP</div><div class="cert-name">Certified Information Systems Security Professional</div><div class="cert-issuer">ISC²</div></div>
+      <div class="cert-card" onclick="showCert('GCFE')" role="button" tabindex="0" style="--cc:#8e44ad"><div class="cert-acronym">GCFE</div><div class="cert-name">Forensic Examiner</div><div class="cert-issuer">GIAC</div></div>
     </div>
   </div>
 </div>
@@ -782,6 +786,18 @@ gtag('config', 'G-1RNGSCZ3Z9');
 
 <script>
 var CERTS = {
+  CISSP: {
+    acronym:'CISSP', color:'#1a237e',
+    full:'Certified Information Systems Security Professional',
+    issuer:'ISC²',
+    desc:'Widely regarded as the gold standard of cybersecurity certifications, the CISSP validates deep expertise across eight security domains: security and risk management, asset security, security architecture and engineering, communications and network security, identity and access management, security assessment and testing, security operations, and software development security. Required for senior security roles at government agencies, defense contractors, and Fortune 500 companies worldwide.'
+  },
+  GCFE: {
+    acronym:'GCFE', color:'#8e44ad',
+    full:'GIAC Certified Forensic Examiner',
+    issuer:'GIAC / SANS Institute',
+    desc:'The GCFE validates expertise in computer forensic examination, evidence collection, and digital investigations. Core domains include file system forensics on Windows and Linux platforms, browser and email forensics, USB and removable media investigations, and chain-of-custody procedures required for legal proceedings. Issued by GIAC, the certification arm of the SANS Institute, the GCFE is highly valued in law enforcement, litigation support, and corporate investigations.'
+  },
   GCIH: {
     acronym:'GCIH', color:'#c0392b',
     full:'GIAC Certified Incident Handler',

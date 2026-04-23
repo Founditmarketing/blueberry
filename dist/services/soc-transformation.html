@@ -255,9 +255,9 @@ gtag('config', 'G-1RNGSCZ3Z9');
     <a href="/" style="display:block;padding:18px 24px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);font-size:16px;font-weight:500;">Home</a>
 
     <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>Services</span><span class="mm-arr" style="font-size:20px;transition:transform .25s;display:inline-block;line-height:1;">&#x203A;</span>
+      <span>Services</span>
     </button>
-    <div class="mm-dd-sub" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
       <a href="/services/managed-cybersecurity" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Managed Cybersecurity</a>
       <a href="/services/virtual-ciso" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">vCISO Services</a>
       <a href="/services/mdr-services" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">MDR Services</a>
@@ -272,9 +272,9 @@ gtag('config', 'G-1RNGSCZ3Z9');
     </div>
 
     <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>Referral Partnerships</span><span class="mm-arr" style="font-size:20px;transition:transform .25s;display:inline-block;line-height:1;">&#x203A;</span>
+      <span>Referral Partnerships</span>
     </button>
-    <div class="mm-dd-sub" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
       <a href="/partnerships/referral/managed-cybersecurity" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Managed Cybersecurity</a>
       <a href="/partnerships/referral/dfir" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">DFIR Referral</a>
       <a href="/partnerships/referral/threat-intelligence" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Threat Intelligence</a>
@@ -285,9 +285,9 @@ gtag('config', 'G-1RNGSCZ3Z9');
     </div>
 
     <button class="mm-dd-toggle" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-align:left;">
-      <span>White-Label Partnerships</span><span class="mm-arr" style="font-size:20px;transition:transform .25s;display:inline-block;line-height:1;">&#x203A;</span>
+      <span>White-Label Partnerships</span>
     </button>
-    <div class="mm-dd-sub" style="display:none;background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="mm-dd-sub" style="background-color:#111118;border-bottom:1px solid rgba(255,255,255,.08);">
       <a href="/partnerships/white-label/managed-cybersecurity" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Managed Cybersecurity</a>
       <a href="/partnerships/white-label/dfir" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">DFIR Services</a>
       <a href="/partnerships/white-label/threat-intelligence" style="display:block;padding:13px 36px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">Threat Intelligence</a>
@@ -509,13 +509,10 @@ gtag('config', 'G-1RNGSCZ3Z9');
   document.querySelectorAll('#mm .mm-dd-toggle').forEach(function(btn){
     btn.addEventListener('click',function(){
       var sub=btn.nextElementSibling;
-      var arr=btn.querySelector('.mm-arr');
-      var isOpen=sub&&sub.style.display==='block';
-      // Close all
-      document.querySelectorAll('#mm .mm-dd-sub').forEach(function(s){s.style.display='none';});
-      document.querySelectorAll('#mm .mm-arr').forEach(function(a){a.style.transform='';});
-      // Toggle this
-      if(!isOpen&&sub){sub.style.display='block';if(arr)arr.style.transform='rotate(90deg)';}
+      var isOpen=sub&&sub.classList.contains('mm-sub-open');
+      document.querySelectorAll('#mm .mm-dd-sub').forEach(function(s){s.classList.remove('mm-sub-open');});
+      document.querySelectorAll('#mm .mm-dd-toggle').forEach(function(b){b.classList.remove('mm-open');});
+      if(!isOpen&&sub){sub.classList.add('mm-sub-open');btn.classList.add('mm-open');}
     });
   });
 

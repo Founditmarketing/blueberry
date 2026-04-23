@@ -38,19 +38,19 @@ img{max-width:100%;display:block}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(139,58,58,.3)}50%{box-shadow:0 0 0 4px rgba(139,58,58,0)}}
 
 /* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,64px);transition:all .4s;background:transparent}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:250px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,64px);transition:all .4s;background:transparent}
 nav.ban{top:37px}
 nav.sc{top:0;background:rgba(11,15,25,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nl{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
 .nav-logo-img{
-  height:48px;
+  height:240px;
   width:auto;
   display:block;
   object-fit:contain;
-  mix-blend-mode:screen; /* dark bg becomes transparent — only gold/white text shows */
-  filter:brightness(1.1) contrast(1.05); /* slight boost for crispness */
+  mix-blend-mode:screen;
+  filter:brightness(1.1) contrast(1.05);
 }
-@media(max-width:768px){.nav-logo-img{height:38px}}
+@media(max-width:768px){.nav-logo-img{height:150px}}
 .nl i{font-style:normal;background:linear-gradient(135deg,var(--gold) 0%,#c4a265 40%,#a85a3a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;font-size:22px;font-family:var(--serif);letter-spacing:0}
 .nl-text{display:inline;line-height:1}
 .tld{font-weight:500;opacity:1;font-family:var(--serif);font-size:1em;letter-spacing:0.5px;background:linear-gradient(135deg,var(--gold) 0%,#a85a3a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}

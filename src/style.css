@@ -592,7 +592,7 @@ body{animation:pageIn .35s ease-out}
   .mob-cta{display:none}
 }
 
-/* When mobile menu is open, hide the FAB so it doesn't float over the overlay */
+/* When mobile menu is open — hide FAB, mob-cta, nav logo, and hamburger */
 /* :has() for modern browsers + .mm-active class (set by JS) for older iOS */
 #mm.open ~ .mob-cta,
 body:has(#mm.open) .call-fab,
@@ -600,6 +600,16 @@ body:has(#mm.open) .mob-cta,
 body.mm-active .call-fab,
 body.mm-active .mob-cta{
   display:none!important;
+}
+
+/* Hide the nav logo and hamburger icon when menu is open so they don't
+   show through the top of the full-screen overlay on iOS */
+body.mm-active nav .nl,
+body.mm-active nav .mob-t,
+body:has(#mm.open) nav .nl,
+body:has(#mm.open) nav .mob-t{
+  visibility:hidden;
+  opacity:0;
 }
 
 /* ═══ NAV DROPDOWN FIXES ═══ */

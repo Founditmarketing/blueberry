@@ -94,16 +94,27 @@ nav.sc .mega{top:72px}
 /* Full-screen overlay — sits above everything including FAB */
 #mm{
   position:fixed;inset:0;
-  background:linear-gradient(180deg,#0b0f19 0%,#0e1221 100%);
+  background:#090c15; /* solid, opaque — no gradients that can wash out */
   z-index:10001;
   display:flex;flex-direction:column;
   padding:0;
-  padding-top:72px; /* clear the nav bar */
+  padding-top:80px; /* clear the nav bar + breathing room */
   visibility:hidden;opacity:0;pointer-events:none;
   transition:opacity .35s ease,visibility .35s ease;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior:contain; /* prevent scroll bleed-through on iOS */
+  isolation:isolate; /* create new stacking context, block body bg bleed */
+}
+/* Solid top bar — covers the nav area so logo never bleeds through */
+#mm::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;
+  height:80px;
+  background:#090c15;
+  z-index:1;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 #mm.open{visibility:visible;opacity:1;pointer-events:auto}
 
@@ -516,7 +527,7 @@ body{animation:pageIn .35s ease-out}
   .eq .eq-attr{padding-left:24px}
   .cta-band{padding:80px 20px}
   /* Mobile menu — reset padding since layout is now handled by the base rule */
-  #mm{padding-top:64px}
+  #mm{padding-top:80px}
   #mm > a,#mm .mm-dd-toggle{font-size:clamp(20px,5.5vw,28px);padding:16px 20px}
   #mm .mm-dd-sub a{padding:13px 28px;font-size:15px}
   #mm .mm-dd-sub .mm-sub-label{padding:18px 28px 6px}

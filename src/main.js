@@ -99,14 +99,22 @@ const mm = document.getElementById('mm')
 const mmClose = document.getElementById('mmC')
 
 if (mmOpen && mm) {
-  mmOpen.addEventListener('click', () => {
+  const navEl = document.getElementById('nav')
+
+  function openMenu() {
     mm.classList.add('open')
     document.body.classList.add('mm-active')
-  })
+    // Directly hide nav via inline style — belt-and-suspenders for iOS
+    if (navEl) { navEl.style.opacity = '0'; navEl.style.pointerEvents = 'none' }
+  }
   function closeMenu() {
     mm.classList.remove('open')
     document.body.classList.remove('mm-active')
+    // Restore nav
+    if (navEl) { navEl.style.opacity = ''; navEl.style.pointerEvents = '' }
   }
+
+  mmOpen.addEventListener('click', openMenu)
   if (mmClose) mmClose.addEventListener('click', closeMenu)
   mm.querySelectorAll(':scope > a').forEach(a => a.addEventListener('click', closeMenu))
   // Accordion toggles

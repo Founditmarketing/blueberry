@@ -602,14 +602,13 @@ body.mm-active .mob-cta{
   display:none!important;
 }
 
-/* Hide the nav logo and hamburger icon when menu is open so they don't
-   show through the top of the full-screen overlay on iOS */
-body.mm-active nav .nl,
-body.mm-active nav .mob-t,
-body:has(#mm.open) nav .nl,
-body:has(#mm.open) nav .mob-t{
-  visibility:hidden;
-  opacity:0;
+/* When mobile menu is open — hide the ENTIRE nav so the logo cannot bleed through.
+   #mmC (close button) is outside <nav> so it stays visible and interactive. */
+body.mm-active nav,
+body:has(#mm.open) nav{
+  opacity:0!important;
+  pointer-events:none!important;
+  transition:none!important; /* instant — no fade delay */
 }
 
 /* ═══ NAV DROPDOWN FIXES ═══ */

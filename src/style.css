@@ -98,6 +98,9 @@ nav.sc .mega{top:72px}
 
 /* ─── MOBILE MENU ─── */
 .mob-t{display:none;cursor:pointer;background:none;border:none;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:10002}
+/* Guarantee hamburger never leaks onto desktop */
+@media(min-width:769px){.mob-t,#mob-hamburger{display:none!important}}
+
 
 /* Full-screen overlay — sits above everything including FAB */
 #mm{

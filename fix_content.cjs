@@ -45,6 +45,17 @@ walkDir('.', function(filePath) {
   content = content.replace(/href=\"\/contact\.html\" class=\"ncta\">Consultation<\/a>/g, 'href=\"https://calendly.com/quinnlan-varcoe\" target=\"_blank\" class=\"ncta\">Consultation</a>');
   content = content.replace(/href=\"\/contact\.html\"[^>]*>Schedule Assessment<\/a>/g, 'href=\"https://calendly.com/quinnlan-varcoe\" target=\"_blank\">Schedule Assessment</a>');
 
+  // Referral Percentage Fixes
+  content = content.replace(/Earn \d+% commission referring clients/g, 'Earn competitive ongoing commissions referring clients');
+  content = content.replace(/Earn \d+% on every engagement you refer/g, 'Earn competitive ongoing commissions on every engagement you refer');
+  content = content.replace(/you earn \d+% of the engagement value/g, 'you earn competitive ongoing commissions');
+  content = content.replace(/<li><strong>Standard commission:<\/strong> \d+% of total engagement value<\/li>/g, '<li><strong>Standard commission:</strong> Competitive ongoing commissions</li>');
+  content = content.replace(/<li><strong>Recurring engagements:<\/strong> \d+% on all work during the first 12 months/g, '<li><strong>Recurring engagements:</strong> Competitive ongoing commissions');
+  content = content.replace(/<li>Commission: <strong>\d+%<\/strong><\/li>/g, '<li>Commission: <strong>Ongoing</strong></li>');
+  content = content.replace(/commission: <strong>\d+%<\/strong>/g, 'commission: <strong>Ongoing</strong>');
+  content = content.replace(/Referral commission: <strong>\d+%<\/strong>/g, 'Referral commission: <strong>Competitive Ongoing</strong>');
+  content = content.replace(/Earn \d+% on every engagement/g, 'Earn competitive commissions on every engagement');
+
   if (content !== original) {
     fs.writeFileSync(filePath, content, 'utf8');
     console.log('Fixed:', filePath);

@@ -55,7 +55,8 @@ a{color:inherit;text-decoration:none}
 @keyframes plF{to{width:100%}}
 
 /* ═ IR BANNER ═ */
-.ir-ban{background:var(--danger);padding:10px 20px;text-align:center;font-size:13px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;z-index:101}
+.ir-ban{background:var(--danger);padding:10px 20px;text-align:center;font-size:13px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;z-index:101;cursor:pointer;animation:v3irPulse 2s ease-in-out infinite}
+@keyframes v3irPulse{0%,100%{background-color:var(--danger);box-shadow:inset 0 0 0 0 rgba(255,255,255,0)}50%{background-color:#ff6b81;box-shadow:inset 0 0 20px 0 rgba(255,255,255,.1)}}
 .ir-ban a{text-decoration:underline;text-underline-offset:2px;font-weight:700;white-space:nowrap}
 .ir-ban .pulse{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;animation:irP 1.5s infinite}
 @keyframes irP{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
@@ -326,11 +327,11 @@ footer{border-top:1px solid var(--border);padding:52px 40px 24px}
 <div id="cur"></div>
 
 <!-- IR BANNER -->
-<div class="ir-ban" id="irBan">
+<a href="tel:3013524855" class="ir-ban" id="irBan">
   <span class="pulse"></span>
-  Experiencing a cybersecurity incident?
-  <a href="#contact">Get 24/7 Incident Response →</a>
-</div>
+  Active incident?
+  <span>24/7 Response →</span>
+</a>
 
 <!-- NAV -->
 <nav id="nav">
